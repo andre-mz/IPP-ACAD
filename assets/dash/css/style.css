@@ -1,0 +1,122 @@
+/**DALTON/GERVASIO/ANDIRSON, PERSONALIZED CSS FOR SB ADMIN-2**/
+div.dep a.link-dep{
+    color: #012a61!important;
+    font-size: 14px;
+}
+div.dep a.link-dep:hover{
+    color: #012a61!important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+div.dep span{
+    padding-left: 1rem;
+}
+
+
+ul.sidebar{
+    background-color:#00204A;
+}
+div.collapse-inner{
+    background-color: #032d64!important;
+}
+div.menu{
+    background-color: #00204A!important;
+}
+div.modal-footer .btn-cancel{
+    background-color: #00204A;
+    color: #fff;
+}
+div.modal-footer .btn-cancel:hover{
+    background-color: #022d64;
+    color: #fff;
+}
+
+div.modal-footer .btn-logout{
+    background-color: #A80139;
+    color: #fff;
+}
+div.modal-footer .btn-logout:hover{
+    background-color: #c00543;
+    color: #fff;
+}
+
+ul.sidebar, li.nav-item a{
+    color: #d1c9b1!important;
+    font-weight: 700;
+}
+nav.shadow .search-btn, div.container-fluid a.d-none{
+    background-color: #00204A;
+    color: #fff;
+    font-weight: 600;
+}
+
+ul.sidebar .rounded{
+    background-color: rgba(255, 255, 255,10);
+}
+ul.sidebar li.nav-item a:hover,li.no-arrow .dropdown-menu .dropdown-item:hover{
+    color: #fff!important;
+    font-weight: 900;
+    background-color: #012a61!important;
+}
+nav.shadow .bg-ligh{
+    background-color: rgba(209, 201, 177,.4);
+}
+div.shadow .dataTable-top, .dataTable-top h6, form.user button.btn-registrar{
+    background-color: #00204A;
+    color: #fff!important;
+}
+form.user a.btn-registrar{
+    font-weight: 600;
+}
+form.user .form-control-user{
+    height: 2.8rem;
+}
+form.user .form-control-user{
+   border-radius: 0.7rem!important;
+}
+
+button#sidebarToggleTop i{
+    color: #00204A;
+}
+
+form.user div.form-group small{
+    color: rgb(224, 23, 23);
+    margin-left: 8px!important;
+    font-size: 10.4px;
+}
+
+form.user div.form-group div.erro-small{
+    position: absolute;
+    display: flex;
+    margin-top: 1rem; 
+}
+
+/**form view tab penel**/
+
+ul.nav-tabs{
+    margin-bottom: 2rem!important;
+}
+ul.nav-tabs li a{
+    color: rgba(192, 173, 110, 0.9);
+    font-weight: 500;
+}
+ul.nav-tabs li a.active{
+    color: #00204A!important;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255,.5)!important;
+    border-color: rgba(151, 149, 149,.2)!important;
+}
+ul.nav-tabs li a:hover{
+    background-color: #00204A;
+    color: #fff;
+    font-weight: 700;
+}
+div.tab-pane div.for-sm{
+    margin-top: 2rem!important;
+}
+
+
+
+
+

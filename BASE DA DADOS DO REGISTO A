@@ -1,0 +1,83 @@
+                        BASE DA DADOS DO REGISTO ACADEMICO
+
+TABELAS: ESTUDANTE, CURSO
+
+TABELA ESTUDANTE
+
+Atributos:
+
+ID_do_Estudante int auto_increment,
+ Nome_completo_do_formando varchar(30), 
+ data_de_nascimento char, 
+ nacionalidade varchar(30), 
+ naturalidade varchar (30),
+ tipo_de_documento varchar (30), 
+ local de emissao varchar, 
+ data de emissao char,
+ NUIT char,
+ email varchar,
+ contacto char, 
+ residencia varchar, 
+ portador de doenca boolean,
+ tipo de doenca varchar,
+ grupo sanguineo char,
+ nome do encarregado de educacao varchar, 
+ numero de celular1 char, 
+ numero de celular2 char,
+ email varchar, 
+ bairro residente varchar, 
+ grau de parentesco varchar,
+ contacto de emergencia char 
+
+
+ ////////
+ TABELAS: USUARIO
+
+TABELA USUARIO
+
+Atributos:
+
+ID_do_Usuario int auto_increment,
+ Nome_completo varchar(30), 
+ data_de_nascimento char, 
+ nacionalidade varchar(30), 
+ naturalidade varchar (30),
+ tipo_de_documento varchar (30), 
+ local de emissao varchar, 
+ data de emissao char,
+ contacto char, 
+ residencia varchar, 
+    
+
+
+        <div class="row">
+            <div class="col">
+                <select class="selectpicker border rounded" data-live-search="true" data-width="100%">
+                    <option data-tokens="">Default (auto size/scroll to viewport height)</option>
+                    <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+                    <option data-tokens="mustard">Burger, Shake and a Smile</option>
+                    <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+                    <option data-tokens="more">More food here</option>
+                    <option data-tokens="more1">More food here</option>
+                    <option data-tokens="more2">More food here</option>
+                    <option data-tokens="more3">More food here</option>
+                    <option data-tokens="more4">More food here</option>
+                    <option data-tokens="more5">More food here</option>
+                    <option data-tokens="more6">More food here</option>
+                    <option data-tokens="more7">More food here</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    CREATE TABLE `db_ipp`.`table_estudante` 
+        ( `id_estudante` INT(11) NOT NULL AUTO_INCREMENT , `nr_estudante` VARCHAR(15) NOT NULL , `fullname` VARCHAR(50) NOT NULL , `datanascimento` VARCHAR(10) NOT NULL , `nomepai` VARCHAR(40) NOT NULL , `nomemae` VARCHAR(40) NOT NULL , `nacionalidade` VARCHAR(30) NOT NULL , `naturalidade` VARCHAR(30) NOT NULL , `morada` VARCHAR(30) NOT NULL , `tipo_documento` VARCHAR(30) NOT NULL , `nr_documento` VARCHAR(20) NOT NULL , `validade_documento` VARCHAR(10) NOT NULL , `curso` VARCHAR(10) NOT NULL , `ano_frequencia` VARCHAR(10) NOT NULL , `contato_pessoal` VARCHAR(15) NOT NULL , `contato_emergencia` VARCHAR(15) NOT NULL , `estado_estudante` VARCHAR(10) NOT NULL , `data_adicionado` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id_estudante`)) ENGINE = InnoDB; 
+
+
+
+
+
+
+
+
+        ALTER TABLE `table_estudante` CHANGE `fullname` `fullname` VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `datanascimento` `datanascimento` VARCHAR(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `nomepai` `nomepai` VARCHAR(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `nomemae` `nomemae` VARCHAR(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `nacionalidade` `nacionalidade` VARCHAR(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `naturalidade` `naturalidade` VARCHAR(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `morada` `morada` VARCHAR(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `tipo_documento` `tipo_documento` VARCHAR(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `nr_documento` `nr_documento` VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `validade_documento` `validade_documento` VARCHAR(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `curso` `curso` VARCHAR(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `ano_frequencia` `ano_frequencia` VARCHAR(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `contato_pessoal` `contato_pessoal` VARCHAR(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL, CHANGE `contato_emergencia` `contato_emergencia` VARCHAR(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL; 

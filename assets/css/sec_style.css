@@ -1,0 +1,92 @@
+header div.header_side{
+	background: #00204A!important;
+}
+header.header{
+	height: 75px!important;
+}
+
+div.home div.hero_slide_content h1{
+	font-size: 45pt!important;
+}
+div.course_boxes .course_box  a{
+	font-size: 15px!important;
+}
+
+.main_nav_item a:hover
+{
+	color: #00204A;
+}
+.hamburger_container:hover i
+{
+	color: #00204A;
+}
+.menu_item a:hover
+{
+	color: #00204A;
+}
+.menu_close_container:hover .menu_close,
+.menu_close_container:hover .menu_close::after
+{
+	background: #00204A;
+}
+.menu_social_item a i:hover
+{
+	color: #00204A;
+}
+.hero_box
+{
+	width: 100%;
+	height: 161px;
+	background: #1a1a1a;
+	padding-left: 50px;
+	cursor: pointer;
+}
+
+.hero_box:hover
+{
+	background: #00204A;
+}
+.hero_box_link:hover
+{
+	color: #fff;
+}
+
+div.home .slide_1{
+    background: url('../images/slider_background.jpg');
+	
+}
+div.home .slide_2{
+    background: url('../images/img-6.jpeg');
+	
+}
+div.home .slide_3{
+    background: url('../images/img-7.jpeg');
+}
+
+.hero_slide_content h1 span
+{
+	background: #00204A;
+	padding-left: 13px;
+	padding-right: 13px;
+	margin-left: -12px;
+	margin-right: -12px;
+}
+.footer_social .menu_social_item a i:hover{
+	color: #fff!important;
+}
+.footer_list_item a:hover
+{
+	color: #fff;
+}
+
+div.register .search_background{
+	background-image: url('../images/slider_background.jpg')!important;
+}
+
+div.register .register_section{
+	background: #00204A!important;
+}
+
+div.register .page_section{
+	margin-top: -12rem!important;
+}
