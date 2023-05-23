@@ -7,11 +7,12 @@
             Voltar
         </a>
         
-        <a href="<?=base_url()?>PdfGerator/geratePdf" class="d-none d-sm-inline-block btn btn-sm shadow-sm p-1">
+        <a href="<?=base_url('GeneratePdf/generatePdf/'.$retrieveStd->id_estudante)?>" class="d-none d-sm-inline-block btn btn-sm shadow-sm p-1">
             <i class="fas fa-download fa-sm text-white-50"></i> 
             Gerar PDF
         </a>
     </div>
+    
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 dataTable-top">

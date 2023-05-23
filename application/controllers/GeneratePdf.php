@@ -20,19 +20,19 @@ class GeneratePdf extends CI_Controller {
        
 
         // Busque os dados do usuário
-        $estudante = $this->Retrieve->viewStd($id_estudante); // Supondo que existe um método 'getUserData' no modelo 'User_model'
-
+        $retrieveStd = $this->Retrieve->viewStd($id_estudante); 
         // Carregue a biblioteca Dompdf
-        $dompdf = new Dompdf(['enable_remote' => true]);
+        //$dompdf = new Dompdf(['enable_remote' => true]);
+        $dompdf = new Dompdf();
 
         $options = $dompdf->getOptions();
-        $options->set('defaultFont', 'Arial');
         $options->set('isRemoteEnabled', true);
         $dompdf->setOptions($options);
+        $dompdf->setPaper('A4', 'portrait');
 
 
         // Gere o conteúdo HTML do PDF
-        $html = $this->load->view('pdf/pdf_template', array('estudante' => $estudante), true);
+        $html = $this->load->view('pdf/pdf_template', array('retrieveStd' => $retrieveStd), true);
 
         // Carregue o conteúdo HTML no Dompdf
         $dompdf->loadHtml($html);

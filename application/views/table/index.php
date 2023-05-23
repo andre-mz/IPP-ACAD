@@ -73,19 +73,19 @@
                                 <?php if ($this->session->userdata('level') <= 2 ) :?>
                                     <td>
                                         <div class="row">
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <a href="<?=base_url('GeneratePdf/generatePdf/'.$retrieveStd->id_estudante)?>">
-                                                    <i class="fas fa-eye" style="color: #ffb423;"></i>
+                                                    <i class="fas fa-eye fa-2x" style="color: #ffb423;"></i>
                                                 </a>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <a href="" data-target="#deleteModel" data-toggle='modal'>
-                                                    <i class="fas fa-trash-alt" style="color: #e33e5a;"></i>
+                                                    <i class="fas fa-trash-alt fa-2x" style="color: #e33e5a;"></i>
                                                 </a>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <a href="<?=base_url('Manager/viewStd/'.$retrieveStd->id_estudante);?>">
-                                                <i class="fas fa-pen-fancy" style="color: #00204A;"></i></a>
+                                                <i class="fas fa-pen-fancy fa-2x" style="color: #00204A;"></i></a>
                                             </div>
                                             <!--div class="col-sm-3">
                                                 <a href="<?=base_url('Manager/addPayment/'.$retrieveStd->id_estudante);?>">
