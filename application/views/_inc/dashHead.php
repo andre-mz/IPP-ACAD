@@ -75,8 +75,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <h6 class="collapse-header">Componentes:</h6>
                             <a class="collapse-item" href="<?=base_url()?>Manager/tabStd">Alunos</a>
                             <a class="collapse-item" href="<?=base_url()?>Manager/tabCrs">Cursos</a>
-                            <!--a class="collapse-item" href="<?=base_url()?>Url/allForms">Fomulario</a-->
                             <a class="collapse-item" href="<?=base_url()?>Manager/tabFnc">Funcionarios</a>
+                            <a class="collapse-item" href="<?=base_url()?>Manager/tabUsr">Usuarios</a>
                         </div>
                     </div>
                 </li>

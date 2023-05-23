@@ -20,6 +20,7 @@ class Manager extends CI_Controller{
         }	
 	}
 
+	//MAGE STUDENT
 	function tabStd(){
 		$retrieveCrs['retrieveCrs']	= $this->Retrieve->retrieveCrs();
 		$retrieveStd['retrieveStd'] = $this->Retrieve->retrieveStd();
@@ -80,11 +81,18 @@ class Manager extends CI_Controller{
 	}
 	
 	
+	//MANGE CURSOS
 	function tabCrs(){
 		$retrieveCrs['retrieveCrs'] = $this->Retrieve->retrieveCrs();
 		$this->load->view('table/tabCrs', $retrieveCrs);
 	}
 
+
+	//MANAGE USERS
+	function tabUsr(){
+		$retrieveUsr['retrieveUsr'] = $this->Retrieve->retrieveUsr();
+		$this->load->view('table/tabUsr', $retrieveUsr);
+	}
 
 	//PAYMENT
 	function addPayment($id_estudante){

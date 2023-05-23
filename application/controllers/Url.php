@@ -27,5 +27,10 @@ class Url extends CI_Controller{
         $this->load->view('payment/index', $retrieveStd);
 	}
 
+	function addUser(){
+		$retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
+		$retrieveStd['retrieveStd'] = $this->Retrieve->retrieveStd();
+		$this->load->view('manager/addUser', $retrieveFnc+$retrieveStd);
+	}
 
 }

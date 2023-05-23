@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @property form_model $Form_model
  * @property input $input
  * @property database $db
+ * @property Retrieve $Retrieve
  */
 
 //$this->load->library(array('session', 'form_validation'));
@@ -172,4 +173,51 @@ class Forms extends CI_Controller{
     }
 
 
+    function addUser(){
+        $retrieveUsr['retrieveUsr'] = $this->Retrieve->retrieveUsr();
+        $bytes         = random_bytes(3);
+        $normal_num    = bin2hex($bytes);
+        $number        = hexdec($normal_num) % 1000000;
+        $loginid       = date('Y'.$number);
+
+
+        $this->form_validation->set_rules('name', 'Nome do usuario', 'trim|required|is_unique[table_user.name]',
+            array(
+                array(
+                    'requirede' => 'O campo %s nao pode ficar vazio',
+                    'is_unique' => 'O %s ja existe no sistema'
+                )
+            )
+        );
+        $this->form_validation->set_rules('level', 'Nivel de acesso', 'trim|required',
+            array(
+                array(
+                    'requirede' => 'O campo %s nao pode ficar vazio'
+                )
+            )
+        );
+        $this->form_validation->set_rules('estado', 'Estado da conta', 'trim|required',
+            array(
+                array(
+                    'requirede' => 'O campo %s nao pode ficar vazio'
+                )
+            )
+        );
+
+        if($this->form_validation->run()){
+            $data = array (
+                'name'    => strip_tags($this->input->post('name')),
+                'level'   => strip_tags($this->input->post('level')),
+                'estado'  => strip_tags($this->input->post('estado')),
+                'loginid' => $loginid
+            );
+
+            $this->Form_model->addUser($data);
+            echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
+			echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
+        }else{
+            $erros = array('mensagens' => validation_errors());
+            $this->load->view('manager/addUser', $erros+$retrieveUsr);
+        }
+    }
 }

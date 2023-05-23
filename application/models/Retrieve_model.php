@@ -3,10 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Retrieve_model extends CI_Model{
 
-    //TABLES
+    //DB TABLES
     private $table_estudante   = 'table_estudante';
     private $table_curso       = 'table_curso';
     private $table_funcionario = 'table_funcionario';
+    private $table_user        = 'table_user';
 
     //MANAGE STUDENTS
     function retrieveStd($id_estudante = null){
@@ -55,11 +56,9 @@ class Retrieve_model extends CI_Model{
         ];
         $this->db->where('id_estudante', $post['id_estudante']);
         $this->db->update($this->table_estudante, $params);
-    }function count_itens(){
-        return $this->db->count_all($this->table_estudante);
-    } 
+    }
 
-    //RETRIEVE CURSOS
+    //MANAGE CURSOS
     function retrieveCrs($id_curso = null){
         $this->db->from($this->table_curso);
         if ($id_curso != null) {
@@ -70,7 +69,7 @@ class Retrieve_model extends CI_Model{
     }
 
 
-    //DOCENT
+    //MANAGE DOCENT
     function retrieveFnc($id_funcionario=null){
         $this->db->from($this->table_funcionario);
         if($id_funcionario != null){
@@ -81,5 +80,35 @@ class Retrieve_model extends CI_Model{
 
     }
           
+
+    //MANGE USER
+    function retrieveUsr($id_user =null){
+        $this->db->from($this->table_user);
+        if($id_user != null){
+            $this->db->where('id_user', $id_user);
+        }
+        return $this->db->get();
+    }
+
+    
+    //COUNTS
+    function count_iten(){
+        return $this->db->count_all($this->table_estudante);
+    } 
+
+    function count_user(){
+        return $this->db->count_all($this->table_user);
+    }
+
+    function count_func(){
+        return $this->db->count_all($this->table_funcionario);
+    }
+
+    function count_doc(){
+        return  $this->db->where(['cargo'=>'Docente'])->from($this->table_funcionario)->count_all_results();
+    }
+    function count_agent(){
+        return  $this->db->where(['departament'=>'Agente de servico'])->from($this->table_funcionario)->count_all_results();
+    }
     
 }
