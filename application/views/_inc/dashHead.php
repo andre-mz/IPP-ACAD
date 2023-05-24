@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laptop"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">IPP ADMIN <sup></sup></div>
+                <div class="sidebar-brand-text mx-3">IPP-ACAD <sup></sup></div>
             </a>
 
             <!-- Divider -->

@@ -79,8 +79,69 @@ class Manager extends CI_Controller{
 			echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
 		}
 	}
-	
-	
+
+	//MANAGE USERS
+	function tabUsr(){
+		$retrieveUsr['retrieveUsr'] = $this->Retrieve->retrieveUsr();
+		$this->load->view('table/tabUsr', $retrieveUsr);
+	}function deleteUsr(){
+		$id_user = $this->input->get('id_user');
+		$delete	 = $this->Retrieve->deleteUsr($id_user);
+		if($delete ==  TRUE){
+			echo "<script>alert('USUARIO ELIMINADO COM SUCESSO');</script>";
+			echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
+		}else{
+			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+			echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
+		}
+	}function viewUsr($id_user){
+		$retrieveUsr['retrieveUsr'] = $this->Retrieve->viewUsr($id_user);
+		$this->load->view('manager/viewUsr', $retrieveUsr);
+
+		$post = $this->input->post(null, true);
+		if($this->input->post('update')){
+			$data = array(
+				'name'   => strip_tags($this->input->post('name')),
+				'level'  => strip_tags($this->input->post('level')),
+				'estado' => strip_tags($this->input->post('estado')),
+			);
+			$update = $this->Retrieve->updateUsr($post);
+			if($update == TRUE){
+				echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+				echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
+			}else{
+				echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+				echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
+			}
+		}
+	}function updateUsr(){
+		$post = $this->input->post(null, TRUE);
+		if(isset($_POST['update'])){
+			$this->Retrieve->updateUsr($post);
+		}
+		if($this->db->affected_rows() > 0){
+			echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+			echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
+		}
+	}
+
+	//MANGE FUNC
+	function tabFnc(){
+		$retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
+		$this->load->view('table/tabFnc', $retrieveFnc);
+	}function deleteFnc(){
+		$$id_funcionario = $this->input->get('id_funcionario');
+		$delete	         = $this->Retrieve->deleteFnc($id_funcionario);
+		if($delete ==  TRUE){
+			echo "<script>alert('USUARIO ELIMINADO COM SUCESSO');</script>";
+			echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+		}else{
+			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+			echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+		}
+	}
+
+
 	//MANGE CURSOS
 	function tabCrs(){
 		$retrieveCrs['retrieveCrs'] = $this->Retrieve->retrieveCrs();
@@ -88,11 +149,7 @@ class Manager extends CI_Controller{
 	}
 
 
-	//MANAGE USERS
-	function tabUsr(){
-		$retrieveUsr['retrieveUsr'] = $this->Retrieve->retrieveUsr();
-		$this->load->view('table/tabUsr', $retrieveUsr);
-	}
+
 
 	//PAYMENT
 	function addPayment($id_estudante){
@@ -101,38 +158,7 @@ class Manager extends CI_Controller{
 	}
 
 
-	//DOCENT
-	//RETIFICAR TODAS TABLES DE FUNCIONARIOS DEVEM SER DO PROPRIO SITE HTML, USANDO NAV TABS BST 4 PARA EVITAR CARREGAR VARIAS PAGINAS
-	/**
-	 * ESSA LINHAS DE CODIGO SAI DO MODO ARCAICO,
-	 * JA TENHO UMA IDEIA DE EVITAR ESSA REPETICAO DESNESSARIA DO CODIGOS
-	 * PARA POR AGORA VAMOS DESSE JEITO PARA COMPRIMIR COM O CALENDARIA
-	 * NB: USAR NAV TABS PARA FAZER DIRECIONAMENTO DE LIKS :)
-	 */
-	function tabFnc(){
-		$retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
-		$this->load->view('table/tabFnc', $retrieveFnc);
-	}
-
-	/**
-	 * function tabFncIT(){
-		$retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
-		$this->load->view('table/tabFnc', $retrieveFnc);
-		}
-		function tabFncADM(){
-			$retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
-			$this->load->view('table/tabFnc', $retrieveFnc);
-		}
-		function tabFncPDG(){
-			$retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
-			$this->load->view('table/tabFnc', $retrieveFnc);
-		}
-		function tabFncACA(){
-			$retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
-			$this->load->view('table/tabFnc', $retrieveFnc);
-		}
-	*/
-
+	
 
 	//SEARCH
 	function searchStd(){

@@ -29,7 +29,6 @@ class Retrieve_model extends CI_Model{
         $this->db->where('id_estudante',$id_estudante);
         $this->db->delete($this->table_estudante);
         return true;
-
     }function viewStd($id_estudante){
         $query = $this->db->get_where($this->table_estudante, ['id_estudante'=> $id_estudante]);
         if($query->num_rows() > 0){
@@ -58,6 +57,68 @@ class Retrieve_model extends CI_Model{
         $this->db->update($this->table_estudante, $params);
     }
 
+    //MANGE USER
+    function retrieveUsr($id_user =null){
+        $this->db->from($this->table_user);
+        if($id_user != null){
+            $this->db->where('id_user', $id_user);
+        }
+        return $this->db->get();
+    }function deleteUsr($id_user){
+        $this->db->where('id_user', $id_user);
+        $this->db->delete($this->table_user);
+        return true;
+    }function viewUsr($id_user){
+        $query = $this->db->get_where($this->table_user, ['id_user'=>$id_user]);
+        if ($query->num_rows() > 0) {
+            return $query->row();
+        }
+    }function updateUsr($post){
+        $params = [
+            'name'   =>$post['name'],
+            'level'  =>$post['level'],
+            'estado' =>$post['estado']
+        ];
+        $this->db->where('id_user', $post['id_user']);
+        $this->db->update($this->table_user, $params);
+    }
+
+    //MANAGE FUNC
+    function retrieveFnc($id_funcionario=null){
+        $this->db->from($this->table_funcionario);
+        if($id_funcionario != null){
+            $this->db->where('id_funcionario', $id_funcionario);
+        }
+        $query = $this->db->get();
+        return $query;
+
+    }function deleteFnc($id_funcionario){
+        $this->db->where('id_funcionario', $id_funcionario);
+        $this->db->delete($this->table_funcionario);
+        return true;
+    }function viewFnc($id_funcionario){
+        $query = $this->db->get_where($this->table_funcionario, ['id_funcionario'=>$id_funcionario]);
+        if($query->num_rows() > 0){
+            return $query->row();
+        }
+    }function updateFnc($post){
+        $params =[
+            'nome'           => $post['nome'],
+            'ano_nascimento' => $post['ano_nascimento'],
+            'documento'      => $post['documento'],
+            'nr_documentp'   => $post['nr_documento'],
+            'ano_entrada'    => $post['ano_entrada'],
+            'departament'    => $post['departament'],
+            'cargo'          => $post['cargo'],
+            'local'          => $post['local'],
+            'estado'         => $post['estado']
+        ];
+        $this->db->where('id_funcionario', $post['id_funcionario']);
+        $this->db->update($this->table_funcionario, $params);
+      
+    }      
+
+
     //MANAGE CURSOS
     function retrieveCrs($id_curso = null){
         $this->db->from($this->table_curso);
@@ -69,41 +130,21 @@ class Retrieve_model extends CI_Model{
     }
 
 
-    //MANAGE DOCENT
-    function retrieveFnc($id_funcionario=null){
-        $this->db->from($this->table_funcionario);
-        if($id_funcionario != null){
-            $this->db->where('id_funcionario', $id_funcionario);
-        }
-        $query = $this->db->get();
-        return $query;
+       
 
-    }
-          
-
-    //MANGE USER
-    function retrieveUsr($id_user =null){
-        $this->db->from($this->table_user);
-        if($id_user != null){
-            $this->db->where('id_user', $id_user);
-        }
-        return $this->db->get();
-    }
+    
 
     
     //COUNTS
     function count_iten(){
         return $this->db->count_all($this->table_estudante);
     } 
-
     function count_user(){
         return $this->db->count_all($this->table_user);
     }
-
     function count_func(){
         return $this->db->count_all($this->table_funcionario);
     }
-
     function count_doc(){
         return  $this->db->where(['cargo'=>'Docente'])->from($this->table_funcionario)->count_all_results();
     }

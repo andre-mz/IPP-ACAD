@@ -60,7 +60,7 @@
                             <th>Departamento</th>
                             <th>Area de trabalho</th>
                             <th>Local</th>
-                            <th>Estado funcionario</th>
+                            <th>Estado</th>
                             <?php if ($this->session->userdata('level') <= 2):?>
                                 <th>Ac&ccedil;&atilde;o</th>
                             <?php endif?>   
@@ -91,17 +91,17 @@
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <a href="#">
-                                                            <i class="fas fa-eye" style="color: #21aba5;"></i>
+                                                            <i class="fas fa-eye fa-2x" style="color: #ffb423;"></i>
                                                         </a>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <a href="" data-target="#" data-toggle='modal'>
-                                                            <i class="fas fa-trash-alt" style="color: #e33e5a;"></i>
-                                                        </a>
+                                                    <?php
+                                                        echo "<a name='delete'  href='deleteFnc?id_funcionario=".$retrieveFnc->id_funcionario."'><i class='fas fa-trash-alt fa-2x' style='color: #e33e5a;'></i></a>";
+                                                    ?>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <a href="">
-                                                            <i class="fas fa-pen-fancy" style="color: #00204A;"></i>
+                                                        <a href="<?=base_url('Manage/updateFnc/'.$retrieveFnc->id_funcionario)?>">
+                                                            <i class="fas fa-pen fa-2x" style="color: #00204A;"></i>
                                                         </a>
                                                     </div>
                                                 </div>

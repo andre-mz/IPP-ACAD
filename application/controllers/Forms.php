@@ -174,7 +174,8 @@ class Forms extends CI_Controller{
 
 
     function addUser(){
-        $retrieveUsr['retrieveUsr'] = $this->Retrieve->retrieveUsr();
+        $retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
+		$retrieveStd['retrieveStd'] = $this->Retrieve->retrieveStd();
         $bytes         = random_bytes(3);
         $normal_num    = bin2hex($bytes);
         $number        = hexdec($normal_num) % 1000000;
@@ -217,7 +218,7 @@ class Forms extends CI_Controller{
 			echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
         }else{
             $erros = array('mensagens' => validation_errors());
-            $this->load->view('manager/addUser', $erros+$retrieveUsr);
+            $this->load->view('manager/addUser', $erros+$retrieveFnc+$retrieveStd);
         }
     }
 }
