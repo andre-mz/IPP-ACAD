@@ -129,14 +129,56 @@ class Manager extends CI_Controller{
 	function tabFnc(){
 		$retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
 		$this->load->view('table/tabFnc', $retrieveFnc);
-	}function deleteFnc(){
-		$$id_funcionario = $this->input->get('id_funcionario');
-		$delete	         = $this->Retrieve->deleteFnc($id_funcionario);
+	}
+	function deleteFnc(){
+		try {
+			$id_funcionario = $this->input->get('id_funcionario');
+			$delete	         = $this->Retrieve->deleteFnc($id_funcionario);
+			
+		} catch (\Throwable $th) {
+			echo $th;
+		}
 		if($delete ==  TRUE){
 			echo "<script>alert('USUARIO ELIMINADO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
 		}else{
 			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+			echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+		}
+	}
+	function viewFnc($id_funcionario){
+		$retrieveFnc['retrieveFnc'] = $this->Retrieve->viewFnc($id_funcionario);
+		$this->load->view('manager/viewFnc', $retrieveFnc);
+
+		$post = $this->input->post(null, TRUE);
+		if ($this->input->post('update')) {
+			$data =array(
+				'nome'		     =>strip_tags($this->input->post('nome')),
+				'ano_nascimento' =>strip_tags($this->input->post('ano_nascimento')),
+				'documento'      =>strip_tags($this->input->post('documento')),
+				'nr_documento'	 =>strip_tags($this->input->post('nr_documento')),
+				'ano_entrada'	 =>strip_tags($this->input->post('ano_entrada')),
+				'departament'	 =>strip_tags($this->input->post('departament')),
+				'cargo'          =>strip_tags($this->input->post('cargo')),
+				'local'          =>strip_tags($this->input->post('local')),
+				'estado'         =>strip_tags($this->input->post('estado'))
+			);
+			$update = $this->Retrieve->updateFnc($post);
+			if($update == TRUE){
+				echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+				echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+			}else{
+				echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+				echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+			}
+		}
+	}function updateFnc(){
+		$post = $this->input->post(null, true);
+		if(isset($_POST['update'])){
+			$this->Retrieve->updateFnc($post);
+		}
+		if ($this->db->affected_rows() > 0) {
+			echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
 		}
 	}

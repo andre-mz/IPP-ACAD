@@ -92,11 +92,14 @@ class Retrieve_model extends CI_Model{
         $query = $this->db->get();
         return $query;
 
-    }function deleteFnc($id_funcionario){
+    }
+    function deleteFnc($id_funcionario){
+        
         $this->db->where('id_funcionario', $id_funcionario);
         $this->db->delete($this->table_funcionario);
         return true;
-    }function viewFnc($id_funcionario){
+    }
+    function viewFnc($id_funcionario){
         $query = $this->db->get_where($this->table_funcionario, ['id_funcionario'=>$id_funcionario]);
         if($query->num_rows() > 0){
             return $query->row();

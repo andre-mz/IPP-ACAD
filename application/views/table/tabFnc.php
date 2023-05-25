@@ -100,7 +100,7 @@
                                                     ?>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <a href="<?=base_url('Manage/updateFnc/'.$retrieveFnc->id_funcionario)?>">
+                                                        <a href="<?=base_url('Manager/viewFnc/'.$retrieveFnc->id_funcionario)?>">
                                                             <i class="fas fa-pen fa-2x" style="color: #00204A;"></i>
                                                         </a>
                                                     </div>
