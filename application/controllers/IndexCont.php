@@ -4,22 +4,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class IndexCont extends CI_Controller {
 
 
-	public function __construct(){
+	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
 	}
 
-	public function erro(){
-		$company_name['company_name'] = 'IPP CHIMOIO';
-		$this->load->view('errors/erro',$company_name);
+	function erro(){
+		$this->load->view('errors/erro');
 	}
-	public function index(){
-		$company_name['company_name'] = 'IPP CHIMOIO';
-		$this->load->view('index',$company_name);
+	function index(){
+		$this->load->view('index');
 	}
-	public function login(){
-		$company_name['company_name'] = 'IPP CHIMOIO';
-		$this->load->view('login', $company_name);
+	function login(){
+		$this->load->view('pages/login');
 	}
 
+	function curso(){
+		$this->load->view('pages/curso');
+	}
+	function contato(){
+		$this->load->view('pages/contato');
+	}
+	function news(){
+		$this->load->view('pages/news');
+	}
+	function sobre(){
+		$this->load->view('pages/sobre');
+	}
+	
 }

@@ -109,7 +109,7 @@ class Retrieve_model extends CI_Model{
             'nome'           => $post['nome'],
             'ano_nascimento' => $post['ano_nascimento'],
             'documento'      => $post['documento'],
-            'nr_documentp'   => $post['nr_documento'],
+            'nr_documento'   => $post['nr_documento'],
             'ano_entrada'    => $post['ano_entrada'],
             'departament'    => $post['departament'],
             'cargo'          => $post['cargo'],

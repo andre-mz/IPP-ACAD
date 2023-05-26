@@ -38,10 +38,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url()?>Dashboard">
-                <div class="sidebar-brand-icon rotate-n-15">
+                <!--div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laptop"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">IPP-ACAD <sup></sup></div>
+                </div-->
+                <div class="sidebar-brand-text mx-3"><img alt="logo" src="<?=base_url('assets/images/IPP-LOGO.png')?>" width="50%" style="border-radius: 1.3rem;"><sup></sup></div>
             </a>
 
             <!-- Divider -->

@@ -87,16 +87,16 @@
                                     <option value="">
                                         ****SELECIONE O DOCUMENTO DE IDENTIFICA&Ccedil;&Atilde;o
                                     </option>
-                                    <option value="1" <?=$tipo_documento == 1 ? 'selected' : null?>>
+                                    <option value="BI" <?=$tipo_documento === 'BI'        ? 'selected' : null?>>
                                         BI
                                     </option>
-                                    <option value="2" <?=$tipo_documento == 2 ? 'selected' : null?>>
+                                    <option value="DIRE" <?=$tipo_documento === 'DIRE'      ? 'selected' : null?>>
                                         DIRE
                                     </option>
-                                    <option value="3" <?=$tipo_documento == 3 ? 'selected' : null ?>>
+                                    <option value="PASSAPORT" <?=$tipo_documento === 'PASSAPORT' ? 'selected' : null ?>>
                                         PASSAPORT
                                     </option>
-                                    <option value="4" <?=$tipo_documento ==  4 ? 'selected' : null?>>
+                                    <option value="CONDUCAO" <?=$tipo_documento === 'CONDUCAO'  ? 'selected' : null?>>
                                         CARTA DE CONDU&Ccedil;&Atilde;O
                                     </option>
                                 </select>
@@ -112,17 +112,16 @@
                                 <label for="curso">Curso a frequentar</label>
                                 <?php $curso = $this->input->post('curso') ? $this->input->post('curso') : $retrieveStd->curso?>
                                 <select class="form-control form-control-user" name="curso" id='curso'>
-                                    <option value="">*****SELECIONE O CURSO*****</option>
-                                    <option value="1" <?=$curso == 1 ? 'selected' : null?>>
-                                        TMG
+                                    <option value="tmg"     <?=$curso === 'tmg'       ? 'selected' : null?>>
+                                    ENFERMAGEM T.M GERAL
                                     </option>
-                                    <option value="2" <?=$curso == 2 ? 'selected' : null?>>
+                                    <option value="farmacia" <?=$curso === 'farmacia' ? 'selected' : null?>>
                                         F&Aacute;RMACIA
                                     </option>
-                                    <option value="3" <?=$curso == 3 ? 'selected' : null?>>
-                                        SMI
+                                    <option value="smi"      <?=$curso === 'smi'      ? 'selected' : null?>>
+                                        ENFERMAGEM S.M INFANTIL
                                     </option>
-                                    <option value="4" <?=$curso == 4 ? 'selected' : null?>>
+                                    <option value="nutricao" <?=$curso === 'nutricao' ? 'selected' : null?>>
                                         NUTRI&Ccedil;&Atilde;O
                                     </option>
                                 </select>

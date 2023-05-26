@@ -90,7 +90,7 @@
                                             <td>
                                                 <div class="row">
                                                     <div class="col-sm-4">
-                                                        <a href="#">
+                                                        <a href="<?=base_url('GeneratePdf/generatePdfFnc/'.$retrieveFnc->id_funcionario)?>">
                                                             <i class="fas fa-eye fa-2x" style="color: #ffb423;"></i>
                                                         </a>
                                                     </div>

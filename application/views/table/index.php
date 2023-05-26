@@ -27,6 +27,7 @@
                             <th>Turma</th>
                             <th>Periodo</th>
                             <th>Estado</th>
+                            <th>Contacto</th>
                             <?php if ($this->session->userdata('level') <= 2):?>
                                 <th>Ac&ccedil;&atilde;o</th>
                             <?php endif?>   
@@ -40,13 +41,13 @@
                                 <td><?=$retrieveStd->nr_estudante?></td>
                                 <td><?=$retrieveStd->fullname?></td>
                                 <td>
-                                    <?php if($retrieveStd->curso == 1):?>
-                                        ETMG
-                                    <?php elseif($retrieveStd->curso == 2):?>
+                                    <?php if($retrieveStd->curso     === 'tmg'):?>
+                                        ENFERMAGEM T.M GERAL
+                                    <?php elseif($retrieveStd->curso === 'farmacia'):?>
                                         F&Aacute;RMACIA
-                                    <?php elseif($retrieveStd->curso == 3):?>
+                                    <?php elseif($retrieveStd->curso === 'smi'):?>
                                         ESMI
-                                    <?php elseif($retrieveStd->curso == 4):?>   
+                                    <?php elseif($retrieveStd->curso === 'nutricao'):?>   
                                         NUTRI&Ccedil;&Atilde;O
                                     <?php else:?>
                                         N/A
@@ -70,6 +71,7 @@
                                         <span class="btn btn-success">Concluido</span>
                                     <?php endif?>
                                 </td>
+                                <td><?php if($retrieveStd->contato_pessoal === ''):?><?=$retrieveStd->contato_emergencia?> <span style="color: #e33e5a;">emerg.</span><?php else:?><?=$retrieveStd->contato_pessoal?><?php endif?></td>
                                 <?php if ($this->session->userdata('level') <= 2 ) :?>
                                     <td>
                                         <div class="row">
@@ -79,9 +81,15 @@
                                                 </a>
                                             </div>
                                             <div class="col-sm-4">
-                                                <a href="" data-target="#deleteModel" data-toggle='modal'>
+                                                <!--a href="" data-target="#deleteModel" data-toggle='modal'>
                                                     <i class="fas fa-trash-alt fa-2x" style="color: #e33e5a;"></i>
-                                                </a>
+                                                </a-->
+                                                <?php
+                                                    echo "
+                                                    <a name='delete' class='' href='deleteStd?id_estudante=".$retrieveStd->id_estudante."'>
+                                                    <i class='fas fa-trash-alt fa-2x' style='color: #e33e5a;'></i>
+                                                    </a>";
+                                                ?>
                                             </div>
                                             <div class="col-sm-4">
                                                 <a href="<?=base_url('Manager/viewStd/'.$retrieveStd->id_estudante);?>">
@@ -170,16 +178,16 @@
                             <div class="form-field col-sm-5 mb-sm-0 mb-4">
                                 <select name="tipo_documento" id="tipo_documento" class="form-control form-control-user">
                                     <option value="">*DOCUMENTO DE IDENTIFICA&Ccedil;&Atilde;O*</option>
-                                    <option value="1">
+                                    <option value="BI">
                                         BI
                                     </option>
-                                    <option value="2">
+                                    <option value="DIRE">
                                         DIRE
                                     </option>
-                                    <option value="3">
+                                    <option value="PASSAPORT">
                                         PASSAPORT
                                     </option>
-                                    <option value="4">
+                                    <option value="CONDUCAO">
                                         CARTA DE CONDU&Ccedil;&Atilde;O
                                     </option>
                                 </select>
@@ -284,9 +292,7 @@
                         <button class="btn btn-lg btn-block btn-info" type="button" data-dismiss="modal">CANCELAR</button>
                     </div>
                     <div class="col-sm-6">
-                        <?php
-                            echo "<a name='delete' class='btn btn-lg btn-block btn-danger' href='deleteStd?id_estudante=".$retrieveStd->id_estudante."'>APAGAR</a>";
-                        ?>
+                        
                     </div>
                 </div>
                 

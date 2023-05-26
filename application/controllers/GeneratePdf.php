@@ -45,7 +45,7 @@ class GeneratePdf extends CI_Controller {
 
     function generatePdfFnc($id_funcionario){
         // Busque os dados do usuário
-        $retrieveFnc = $this->Retrieve->viewStd($id_funcionario); 
+        $retrieveFnc = $this->Retrieve->viewFnc($id_funcionario); 
         // Carregue a biblioteca Dompdf
         //$dompdf = new Dompdf(['enable_remote' => true]);
         $dompdf = new Dompdf();

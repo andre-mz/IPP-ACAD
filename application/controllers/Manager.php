@@ -25,7 +25,8 @@ class Manager extends CI_Controller{
 		$retrieveCrs['retrieveCrs']	= $this->Retrieve->retrieveCrs();
 		$retrieveStd['retrieveStd'] = $this->Retrieve->retrieveStd();
         $this->load->view('table/index', $retrieveStd + $retrieveCrs);
-	}function deleteStd(){
+	}
+	function deleteStd(){
 		$id_estudante = $this->input->get('id_estudante');
 		$delete		  = $this->Retrieve->deleteStd($id_estudante);
 		if($delete == TRUE){
@@ -35,7 +36,8 @@ class Manager extends CI_Controller{
 			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
 			echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
 		}
-	}function viewStd($id_estudante){
+	}
+	function viewStd($id_estudante){
 		$retrieveStd['retrieveStd'] = $this->Retrieve->viewStd($id_estudante);
 		$this->load->view('manager/viewStd', $retrieveStd);
 
@@ -69,7 +71,8 @@ class Manager extends CI_Controller{
 				echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
 			}
 		}
-	}function updateStd(){
+	}
+	function updateStd(){
 		$post = $this->input->post(null, TRUE);
 		if(isset($_POST['update'])){
 			$this->Retrieve->updateStd($post);
@@ -84,7 +87,8 @@ class Manager extends CI_Controller{
 	function tabUsr(){
 		$retrieveUsr['retrieveUsr'] = $this->Retrieve->retrieveUsr();
 		$this->load->view('table/tabUsr', $retrieveUsr);
-	}function deleteUsr(){
+	}
+	function deleteUsr(){
 		$id_user = $this->input->get('id_user');
 		$delete	 = $this->Retrieve->deleteUsr($id_user);
 		if($delete ==  TRUE){
@@ -94,7 +98,8 @@ class Manager extends CI_Controller{
 			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
 			echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
 		}
-	}function viewUsr($id_user){
+	}
+	function viewUsr($id_user){
 		$retrieveUsr['retrieveUsr'] = $this->Retrieve->viewUsr($id_user);
 		$this->load->view('manager/viewUsr', $retrieveUsr);
 
@@ -114,7 +119,8 @@ class Manager extends CI_Controller{
 				echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
 			}
 		}
-	}function updateUsr(){
+	}
+	function updateUsr(){
 		$post = $this->input->post(null, TRUE);
 		if(isset($_POST['update'])){
 			$this->Retrieve->updateUsr($post);
@@ -172,8 +178,9 @@ class Manager extends CI_Controller{
 				echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
 			}
 		}
-	}function updateFnc(){
-		$post = $this->input->post(null, true);
+	}
+	function updateFnc(){
+		$post = $this->input->post(null, TRUE);
 		if(isset($_POST['update'])){
 			$this->Retrieve->updateFnc($post);
 		}

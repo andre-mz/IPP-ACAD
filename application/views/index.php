@@ -1,23 +1,12 @@
 <?php $this->load->view('_inc/head')?>
 
-	<!--
-		<php
-			$numero_aleatorio = substr(mt_rand(0, 9999999999), 0, 4);
-			$numero_formatado = '{:04d}'.number_format($numero_aleatorio);
-
-
-			$numero_aleatorio = substr(mt_rand(0, 9999999999), 0, 4);
-			$numero_formatado = str_pad($numero_aleatorio, 4, "0", STR_PAD_LEFT);
-			echo date("Y").$numero_formatado;
-		?>
-	-->
-
+	
     <div class="popular page_section">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="section_title text-center">
-						<h1>Cursos Populares</h1>
+						<h1>CURSOS POPULARES</h1>
 					</div>
 				</div>
 			</div>
@@ -121,6 +110,9 @@
 								finibus tortor fermentum. Aliquam, augue a gravida rutrum, 
 								ante nisl fermentum nulla, vitae tempo.
 							</p>
+							<div class="button button_1 register_button mx-auto trans_200">
+								<a href="#">INSCREVA-SE HOJE</a>
+							</div>
 						</div>
 					</div>
 
@@ -133,11 +125,11 @@
 					<div class="search_section d-flex flex-column align-items-center justify-content-center">
 						<div class="search_background"></div>
 						<div class="search_content text-center">
-							<h1 class="search_title">Search for your course</h1>
+							<h1 class="search_title">PESQUISE O SEU CURSO</h1>
 							<form id="search_form" class="search_form" action="post">
-								<input id="search_form_name" class="input_field search_form_name" type="text" placeholder="Course Name" required="required" data-error="Course name is required.">
-								<input id="search_form_category" class="input_field search_form_category" type="text" placeholder="Category">
-								<input id="search_form_degree" class="input_field search_form_degree" type="text" placeholder="Degree">
+								<input id="search_form_name" class="input_field search_form_name" type="text" placeholder="Nome do curso" required="required" data-error="Course name is required.">
+								
+								<button id="search_submit_button" type="submit" class="search_submit_button trans_200" value="Submit">PESQUISAR CURSO</button>
 							</form>
 						</div> 
 					</div>
@@ -154,48 +146,165 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title text-center">
-						<h1>Nossos servi&ccedil;os</h1>
+						<h1>NOSSOS SERVI&Ccedil;OS</h1>
 					</div>
 				</div>
 			</div>
 
-			<div class="row services_row" style="margin-top: -.5rem;">
+			<div class="row services_row">
 
 				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
 					<div class="icon_container d-flex flex-column justify-content-end">
-						<img src="images/earth-globe.svg" alt="">
+						<img src="<?=base_url('assets/images/earth-globe-2.svg')?>" alt="IPP CHIMOIO1">
 					</div>
-					<h3>Est&aacute;gio</h3>
-					<p>
-						In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, 
-						vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus 
-						tortor fermentum.
-					</p>
+					<h3>Cursos diversificados</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+				</div>
+
+
+				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
+					<div class="icon_container d-flex flex-column justify-content-end">
+						<img src="<?=base_url('assets/images/books2.svg')?>" alt="">
+					</div>
+					<h3>Biblioteca abrangente</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
 				</div>
 
 				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
 					<div class="icon_container d-flex flex-column justify-content-end">
-						<img src="images/exam.svg" alt="">
+						<img src="<?=base_url('assets/images/professor2.svg')?>" alt="">
 					</div>
-					<h3>Gradua&ccedil;&atilde;o</h3>
-					<p>
-						In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, 
-						vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, 
-						finibus tortor fermentum.
-					</p>
+					<h3>Formadores Excepsionais</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
 				</div>
 
 				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
 					<div class="icon_container d-flex flex-column justify-content-end">
-						<img src="images/books.svg" alt="">
+						<img src="<?=base_url('assets/images/exam.svg')?>" alt="">
 					</div>
-					<h3>Jornada cientifica</h3>
-					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, 
-						vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, 
-						finibus tortor fermentum.
-					</p>
+					<h3>Programas de Est&aacute;gio</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+				</div>
+
+				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
+					<div class="icon_container d-flex flex-column justify-content-end">
+						<img src="<?=base_url('assets/images/mortarboard.svg')?>" alt="">
+					</div>
+					<h3>Diploma de gradua&ccedil;&atilde;o</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="events page_section" style="margin-top: -10rem;">
+		<div class="container">
+			
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h1>PROXIMOS EVENTOS</h1>
+					</div>
 				</div>
 			</div>
+			
+			<div class="event_items">
+
+				<!-- Event Item -->
+				<div class="row event_item">
+					<div class="col">
+						<div class="row d-flex flex-row align-items-end">
+
+							<div class="col-lg-2 order-lg-1 order-2">
+								<div class="event_date d-flex flex-column align-items-center justify-content-center">
+									<div class="event_day">08</div>
+									<div class="event_month">Agosto</div>
+								</div>
+							</div>
+
+							<div class="col-lg-6 order-lg-2 order-3">
+								<div class="event_content">
+									<div class="event_name"><a class="trans_200" href="#">Gradua&ccedil;&atilde;o</a></div>
+									<div class="event_location">Pavilhao da liga</div>
+									<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
+								</div>
+							</div>
+
+							<div class="col-lg-4 order-lg-3 order-1">
+								<div class="event_image">
+									<img src="<?=base_url('assets/images/event_3.jpg')?>" alt="IPP HIMOIO">
+								</div>
+							</div>
+
+						</div>	
+					</div>
+				</div>
+
+				<!-- Event Item -->
+				<div class="row event_item">
+					<div class="col">
+						<div class="row d-flex flex-row align-items-end">
+
+							<div class="col-lg-2 order-lg-1 order-2">
+								<div class="event_date d-flex flex-column align-items-center justify-content-center">
+									<div class="event_day">01</div>
+									<div class="event_month">Julho</div>
+								</div>
+							</div>
+
+							<div class="col-lg-6 order-lg-2 order-3">
+								<div class="event_content">
+									<div class="event_name"><a class="trans_200" href="#">Inicio de programas de estagios</a></div>
+									<div class="event_location">IPP Chimoio</div>
+									<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
+								</div>
+							</div>
+
+							<div class="col-lg-4 order-lg-3 order-1">
+								<div class="event_image">
+									<img src="<?=base_url('assets/images/event_1.jpg')?>" alt="IPP CHIMOIO">
+								</div>
+							</div>
+
+						</div>	
+					</div>
+				</div>
+
+				<!-- Event Item -->
+				<div class="row event_item">
+					<div class="col">
+						<div class="row d-flex flex-row align-items-end">
+
+							<div class="col-lg-2 order-lg-1 order-2">
+								<div class="event_date d-flex flex-column align-items-center justify-content-center">
+									<div class="event_day">02</div>
+									<div class="event_month">Dezembro</div>
+								</div>
+							</div>
+
+							<div class="col-lg-6 order-lg-2 order-3">
+								<div class="event_content">
+									<div class="event_name"><a class="trans_200" href="#">Festa de enceramento do lectivo</a></div>
+									<div class="event_location">IPP Chimoio</div>
+									<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
+								</div>
+							</div>
+
+							<div class="col-lg-4 order-lg-3 order-1">
+								<div class="event_image">
+									<img src="<?=base_url('assets/images/event_1.jpg')?>" alt="IPP CHIMOIO">
+								</div>
+							</div>
+
+						</div>	
+					</div>
+				</div>
+
+			</div>
+				
 		</div>
 	</div>
 

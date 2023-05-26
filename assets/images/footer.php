@@ -2,37 +2,17 @@
 
     <footer class="footer">
 		<div class="container">
-			<div class="newsletter">
-				<div class="row">
-					<div class="col">
-						<div class="section_title text-center">
-							<h1>PESQUISE O SEU CURSO</h1>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col text-center">
-						<div class="newsletter_form_container mx-auto">
-							<form action="" method="POST"> 
-								<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="newsletter_email" class="newsletter_email" type="text" placeholder="Nome do curso" required="required" data-error="Valid email is required.">
-									<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit" style="background-color: #00204A;font-weight: 700;">PESQUISAR</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-
+		
 			<div class="footer_content">
 				<div class="row">
+
 					<!-- Footer Column - About -->
 					<div class="col-lg-3 footer_col">
+
 						<!-- Logo -->
 						<div class="logo_container">
 							<div class="logo">
-								<img src="<?=base_url('assets/images/IPP-LOGO.png')?>" alt="" width="25%" style="border-radius: 1rem;">
+								<img src="images/logo.png" alt="">
 								<span>Qualidade</span>
 							</div>
 						</div>
@@ -46,6 +26,7 @@
 					</div>
 
 					<!-- Footer Column - Menu -->
+
 					<div class="col-lg-3 footer_col">
 						<div class="footer_column_title">Menu</div>
 						<div class="footer_column_content">
@@ -55,13 +36,13 @@
 								<li class="footer_list_item"><a href="#">Cursos</a></li>
 								<li class="footer_list_item"><a href="#">News</a></li>
 								<li class="footer_list_item"><a href="#">Contacto</a></li>
-								<li class="footer_list_item"><a href="<?base_url()?>IndexCont/login">ipp log</a></li>
+								<li class="footer_list_item"><a href="#">ipp vitrine</a></li>
 							</ul>
 						</div>
 					</div>
 
 					<!-- Footer Column - Usefull Links -->
-					
+
 					<!-- Footer Column - Contact -->
 
 					<div class="col-lg-3 footer_col">
@@ -70,24 +51,25 @@
 							<ul>
 								<li class="footer_contact_item">
 									<div class="footer_contact_icon">
-										<img src="<?=base_url('assets/images/placeholder.svg')?>" alt="icon">
+										<img src="images/placeholder.svg" alt="icon">
 									</div>
-									Bairro 4, nr 04934 edificio Azul
+									Bairro 4, nr 04934 edificio amarelo
 								</li>
 								<li class="footer_contact_item">
 									<div class="footer_contact_icon">
-										<img src="<?=base_url('assets/images/smartphone.svg')?>" alt="icon">
+										<img src="images/smartphone.svg" alt="icon">
 									</div>
-									+258 87 645 2222
+									+258 86 458 6447
 								</li>
 								<li class="footer_contact_item">
 									<div class="footer_contact_icon">
-										<img src="<?=base_url('assets/images/envelope.svg')?>" alt="icon">
+										<img src="images/envelope.svg" alt="icon">
 									</div>ipp@ip.ac.mz
 								</li>
 							</ul>
 						</div>
 					</div>
+
 				</div>
 			</div>
 
@@ -111,6 +93,7 @@
 			</div>
 		</div>
 	</footer>
+
 </div>
 
 <script src="<?= base_url('assets/js/jquery-3.2.1.min.js')?>"></script>

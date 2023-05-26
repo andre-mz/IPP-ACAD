@@ -20,8 +20,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/main_styles.css')?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/sec_style.css')?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/responsive.css')?>">
-</head>
-    
+    <!---->
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/courses_styles.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/courses_responsive.css')?>">
+    <!---->
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/contact_styles.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/contact_responsive.css')?>">
+    <!---->
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/news_post_styles.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/news_post_responsive.css')?>">
+    <!---->
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/teachers_styles.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/teachers_responsive.css')?>">
+	
 </head>
 <body>
 
@@ -33,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- Logo -->
 			<div class="logo_container">
 				<div class="logo">
-					<img src="<?=base_url('assets/images/IPP-LOGO.png"')?>" alt="" width="40%" style="border-radius: 15rem 15rem 15rem 15rem;">
+					<img src="<?=base_url('assets/images/IPP-LOGO.png"')?>" alt="" width="40%" style="border-radius: 5rem;">
 					<span></span>
 				</div>
 			</div>
@@ -91,94 +102,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-    <div class="home">
-		<!-- Hero Slider -->
-		<div class="hero_slider_container">
-			<div class="hero_slider owl-carousel">	
-				<!-- Hero Slide -->
-				<div class="hero_slide">
-					<div class="hero_slide_background slide_1">  
-                    </div>
-					<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						<div class="hero_slide_content text-center">
-							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">
-								A nossa marca &eacute; a <span>&nbsp;QUALIDADE&nbsp;</span>
-							</h1>
-						</div>
-					</div>
-				</div>
-
-				<div class="hero_slide">
-					<div class="hero_slide_background slide_2"></div>
-					<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						<div class="hero_slide_content text-center">
-							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">
-								O futuro &eacute; agora!
-							</h1>
-						</div>
-					</div>
-				</div>
-
-				<div class="hero_slide">
-					<div class="hero_slide_background slide_3"></div>
-					<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-						<div class="hero_slide_content text-center">
-							<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">
-								Venha e matricule-se hoje!
-							</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200">prev</span></div>
-			<div class="hero_slider_right hero_slider_nav trans_200"><span class="trans_200">next</span></div>
-        </div>
-	</div>
+   
 
 	
 
 
-    <div class="hero_boxes">
-		<div class="hero_boxes_inner">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 hero_box_col">
-						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
-							<img src="<?=base_url('assets/images/earth-globe.svg')?>" class="svg" alt="">
-							<div class="hero_box_content">
-								<h2 class="hero_box_title">Cursos</h2>
-								<a href="<?= base_url()?>IndexCont/curso" class="hero_box_link">ver mais...</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-4 hero_box_col">
-						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
-							<img src="<?=base_url('assets/images/books.svg')?>" class="svg" alt="">
-							<div class="hero_box_content">
-								<h2 class="hero_box_title">Nossa biblioteca</h2>
-								<a href="" class="hero_box_link">ver mais...</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-4 hero_box_col">
-						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
-							<img src="<?=base_url('assets/images/professor.svg')?>" class="svg" alt="">
-							<div class="hero_box_content">
-								<h2 class="hero_box_title">Nossa team</h2>
-								<a href="<?= base_url()?>IndexCont/sobre" class="hero_box_link">ver mais...</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
     
-
 
 
 
