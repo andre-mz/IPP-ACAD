@@ -33,4 +33,12 @@ class Url extends CI_Controller{
 		$this->load->view('manager/addUser', $retrieveFnc+$retrieveStd);
 	}
 
+	function addCrs(){
+		$this->load->view('manager/addCrs');
+	}
+	function addStd(){
+		$retrieveCrs['retrieveCrs']	= $this->Retrieve->retrieveCrs();
+		$this->load->view('manager/addStd',$retrieveCrs);
+	}
+
 }

@@ -102,7 +102,7 @@ class Forms extends CI_Controller{
         );
 
         if($this->form_validation->run()){
-            $data = array(
+            $data = [
                 'fullname'           =>strip_tags($this->input->post('fullname')),
                 'nome_pai'           =>strip_tags($this->input->post('nome_pai')),
                 'idade'              =>strip_tags($this->input->post('idade')),
@@ -120,13 +120,13 @@ class Forms extends CI_Controller{
                 'periodo'            =>strip_tags($this->input->post('periodo')),
                 'nr_estudante'       =>strip_tags($nr_estudante),
                 'estado_estudante'   =>strip_tags($estado_estudante),
-            );
+            ];
             $this->Form_model->add($data);
             echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
         }else{
             echo "<script>alert('ERRO, FALHA AO ADICIONAR OS DADOS. PREENCHA TODOS OS CAMPOS EM BRANCO E TENTE NOVAMENTE');</script>";
-			echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
+			echo "<script>window.location='".site_url('Url/addStd')."';</script>";
         }
          
     }
@@ -162,11 +162,11 @@ class Forms extends CI_Controller{
                 'taxa_mensal'     => strip_tags($this->input->post('taxa_mensal')),
             );
             $this->Form_model->addCurso($data);
-            echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
+            echo "<script>alert('ADICIONADO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
         }else{
             echo "<script>alert('Algo deu errado');</script>";
-			echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
+			echo "<script>window.location='".site_url('Url/addCrs')."';</script>";
 	    }
 
 

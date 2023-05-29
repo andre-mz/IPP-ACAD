@@ -147,6 +147,8 @@ class Retrieve_model extends CI_Model{
             'disponibilidade' => $post['disponibilidade'],
             'taxa_mensal'     => $post['taxa_mensal']
         ];
+        $this->db->where('id_curso', $post['id_curso']);
+        $this->db->update($this->table_curso, $params);
     }
 
 

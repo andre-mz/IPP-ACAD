@@ -22,15 +22,14 @@ class Manager extends CI_Controller{
 
 	//MAGE STUDENT
 	function tabStd(){
-		$retrieveCrs['retrieveCrs']	= $this->Retrieve->retrieveCrs();
 		$retrieveStd['retrieveStd'] = $this->Retrieve->retrieveStd();
-        $this->load->view('table/index', $retrieveStd + $retrieveCrs);
+        $this->load->view('table/index', $retrieveStd);
 	}
 	function deleteStd(){
 		$id_estudante = $this->input->get('id_estudante');
 		$delete		  = $this->Retrieve->deleteStd($id_estudante);
 		if($delete == TRUE){
-			echo "<script>alert('ESTUDANTE ELIMINADO COM SUCESSO');</script>";
+			echo "<script>alert('ESTUDANTE ELIMINADO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
 		}else{
 			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
@@ -78,7 +77,7 @@ class Manager extends CI_Controller{
 			$this->Retrieve->updateStd($post);
 		}
 		if($this->db->affected_rows() > 0){
-			echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+			echo "<script>alert('ACTUALIZADO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
 		}
 	}
@@ -92,7 +91,7 @@ class Manager extends CI_Controller{
 		$id_user = $this->input->get('id_user');
 		$delete	 = $this->Retrieve->deleteUsr($id_user);
 		if($delete ==  TRUE){
-			echo "<script>alert('USUARIO ELIMINADO COM SUCESSO');</script>";
+			echo "<script>alert('USUARIO ELIMINADO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
 		}else{
 			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
@@ -112,7 +111,7 @@ class Manager extends CI_Controller{
 			);
 			$update = $this->Retrieve->updateUsr($post);
 			if($update == TRUE){
-				echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+				echo "<script>alert('ACTUALIZADO COM SUCESSO');</script>";
 				echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
 			}else{
 				echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
@@ -126,7 +125,7 @@ class Manager extends CI_Controller{
 			$this->Retrieve->updateUsr($post);
 		}
 		if($this->db->affected_rows() > 0){
-			echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+			echo "<script>alert('ACTUALIZADO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
 		}
 	}
@@ -145,7 +144,7 @@ class Manager extends CI_Controller{
 			echo $th;
 		}
 		if($delete ==  TRUE){
-			echo "<script>alert('USUARIO ELIMINADO COM SUCESSO');</script>";
+			echo "<script>alert('USUARIO ELIMINADO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
 		}else{
 			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
@@ -171,7 +170,7 @@ class Manager extends CI_Controller{
 			);
 			$update = $this->Retrieve->updateFnc($post);
 			if($update == TRUE){
-				echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+				echo "<script>alert('ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
 				echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
 			}else{
 				echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
@@ -185,7 +184,7 @@ class Manager extends CI_Controller{
 			$this->Retrieve->updateFnc($post);
 		}
 		if ($this->db->affected_rows() > 0) {
-			echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+			echo "<script>alert('ACTUALIZADO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
 		}
 	}
@@ -203,6 +202,36 @@ class Manager extends CI_Controller{
 			echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
 		}else{
 			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+			echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
+		}
+	}function viewCrs($id_curso){
+		$retrieveCrs['retrieveCrs'] = $this->Retrieve->viewCrs($id_curso);
+		$this->load->view('manager/viewCrs', $retrieveCrs);
+
+		$post = $this->input->post(null, TRUE);
+		if($this->input->post('update')){
+			$data = [
+				'nome_curso' => strip_tags($this->input->post('nome_curso')),
+				'duracao'	 => strip_tags($this->input->post('duracao')),
+				'disponibilidade' => strip_tags($this->input->post('disponibilidade')),
+				'taxa_mensal'	  => strip_tags($this->input->post('taxa_mensal'))
+			];
+			$update = $this->Retrieve->updateCrs($post);
+			if($update == TRUE){
+				echo "<script>alert('ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+				echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
+			}else{
+				echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+				echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
+			}
+		}
+	}function updateCrs(){
+		$post = $this->input->post(null, TRUE);
+		if(isset($_POST['update'])){
+			$this->Retrieve->updateCrs($post);
+		}
+		if ($this->db->affected_rows() > 0) {
+			echo "<script>alert('ACTUALIZADO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
 		}
 	}
