@@ -195,6 +195,16 @@ class Manager extends CI_Controller{
 	function tabCrs(){
 		$retrieveCrs['retrieveCrs'] = $this->Retrieve->retrieveCrs();
 		$this->load->view('table/tabCrs', $retrieveCrs);
+	}function deleteCrs(){
+		$id_curso = $this->input->get('id_curso');
+		$delete	  = $this->Retrieve->deleteCrs($id_curso);
+		if($delete ==  TRUE){
+			echo "<script>alert('CURSO ELIMINADO');</script>";
+			echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
+		}else{
+			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+			echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
+		}
 	}
 
 

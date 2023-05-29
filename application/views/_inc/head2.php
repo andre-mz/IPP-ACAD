@@ -20,16 +20,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/main_styles.css')?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/sec_style.css')?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/responsive.css')?>">
-    <!---->
+    <!----->
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/courses_styles.css')?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/courses_responsive.css')?>">
-    <!---->
+    <!----->
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/contact_styles.css')?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/contact_responsive.css')?>">
-    <!---->
+    <!----->
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/news_styles.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/news_responsive.css')?>">
+    <!----->
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/news_post_styles.css')?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/news_post_responsive.css')?>">
-    <!---->
+    <!----->
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/teachers_styles.css')?>">
     <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/teachers_responsive.css')?>">
 	

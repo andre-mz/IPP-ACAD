@@ -25,11 +25,13 @@ class Auth extends CI_Controller{
             $loginid  = $data['loginid'];
             $name     = $data['name'];
             $level    = $data['level'];
+            $estado   = $data['estado'];
 
             $sessionData =array(
                 'loginId'  => $loginid,
                 'name'     => $name,
                 'level'    => $level,
+                'estado'   => $estado,
                 'loggedIn' => TRUE,
             );
             $this->session->set_userdata($sessionData);

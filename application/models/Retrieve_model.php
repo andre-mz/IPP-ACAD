@@ -8,6 +8,7 @@ class Retrieve_model extends CI_Model{
     private $table_curso       = 'table_curso';
     private $table_funcionario = 'table_funcionario';
     private $table_user        = 'table_user';
+    private $table_payment     = 'table_payment';
 
     //MANAGE STUDENTS
     function retrieveStd($id_estudante = null){
@@ -130,6 +131,22 @@ class Retrieve_model extends CI_Model{
         } 
         $query = $this->db->get();
         return $query;
+    }function deleteCrs($id_curso){
+        $this->db->where('id_curso', $id_curso);
+        $this->db->delete($this->table_curso);
+        return true;
+    }function viewCrs($id_curso){
+        $query =  $this->db->get_where($this->table_curso, ['id_curso' => $id_curso]);
+        if($query->num_rows() > 0){
+            return $query->row();
+        }
+    }function updateCrs($post){
+        $params =[
+            'nome_curso' => $post['nome_curso'],
+            'duracao'    => $post['duracao'],
+            'disponibilidade' => $post['disponibilidade'],
+            'taxa_mensal'     => $post['taxa_mensal']
+        ];
     }
 
 

@@ -26,17 +26,16 @@
 				<!-- Popular Course Item -->
 				<div class="col-lg-4 course_box">
 					<div class="card">
-						<img class="card-img-top" src="images/course_1.jpg" alt="https://unsplash.com/@kellybrito">
+						<img class="card-img-top" src="<?=base_url('assets/images/img-5.jpg')?>" alt="imagem">
 						<div class="card-body text-center">
-							<div class="card-title"><a href="courses.html">A complete guide to design</a></div>
-							<div class="card-text">Adobe Guide, Layes, Smart Objects etc...</div>
+							<div class="card-title"><a href="">Enfermagem S. Materna Infantil</a></div>
 						</div>
 						<div class="price_box d-flex flex-row align-items-center">
 							<div class="course_author_image">
 								<img src="<?=base_url('assets/images/IPP-LOGO.png')?>" alt="https://unsplash.com/@mehdizadeh">
 							</div>
 							<div class="course_author_name">IPP Chimoio, <span>Autor</span></div>
-							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span></span></div>
+							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>5/2023</span></div>
 						</div>
 					</div>
 				</div>
