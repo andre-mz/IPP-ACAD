@@ -113,7 +113,7 @@
                                 <?php $curso = $this->input->post('curso') ? $this->input->post('curso') : $retrieveStd->curso?>
                                 <select class="form-control form-control-user" name="curso" id='curso'>
                                     <option value="tmg"     <?=$curso === 'tmg'       ? 'selected' : null?>>
-                                    ENFERMAGEM T.M GERAL
+                                        ENFERMAGEM T.M GERAL
                                     </option>
                                     <option value="farmacia" <?=$curso === 'farmacia' ? 'selected' : null?>>
                                         F&Aacute;RMACIA
@@ -123,6 +123,9 @@
                                     </option>
                                     <option value="nutricao" <?=$curso === 'nutricao' ? 'selected' : null?>>
                                         NUTRI&Ccedil;&Atilde;O
+                                    </option>
+                                    <option value="informatica" <?=$curso === 'Informatica' ? 'selected' : null?>>
+                                        INFORMATICA
                                     </option>
                                 </select>
                                 <div class="erro-small"><small></small></div>

@@ -33,24 +33,24 @@ class Forms extends CI_Controller{
 
         $this->form_validation->set_rules('fullname', 'Nome completo', 'trim|required',//is_unique[table_estudante.fullname]',
             array(
-                'required'  => 'O campo %s nao deve estar vazio',
+                'required'  => 'O %s nao deve estar vazio',
                 //'is_unique' => 'O %s ja esta cadastrado no sistema'
             )
         );
         $this->form_validation->set_rules('genero', 'Genero', 'trim|required',//is_unique[table_estudante.fullname]',
             array(
-                'required'  => 'O campo %s nao deve estar vazio',
+                'required'  => 'Selecione o %s',
                 //'is_unique' => 'O %s ja esta cadastrado no sistema'
             )
         );
         $this->form_validation->set_rules('nome_pai', 'Nome do encarregado', 'trim|required',
-            array('required' =>'O campo %s nao deve estar vazio')
+            array('required' => '%s nao deve estar vazio')
         );
         $this->form_validation->set_rules('idade', 'data de nascimento','trim|required',
-            array('required' =>'O campo %s nao deve estar vazio')
+            array('required' =>'%s nao deve estar vazio')
         );
         $this->form_validation->set_rules('nacionalidade', 'Nacionalidade', 'trim|required',
-            array('required' =>'O campo %s nao deve estar vazio')
+            array('required' =>'%s nao deve estar vazio')
         );
         $this->form_validation->set_rules('naturalidade', 'Naturalidade', 'trim|required',
             array('required' =>'O campo %s nao deve estar vazio')
@@ -61,31 +61,35 @@ class Forms extends CI_Controller{
         $this->form_validation->set_rules('tipo_documento', 'documento', 'trim|required',
             array('required' =>'O campo %s nao deve estar vazio')
         );
-        $this->form_validation->set_rules('nr_documento', 'numero de documento', 'trim|required',//|is_unique[table_estudante.nr_documento]',
+        $this->form_validation->set_rules('nr_documento', 'numero de documento', 'trim|required|is_unique[table_estudante.nr_documento]',
             array(
-                //'is_unique' => 'O %s ja esta cadastrado no sistema',
-                'required' =>'O campo %s nao deve estar vazio'
+                'is_unique' => 'O %s ja esta cadastrado no sistema',
+                'required'  => 'O  %s nao deve estar vazio'
             ),
         );
         $this->form_validation->set_rules('curso', 'Curso', 'trim|required',
             array('required' =>'O campo %s nao deve estar vazio')
         );
-        $this->form_validation->set_rules('ano_frequentar','ano frequentar', 'trim|required',//max_length[1]|is_numeric',
+        $this->form_validation->set_rules('ano_frequentar','ano por frequentar', 'trim|required|max_length[1]|is_numeric',
             array(
-                //'is_numeric' => 'O campo %s deve conter 1 caracter numerico',
-                //'max_length' => 'O campo %s deve conter 1 caracter numerico',
-                'required'   => 'O campo %s nao deve estar vazio')
+                'is_numeric' => '%s deve conter somente caracter numerico',
+                'max_length' => '%s deve conter 1 caracter numerico',
+                'required'   => '%s nao deve estar vazio')
         );
-        $this->form_validation->set_rules('contato_pessoal', 'Contacto pessoal', 'trim|required',//|is_numeric',
+        $this->form_validation->set_rules('contato_pessoal', 'Contacto pessoal', 'trim|required|is_numeric|max_length[9]|min_length[9]',
             array(
-                //'is_numeric' => 'O campo %s deve conter 1 caracter numerico',
-                'required'   => 'O campo %s nao deve estar vazio'
+                'max_length' => '%s deve conter somente 9 caracteres numericos',
+                'min_length' => '%s deve conter somente 9 caracteres numericos',
+                'is_numeric' => '%s deve conter somente caracter numerico',
+                'required'   => '%s nao deve estar vazio'
             )
         );
-        $this->form_validation->set_rules('contato_emergencia', 'Contacto emergencia', 'trim|required',//|is_numeric',
+        $this->form_validation->set_rules('contato_emergencia', 'Contacto de emergencia', 'trim|required|is_numeric|max_length[9]|min_length[9]',
             array(
-                //'is_numeric' => 'O campo %s deve conter 1 caracter numerico',
-                'required'   => 'O campo %s nao deve estar vazio'
+                'max_length' => '%s deve conter somente 9 caracteres numericos',
+                'min_length' => '%s deve conter somente 9 caracteres numericos',
+                'is_numeric' => '%s deve conter somente caracter numerico',
+                'required'   => '%s nao deve estar vazio'
             )
         );
         $this->form_validation->set_rules('periodo', 'Periodo', 'trim|required',
@@ -125,8 +129,9 @@ class Forms extends CI_Controller{
             echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
         }else{
-            echo "<script>alert('ERRO, FALHA AO ADICIONAR OS DADOS. PREENCHA TODOS OS CAMPOS EM BRANCO E TENTE NOVAMENTE');</script>";
-			echo "<script>window.location='".site_url('Url/addStd')."';</script>";
+            
+            $erros = array('mensagens' => validation_errors());
+            $this->load->view('manager/addStd');
         }
          
     }
@@ -221,4 +226,7 @@ class Forms extends CI_Controller{
             $this->load->view('manager/addUser', $erros+$retrieveFnc+$retrieveStd);
         }
     }
+
 }
+
+
