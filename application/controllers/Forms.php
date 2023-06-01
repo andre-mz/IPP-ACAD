@@ -10,8 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @property Retrieve $Retrieve
  */
 
-//$this->load->library(array('session', 'form_validation'));
-//$this->load->helper(array('url', 'form'));
 class Forms extends CI_Controller{
 
 
@@ -31,16 +29,14 @@ class Forms extends CI_Controller{
         $nr_estudante = date('Y'.$number);
         static $estado_estudante = 1;
 
-        $this->form_validation->set_rules('fullname', 'Nome completo', 'trim|required',//is_unique[table_estudante.fullname]',
+        $this->form_validation->set_rules('fullname', 'Nome completo', 'trim|required',
             array(
                 'required'  => 'O %s nao deve estar vazio',
-                //'is_unique' => 'O %s ja esta cadastrado no sistema'
             )
         );
-        $this->form_validation->set_rules('genero', 'Genero', 'trim|required',//is_unique[table_estudante.fullname]',
+        $this->form_validation->set_rules('genero', 'Genero', 'trim|required',
             array(
                 'required'  => 'Selecione o %s',
-                //'is_unique' => 'O %s ja esta cadastrado no sistema'
             )
         );
         $this->form_validation->set_rules('nome_pai', 'Nome do encarregado', 'trim|required',
@@ -70,7 +66,7 @@ class Forms extends CI_Controller{
         $this->form_validation->set_rules('curso', 'Curso', 'trim|required',
             array('required' =>'O campo %s nao deve estar vazio')
         );
-        $this->form_validation->set_rules('ano_frequentar','ano por frequentar', 'trim|required|max_length[1]|is_numeric',
+        $this->form_validation->set_rules('ano_frequentar','ano', 'trim|required|max_length[1]|is_numeric',
             array(
                 'is_numeric' => '%s deve conter somente caracter numerico',
                 'max_length' => '%s deve conter 1 caracter numerico',
@@ -94,14 +90,13 @@ class Forms extends CI_Controller{
         );
         $this->form_validation->set_rules('periodo', 'Periodo', 'trim|required',
             array(
-                //'is_numeric' => 'O campo %s deve conter 1 caracter numerico',
                 'required'   => 'O campo %s nao deve estar vazio'
             )
         );
         $this->form_validation->set_rules('turma', 'turma', 'trim|required',
             array(
                 //'is_numeric' => 'O campo %s deve conter 1 caracter numerico',
-                'required'   => 'O campo %s nao deve estar vazio'
+                'required'   => 'O campo nao deve estar vazio'
             )
         );
 
@@ -129,8 +124,7 @@ class Forms extends CI_Controller{
             echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
         }else{
-            
-            $erros = array('mensagens' => validation_errors());
+            //$erros = array('mensagens' => validation_errors());
             $this->load->view('manager/addStd');
         }
          
