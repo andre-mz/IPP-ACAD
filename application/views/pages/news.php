@@ -30,19 +30,20 @@
 									</div>
 									<div class="news_post_title_container">
 										<div class="news_post_title">
-											<a href="<?=base_url('Activity/editAct'.$retrieveAct->id_activity)?>"><?=$retrieveActi->titulo?></a>
+											<a href="<?=base_url('IndexCont/view/'.$retrieveActi->id_activity)?>"><?=$retrieveActi->titulo?></a>
 										</div>
 										<div class="news_post_meta">
-											<span class="news_post_author"><a href="">Por IPP</a></span>
+											<span class="news_post_author">Por IPP</span>
 										</div>
 									</div>
 								</div>
 								<div class="news_post_text">
 									<p class="text-justify">
+										<?= print word_limiter($retrieveActi->content, 50)?>
 									</p>
 								</div>
 								<div class="news_post_button text-center trans_200" style="background-color: #00204A;">
-									<a href="<?=base_url('Activity/editAct'.$retrieveAct->id_activity)?>">LER MAIS</a>
+									<a href="<?=base_url('IndexCont/view/'.$retrieveActi->id_activity)?>">LER MAIS</a>
 								</div>
 							</div>
 						<?php endforeach?>	
@@ -59,7 +60,7 @@
 							</div>
 							<ul class="sidebar_list">
 								<?php foreach($retrieveAct->result() as $key=>$retrieveAct):?>
-									<li class="sidebar_list_item"><a href="<?=base_url('Activity/editAct'.$retrieveAct->id_activity)?>"><?=$retrieveAct->titulo?></a></li>
+									<li class="sidebar_list_item"><a href="<?=base_url('IndexCont/view/'.$retrieveAct->id_activity)?>"><?=$retrieveAct->titulo?></a></li>
 								<?php endforeach?>
 							</ul>
 						</div>

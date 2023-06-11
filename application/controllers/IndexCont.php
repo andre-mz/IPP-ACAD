@@ -10,6 +10,7 @@ class IndexCont extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->helper('text');
 	}
 
 	function erro(){
@@ -36,9 +37,9 @@ class IndexCont extends CI_Controller {
 	}
 	function view($id_activity){
 		$activity = new Activity_model();
-        $retrieveAct['retrieveAct'] = $activity->viewAct($id_activity);
-		$retrieveAct['retrieveAct'] = $activity->viewAct($id_activity);
-        $this->load->view('activity/viewAct', $retrieveAct);
+        $retrieveActi['retrieveActi'] = $activity->viewAct($id_activity);
+		$retrieveActi['retrieveActi'] = $activity->viewAct($id_activity);
+        $this->load->view('pages/view', $retrieveActi);
 	}
 
 	function sobre(){
