@@ -90,10 +90,10 @@
                     <div class="form-field col-sm-4 mb-sm-0 mb-4">
                         <select name="periodo" id="periodo" class="form-control form-control-user" >
                             <option value="">*****SELECIONE O PERIODO*****</option>
-                            <option value="1">
+                            <option value="laboral">
                                 LABORAL
                             </option>
-                            <option value="2">
+                            <option value="pos-laboral">
                                 P&Oacute;S-LABORAL
                             </option>
                         </select>

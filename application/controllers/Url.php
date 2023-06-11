@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @property Session  $session
  * @property Retrieve $Retrieve
  * @property Input 	  $input
+ * @property Activity $Activity
  * CONTROLLERS FOR URLS
  */
 class Url extends CI_Controller{
@@ -17,9 +18,10 @@ class Url extends CI_Controller{
 	}
 
 
-	function activities(){
-		$company_name['company_name'] = 'IPP CHIMOIO';
-		$this->load->view('manager/activities', $company_name);
+	function activity(){
+		$activity = new Activity_model();
+		$retrieveAct['retrieveAct']   = $activity->retrieveAct();
+		$this->load->view('activity/index', $retrieveAct);
 	}
 	
 	function payment(){
@@ -39,6 +41,9 @@ class Url extends CI_Controller{
 	function addStd(){
 		$retrieveCrs['retrieveCrs']	= $this->Retrieve->retrieveCrs();
 		$this->load->view('manager/addStd',$retrieveCrs);
+	}
+	function addActi(){
+		$this->load->view('activity/addActi');
 	}
 
 }

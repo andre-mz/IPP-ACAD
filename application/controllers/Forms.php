@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @property input $input
  * @property database $db
  * @property Retrieve $Retrieve
+ * @property Upload $upload
  */
 
 class Forms extends CI_Controller{
@@ -171,7 +172,6 @@ class Forms extends CI_Controller{
 
     }
 
-
     function addUser(){
         $retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
 		$retrieveStd['retrieveStd'] = $this->Retrieve->retrieveStd();
@@ -221,6 +221,51 @@ class Forms extends CI_Controller{
         }
     }
 
+    function addActivity(){
+        $this->form_validation->set_rules('titulo', 'Titulo', 'trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio',
+                //'is_unique' => 'O %s ja esta em uso no sistema',
+            )
+        );
+        $this->form_validation->set_rules('content', 'Conteudo', 'trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio',
+            )
+        );
+
+        if ($this->form_validation->run()) {
+
+            $orig_filename = $_FILES['activ_image']['name'];
+            $new_name      = time()."".str_replace(' ','-',$orig_filename);
+            $config = [
+                'upload_path'   => './upload/',
+                'allowed_types' => 'gif|jpg|png|jpeg|web',
+                'file_name'     => $new_name
+            ];
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('activ_image')){
+                
+                $imageError = array('imageError' => $this->upload->display_errors());
+                $this->load->view('activity/addActi', $imageError);
+            }
+            else{
+                $acti_name= $this->upload->data('file_name');
+                $data = [
+                    'titulo'      => $this->input->post('titulo'),
+                    'content'     => $this->input->post('content'),
+                    'activ_image' => $acti_name,
+                ];
+
+                $this->Form_model->addActivity($data);
+                echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
+			    echo "<script>window.location='".site_url('Url/addActi')."';</script>";
+                //redirect(base_url('addActi'));
+            }
+        }
+        
+    }
 }
 
 

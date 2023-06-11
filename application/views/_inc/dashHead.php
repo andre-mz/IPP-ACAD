@@ -80,12 +80,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </li>
-                <li class="nav-item">
+                <!--li class="nav-item">
                     <a class="nav-link" href="<?=base_url()?>Url/payment">
                         <i class="fas fa-fw fa-money-bill-wave-alt"></i>
                         <span>Pagamentos</span>
                     </a>
-                </li>
+                </li-->
                 <!-- Nav Item - Utilities Collapse Menu -->
                 <!--li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -123,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="<?=base_url()?>Url/activities">
+                    <a class="nav-link" href="<?=base_url()?>Url/activity">
                         <i class="fas fa-fw fa-info"></i>
                         <span>Actividades</span>
                     </a>

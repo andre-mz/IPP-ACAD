@@ -49,8 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'IndexCont';
-$route['404_override'] = '';
+$route['default_controller']   = 'IndexCont';
+$route['404_override']         = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['Manager/(:num)'] = 'Manager/viewStd/$1';
-$route['Manager/(:num)'] = 'Manager/viewPayment/$1';
+$route['Manager/(:num)']       = 'Manager/viewStd/$1';
+$route['Manager/(:num)']       = 'Manager/viewPayment/$1';
+//Acti
+$route['Activity/editAct/(:any)']['GET']         = 'Activity/editAct/$1';
+$route['Activity/updateActivity/(:any)']['POST'] = 'Activity/updateActivity/$1';
+$route['Activity/deleteActi/(:any)']['GET']      = 'Activity/deleteActi/$1';
