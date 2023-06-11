@@ -38,10 +38,11 @@
 									</div>
 								</div>
 								<div class="news_post_text">
-									<p class="text-justify">
-										<?= print word_limiter($retrieveActi->content, 50)?>
+									<p class="text-justify" style="color: #00204A;">
+										<?= print word_limiter($retrieveActi->content, 39)?>
 									</p>
 								</div>
+								
 								<div class="news_post_button text-center trans_200" style="background-color: #00204A;">
 									<a href="<?=base_url('IndexCont/view/'.$retrieveActi->id_activity)?>">LER MAIS</a>
 								</div>

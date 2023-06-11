@@ -10,35 +10,66 @@
 	</div>
 
 
+    <div class="news">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					
+					<div class="news_post_container">
+						<!-- News Post -->
+						<div class="news_post">
+							<div class="news_post_image">
+								<img src="<?=base_url('upload/'.$retrieveActi->activ_image)?>" alt="img">
+							</div>
+							<div class="news_post_top d-flex flex-column flex-sm-row">
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+                                        <div style="font-size: 12px;"><?=$retrieveActi->data_adicionado?></div>
+									</div>
+								</div>
+								<div class="news_post_title_container">
+									<div class="news_post_title">
+										<a href="#"><?= $retrieveActi->titulo?></a>
+									</div>
+									<div class="news_post_meta">
+										<span class="news_post_author"><a href="#">Por IPPC</a></span>
+									</div>
+								</div>
+							</div>
+                            <!--
+                                <div class="news_post_text">
+                                    
+                                </div>
+                            -->
 
+							<div class="news_post_quote">
+                                <p class="text-justify" style="color: #00204A;">
+                                    <?=$retrieveActi->content?>
+                                </p>
+                            </div>
 
+                        </div>
+					</div>
+                </div>
+                <div class="col-lg-4">
+					<div class="sidebar">
 
-
-
-    <div class="card shadow mb-4">
-        <div class="card-body">
-        <p class='text-center btn-block btn-success'><?php echo $this->session->flashdata('status');?></p>
-            <div class="row">
-                
-                
-                    <div class="col-sm-8">
-                        <input value="<?= $retrieveActi->titulo?>" type="text" name='titulo'>
-                   
-                        
-                    
-                        <textarea name="content" id="content" cols="30" rows="10"><?=$retrieveActi->content?></textarea>
-                   
-                        
-                    </div>
-
-                    <div class="col-sm-4">
-                        <img src="<?=base_url('upload/'.$retrieveActi->activ_image)?>" alt="" class="img-responsive ">
-                    </div>    
-                   
+						<!-- Archives -->
+						<div class="sidebar_section">
+							<div class="sidebar_section_title">
+								<h3>Titulos</h3>
+							</div>
+							<ul class="sidebar_list">
+								<?php foreach($retrieveActv->result() as $key=>$retrieveActv):?>
+									<li class="sidebar_list_item"><a href="<?=base_url('IndexCont/view/'.$retrieveActv->id_activity)?>"><?=$retrieveActv->titulo?></a></li>
+								<?php endforeach?>
+							</ul>
+						</div>
+					</div>
+				</div>
             </div>
         </div>
     </div>
-
 
 
 

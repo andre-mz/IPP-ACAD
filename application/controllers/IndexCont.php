@@ -39,7 +39,7 @@ class IndexCont extends CI_Controller {
 		$activity = new Activity_model();
         $retrieveActi['retrieveActi'] = $activity->viewAct($id_activity);
 		$retrieveActi['retrieveActi'] = $activity->viewAct($id_activity);
-        $this->load->view('pages/view', $retrieveActi);
+        $this->load->view('pages/view', $retrieveActi + $retrieveActi);
 	}
 
 	function sobre(){
