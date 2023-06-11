@@ -60,12 +60,32 @@
 								<h3>Titulos</h3>
 							</div>
 							<ul class="sidebar_list">
-								<?php foreach($retrieveActv->result() as $key=>$retrieveActv):?>
-									<li class="sidebar_list_item"><a href="<?=base_url('IndexCont/view/'.$retrieveActv->id_activity)?>"><?=$retrieveActv->titulo?></a></li>
+								<?php foreach($retrieveAct->result() as $key=>$retrieveAct):?>
+									<li class="sidebar_list_item"><a href="<?=base_url('IndexCont/view/'.$retrieveAct->id_activity)?>"><?=$retrieveAct->titulo?></a></li>
 								<?php endforeach?>
 							</ul>
 						</div>
 					</div>
+                    <div class="sidebar_section">
+						<div class="sidebar_section_title">
+							<h3>Latest posts</h3>
+						</div>
+
+						<div class="latest_posts">		
+							<!-- Latest Post -->
+                            <?php foreach($retrieveActv->result() as $key=>$retrieveActv):?>
+                                <div class="latest_post">
+                                    <div class="latest_post_image">
+                                        <img src="<?=base_url('upload/'.$retrieveActv->activ_image)?>" alt="">
+                                    </div>
+                                    <div class="latest_post_title"><a href="<?=base_url('IndexCont/view/'.$retrieveActv->id_activity)?>"><?=$retrieveActv->titulo?></a></div>
+                                    <div class="latest_post_meta">
+                                        <span class="latest_post_author"><a href="#">Por IPPC</a></span>
+                                    </div>
+                                </div>
+                            <?php endforeach?>
+                        </div>
+                    </div>
 				</div>
             </div>
         </div>
