@@ -43,6 +43,12 @@
                             -->
 
 							<div class="news_post_quote">
+								<div class="mb-5">
+								<?php if($retrieveActi->categoria == 'evento'):?>
+									LOCAL DO EVENTO <strong style="text-transform: uppercase;color:#00204A"><?=$retrieveActi->local_acont?></strong> || 
+									<strong style="text-transform: uppercase;color:#00204A"><?=$retrieveActi->data_acont?>-<?=$retrieveActi->mes_acont?>-<?=$retrieveActi->ano_acont?></strong>
+								<?php endif?>
+								</div>
                                 <p class="text-justify" style="color: #00204A;">
                                     <?=$retrieveActi->content?>
                                 </p>

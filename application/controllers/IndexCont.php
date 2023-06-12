@@ -17,8 +17,11 @@ class IndexCont extends CI_Controller {
 		$this->load->view('errors/erro');
 	}
 	function index(){
-		$this->load->view('index');
+		$activity = new Activity_model();
+		$retrieveActi['retrieveActi'] = $activity->retrieveAct();
+		$this->load->view('index', $retrieveActi);
 	}
+	
 	function login(){
 		$this->load->view('pages/login');
 	}

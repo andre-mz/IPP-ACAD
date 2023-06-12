@@ -233,6 +233,11 @@ class Forms extends CI_Controller{
                 'required' => 'O campo %s nao pode ficar vazio',
             )
         );
+        $this->form_validation->set_rules('categoria', 'trim');
+        $this->form_validation->set_rules('data_acont', 'trim');
+        $this->form_validation->set_rules('mes_acont', 'trim');
+        $this->form_validation->set_rules('ano_acont', 'trim');
+        $this->form_validation->set_rules('local_acont', 'trim');
 
         if ($this->form_validation->run()) {
 
@@ -255,6 +260,11 @@ class Forms extends CI_Controller{
                 $data = [
                     'titulo'      => $this->input->post('titulo'),
                     'content'     => $this->input->post('content'),
+                    'data_acont'  => $this->input->post('data_acont'),
+                    'mes_acont'   => $this->input->post('mes_acont'),
+                    'ano_acont'   => $this->input->post('ano_acont'),
+                    'local_acont' => $this->input->post('local_acont'),
+                    'categoria'   => $this->input->post('categoria'),
                     'activ_image' => $acti_name,
                 ];
 

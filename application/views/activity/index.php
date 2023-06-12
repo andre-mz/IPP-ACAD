@@ -37,7 +37,8 @@
                 </div>
 
                 <div class="card-body">
-                    <h4 class="card-title"><?= $retrieveAct->titulo?></h4>
+                    <h4 class="card-title" style="font-size: 17px;"><?= $retrieveAct->titulo?></h4>
+                    <p class="card-text"><?= print word_limiter($retrieveAct->content, 15)?></p>
                 </div>
                 <div class="card-footer">
                 <div class="row">

@@ -214,94 +214,41 @@
 			<div class="event_items">
 
 				<!-- Event Item -->
-				<div class="row event_item">
-					<div class="col">
-						<div class="row d-flex flex-row align-items-end">
+				<?php foreach($retrieveActi->result() as $key=>$retrieveActi):?>
+					<?php if($retrieveActi->categoria == 'evento'):?>
+						<div class="row event_item">
+							<div class="col">
+								<div class="row d-flex flex-row align-items-end">
 
-							<div class="col-lg-2 order-lg-1 order-2">
-								<div class="event_date d-flex flex-column align-items-center justify-content-center">
-									<div class="event_day">08</div>
-									<div class="event_month">Agosto</div>
-								</div>
+									<div class="col-lg-2 order-lg-1 order-2">
+										<div class="event_date d-flex flex-column align-items-center justify-content-center">
+											<div class="event_day"><?=$retrieveActi->data_acont?></div>
+											<div class="event_month"><?=$retrieveActi->mes_acont?></div>
+											<div class="event_month"><?=$retrieveActi->ano_acont?></div>
+										</div>
+									</div>
+
+									<div class="col-lg-6 order-lg-2 order-3">
+										<div class="event_content">
+											<div class="event_name"><a class="trans_200" href="<?=base_url('IndexCont/view/'.$retrieveActi->id_activity)?>"><?=$retrieveActi->titulo?></a></div>
+											<div class="event_location"><?=$retrieveActi->local_acont?></div>
+											<p>
+												<?= print word_limiter($retrieveActi->content, 25)?>.  <span style="font-weight: bold;color: #000;"><?=$retrieveActi->data_adicionado?></span>
+											</p>
+										</div>
+									</div>
+
+									<div class="col-lg-4 order-lg-3 order-1">
+										<div class="event_image">
+											<img src="<?=base_url('upload/'.$retrieveActi->activ_image)?>" alt="IPP HIMOIO">
+										</div>
+									</div>
+
+								</div>	
 							</div>
-
-							<div class="col-lg-6 order-lg-2 order-3">
-								<div class="event_content">
-									<div class="event_name"><a class="trans_200" href="#">Gradua&ccedil;&atilde;o</a></div>
-									<div class="event_location">Pavilhao da liga</div>
-									<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
-								</div>
-							</div>
-
-							<div class="col-lg-4 order-lg-3 order-1">
-								<div class="event_image">
-									<img src="<?=base_url('assets/images/event_3.jpg')?>" alt="IPP HIMOIO">
-								</div>
-							</div>
-
-						</div>	
-					</div>
-				</div>
-
-				<!-- Event Item -->
-				<div class="row event_item">
-					<div class="col">
-						<div class="row d-flex flex-row align-items-end">
-
-							<div class="col-lg-2 order-lg-1 order-2">
-								<div class="event_date d-flex flex-column align-items-center justify-content-center">
-									<div class="event_day">01</div>
-									<div class="event_month">Julho</div>
-								</div>
-							</div>
-
-							<div class="col-lg-6 order-lg-2 order-3">
-								<div class="event_content">
-									<div class="event_name"><a class="trans_200" href="#">Inicio de programas de estagios</a></div>
-									<div class="event_location">IPP Chimoio</div>
-									<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
-								</div>
-							</div>
-
-							<div class="col-lg-4 order-lg-3 order-1">
-								<div class="event_image">
-									<img src="<?=base_url('assets/images/event_1.jpg')?>" alt="IPP CHIMOIO">
-								</div>
-							</div>
-
-						</div>	
-					</div>
-				</div>
-
-				<!-- Event Item -->
-				<div class="row event_item">
-					<div class="col">
-						<div class="row d-flex flex-row align-items-end">
-
-							<div class="col-lg-2 order-lg-1 order-2">
-								<div class="event_date d-flex flex-column align-items-center justify-content-center">
-									<div class="event_day">02</div>
-									<div class="event_month">Dezembro</div>
-								</div>
-							</div>
-
-							<div class="col-lg-6 order-lg-2 order-3">
-								<div class="event_content">
-									<div class="event_name"><a class="trans_200" href="#">Festa de enceramento do lectivo</a></div>
-									<div class="event_location">IPP Chimoio</div>
-									<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
-								</div>
-							</div>
-
-							<div class="col-lg-4 order-lg-3 order-1">
-								<div class="event_image">
-									<img src="<?=base_url('assets/images/event_1.jpg')?>" alt="IPP CHIMOIO">
-								</div>
-							</div>
-
-						</div>	
-					</div>
-				</div>
+						</div>
+					<?php endif?>
+				<?php endforeach?>
 
 			</div>
 				
