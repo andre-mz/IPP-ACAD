@@ -122,7 +122,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4 form-field">
-                    
+                        <img src="<?= base_url('upload/'.$retrieveAct->activ_image)?>" alt="">
                     </div>
                 </div>
                 
