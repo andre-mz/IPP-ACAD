@@ -16,13 +16,27 @@
         <div class="card-header py-3 dataTable-top" style="height: 80px;">
             <h6 class="m-0 text-primary text-center mt-3" style="font-size: 30px;text-transform: uppercase;font-weight: 200">ADICIONAR funcionario <i class="fas fa-user-cog"></i></h6>
         </div>
-        <div class="card-body">
+        <div class="card-body" >
             <form id="formAluno" action="<?=site_url('Forms/addFnc')?>" method="post" class="form user mt-5">
                 <div class="row mt-2 form-group">
                     <div class="form-field col-sm-4 mb-sm-0 mb-5">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nome completo</label>
                         <input value="<?php echo set_value('nome')?>" type="text" name="nome" id="nome" class="form-control form-control-user" placeholder="Nome completo">
                         <div class="erro-small"><small><?php echo form_error('nome')?></small></div>
+                    </div>
+
+                    <div class="form-field col-sm-4 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Data de nascimento</label>
+                        <input value="<?php echo set_value('idade')?>" type="date" name="idade" id="idade" class="form-control form-control-user" placeholder="Data de nascimento">
+                        <div class="erro-small"><small><?php echo form_error('idade')?></small></div>
+                    </div>
+
+                    <div class="form-field col-sm-4 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Estado civil</label>
+                        <select name="estado_civil" id="estado_civil" class="form-control form-control-user" placeholder="Data de nascimento">
+                            <option value="">***ESTADO CIVIL***</option>
+                        </select>
+                        <div class="erro-small"><small><?php echo form_error('estado_civil')?></small></div>
                     </div>
                 </div>
             

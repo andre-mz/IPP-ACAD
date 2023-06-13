@@ -25,7 +25,7 @@
                         <div class="erro-small"><small><?php echo form_error('fullname')?></small></div>
                     </div>
                     <div class="form-field col-sm-4 mb-sm-0 mb-4">
-                    <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nome do encaregado-> Pai | mae </label>
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nome do encaregado-> Pai | mae </label>
                         <input value="<?php echo set_value('nome_pai')?>" type="text" name="nome_pai" id="nome_pai" class="form-control form-control-user" placeholder="Nome do encaregado | Nome do pai | Nome da mae">
                         <div class="erro-small"><small><?php echo form_error('nome_pai')?></small></div>
                     </div>
