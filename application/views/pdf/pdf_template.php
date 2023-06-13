@@ -41,111 +41,75 @@
         </div>
 
 
-        <div class="form-field col-sm-6 mb-sm-0 mb-5 ">
+        <div class="form-field col-sm-11 mb-sm-0 mb-5 ">
             <label for="fullname">Nome completo</label>
             <input value="<?=$retrieveStd->fullname?>" type="text" class="form-control form-control-user">
         </div>
         
-        <div class="form-field col-sm-6 mb-sm-0 mb-5 first-place" >
+        <div class="form-field col-sm-11 mb-sm-0 mb-5 first-place" >
             <label for="fullname">Encaregado</label>
             <input value="<?=$retrieveStd->nome_pai ?>" type="text" class="form-control form-control-user">
         </div>
                     
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="idade">Data de nascimento</label>
             <input value="<?=$retrieveStd->idade ?>" type="text" name="idade" id="idade" class="form-control form-control-user" placeholder="Idade">
         </div>
 
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="Genero">Genero</label>
             <input type="text" value="<?php if($retrieveStd->genero =='M'):?> Masculino <?php else:?> Femenino <?php endif?>"  class="form-control form-control-user">
         </div>
         
         
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="nacionalidade">Nacionalidade</label>
             <input value="<?=$retrieveStd->nacionalidade ?>" type="text" class="form-control form-control-user">
         </div>
                 
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="naturalidade">Naturalidade</label>
             <input value="<?=$retrieveStd->naturalidade?>" type="text" class="form-control form-control-user">       
         </div>
                 
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="morada">Morada</label>
             <input value="<?=$retrieveStd->morada ?>" type="text" class="form-control form-control-user" >
         </div>
                                 
             
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
-            <label for="documento">Documento de identifica&ccedil;&atilde;o</label>
-            <?php $tipo_documento = $this->input->post('tipo_documento') ? $this->input->post('tipo_documento') : $retrieveStd->tipo_documento;?>
-            <select class="form-control form-control-user">
-                <option value="1" <?=$tipo_documento === 'BI'       ? 'selected' : null?>>
-                    BI
-                </option>
-                <option value="2" <?=$tipo_documento === 'DIRE'     ? 'selected' : null?>>
-                    DIRE
-                </option>
-                <option value="3" <?=$tipo_documento === 'PASSAPORT' ? 'selected' : null ?>>
-                    PASSAPORT
-                </option>
-                <option value="4" <?=$tipo_documento === 'CONDUCAO'  ? 'selected' : null?>>
-                    CARTA DE CONDU&Ccedil;&Atilde;O
-                </option>
-            </select>             
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
+            <label for="documento">Documento de identifica&ccedil;&atilde;o</label>  
+            <input type="text" value="<?=$retrieveStd->tipo_documento?>" class="form-control form-control-user">          
         </div>
                 
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="nr_documento">Numero do documento</label>
             <input value="<?=$retrieveStd->nr_documento ?>" type="text" class="form-control form-control-user">      
         </div>
                 
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="curso">Curso a frequentar</label>
-            <?php $curso = $this->input->post('curso') ? $this->input->post('curso') : $retrieveStd->curso?>
-            <select class="form-control form-control-user">
-                <option value="1" <?=$curso === 'tmg'      ? 'selected' : null?>>
-                    TMG
-                </option>
-                <option value="2" <?=$curso === 'farmacia' ? 'selected' : null?>>
-                    F&Aacute;RMACIA
-                </option>
-                <option value="3" <?=$curso === 'smi'      ? 'selected' : null?>>
-                    SMI
-                </option>
-                <option value="4" <?=$curso === 'nutricao' ? 'selected' : null?>>
-                    NUTRI&Ccedil;&Atilde;O
-                </option>
-            </select>
+            <input type="text" value="<?=$retrieveStd->curso?>" class="form-control form-control-user">
         </div>
                 
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="ano_frequentar">Ano a frequentar</label>
             <input value="<?=$retrieveStd->ano_frequentar?> Ano" type="text" class="form-control form-control-user">
         </div>
             
 
-        <div class="form-field col-sm-6 mb-sm-0 mb-5">
+        <div class="form-field col-sm-11 mb-sm-0 mb-5">
             <label for="turma">Turma</label>
             <input value="<?=$retrieveStd->turma?>" type="text" class="form-control form-control-user">
         </div>
                 
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="periodo">Periodo</label>
-            <?php $periodo = $this->input->post('periodo') ? $this->input->post('periodo') : $retrieveStd->periodo ?>
-            <select name="periodo" id="periodo" class="form-control form-control-user" >
-                <option value="1" <?=$periodo == 1 ? 'selected' : null?>>
-                    LABORAL
-                </option>
-                <option value="2" <?=$periodo == 2 ? 'selected' : null?>>
-                    P&Oacute;S-LABORAL
-                </option>
-            </select>
+            <input type="text" value="<?=$retrieveStd->periodo ?>" class="form-control form-control-user">
         </div>
                 
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <!--div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="estado">Estado do estudante</label>
             <?php $estado_estudante =  $this->input->post('estado_estudante') ? $this->input->post('estado_estudante') : $retrieveStd->estado_estudante?>
             <select class="form-control form-control-user" name="estado_estudante" id="estado_estudante">                
@@ -159,15 +123,15 @@
                     Concluido
                 </option>
             </select>
-        </div>
+        </div-->
 
 
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="contato">Contacto pessoal do estudante</label>
             <input value="<?php if($retrieveStd->contato_pessoal === ''):?>N&Atilde;O EXPECIFICADO<?php else:?><?=$retrieveStd->contato_pessoal ?><?php endif?>" type="text" class="form-control form-control-user">
         </div>
 
-        <div class="form-field col-sm-6 mb-sm-0 mb-4">
+        <div class="form-field col-sm-11 mb-sm-0 mb-4">
             <label for="emergencia">Contacto de emergencia</label>
             <input value="<?php if($retrieveStd->contato_emergencia === ''):?>N&Atilde;O EXPECIFICADO<?php else:?><?=$retrieveStd->contato_emergencia ?><?php endif?>" type="text" class="form-control form-control-user">
         </div>

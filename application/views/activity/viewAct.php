@@ -10,7 +10,7 @@
       
     <div class="card shadow mb-4">
         <div class="card-header py-3 dataTable-top" style="height: 80px;">
-            <h6 class="m-0 font-weight-bold text-primary text-center mt-3" style="font-size: 35px;">ACTIVIDADES</h6>
+            <h6 class="m-0 text-primary text-center mt-3" style="font-size: 30px;text-transform: uppercase;font-weight: 200"">ACTIVIDADES</h6>
         </div>
         <div class="card-body">
              
@@ -21,13 +21,13 @@
                         <div class="row form-group">
                             <div class="form-field col-sm-4 mb-sm-0 mb-5">
                                 <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Titulo</label>
-                                <input value="<?= set_value('titulo')?><?=$retrieveAct->titulo?>" type="text" name='titulo' class="form-control form-control-user" placeholder="Titulo">
+                                <input style="border-radius: 0!important;" value="<?= set_value('titulo')?><?=$retrieveAct->titulo?>" type="text" name='titulo' class="form-control form-control-user" placeholder="Titulo">
                                 <div class="erro-small"><small><?php echo form_error('titulo')?></small></div>
                             </div>
                             <div class="form-field col-sm-4 mb-sm-0 mb-5">
                             <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span>Categoria</label>
                                 <?php $categoria = $this->input->post('categotia') ? $this->input->post('categoria') : $retrieveAct->categoria?>
-                                <select name="categoria" id="" class="form-control form-control-user">
+                                <select style="border-radius: 0!important;" name="categoria" id="" class="form-control form-control-user">
                                     <option value="">**CATEGORIA**</option>
                                     <option value="evento"  <?=$categoria === 'evento'  ? 'selected' : null ?>>Evento</option>
                                     <option value="noticia" <?=$categoria === 'noticia' ? 'selected' : null ?>>Noticia</option>
@@ -37,7 +37,7 @@
                             <div class="form-field col-sm-4 mb-sm-0 mb-5">
                                 <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span>Capa "Imagem"</label>
                                 <input type="hidden" name='old_activ_image' hidden value="<?=$retrieveAct->activ_image?>">
-                                <input type="file" name='activ_image' class="form-control form-control-user">
+                                <input style="border-radius: 0!important;" type="file" name='activ_image' class="form-control form-control-user">
                                 <small><?php if(isset($imageError)){echo $imageError;}?></small>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                 <div class="form-field col-sm-2 mb-sm-0 mb-5">
                                     <label for="mes_acont" style="color: #00204A;font-weight: bold;">Data do evento</label>
                                     <?php $data_acont = $this->input->post('data_acont') ? $this->input->post('data_acont') : $retrieveAct->data_acont?>
-                                    <select name="data_acont" id="" class="form-control form-control-user">
+                                    <select style="border-radius: 0!important;" name="data_acont" id="" class="form-control form-control-user">
                                         <option value="">**DIA**</option>
                                         <option value="01" <?=$data_acont === '01' ? 'selected' : null?>>01</option>
                                         <option value="02" <?=$data_acont === '02' ? 'selected' : null?>>02</option>
@@ -89,7 +89,7 @@
                                 <div class="form-field col-sm-4 mb-sm-0 mb-5">
                                     <label for="mes_acont" style="color: #00204A;font-weight: bold;">M&ecirc;s do evento</label>
                                     <?php $mes_acont = $this->input->post('mes_acont') ? $this->input->post('mes_acont') : $retrieveAct->mes_acont?>
-                                    <select name="mes_acont" id="" class="form-control form-control-user">
+                                    <select style="border-radius: 0!important;" name="mes_acont" id="" class="form-control form-control-user">
                                         <option value="">**M&Ecirc;S**</option>
                                         <option value="Janeiro"      <?=$mes_acont === 'Janeiro'      ? 'selected' : null ?>>Janeiro</option>
                                         <option value="Fevereiro"    <?=$mes_acont === 'Fevereiro'    ? 'selected' : null ?>>Fevereiro</option>
@@ -108,12 +108,12 @@
 
                                 <div class="form-field col-sm-2 mb-sm-0 mb-5">
                                     <label for="mes_acont" style="color: #00204A;font-weight: bold;">Ano</label>
-                                    <input type="number" name='ano_acont' value="<?=$retrieveAct->ano_acont?>" class="form-control form-control-user">
+                                    <input style="border-radius: 0!important;" type="number" name='ano_acont' value="<?=$retrieveAct->ano_acont?>" class="form-control form-control-user">
                                 </div>
 
                                 <div class="form-field col-sm-4 mb-sm-0 mb-5">
                                     <label for="local_acont" style="color: #00204A;font-weight: bold;">Local de realizacao do evento</label>
-                                    <input type="text" name='local_acont' value="<?=$retrieveAct->local_acont?>" class="form-control form-control-user">
+                                    <input style="border-radius: 0!important;" type="text" name='local_acont' value="<?=$retrieveAct->local_acont?>" class="form-control form-control-user">
                                 </div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                         <div class="row mt-2 form-group">
                             <div class="form-field col-sm-12 mb-sm-0 mb-5">
                                 <label for="local_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span>Conteudo</label>
-                                <textarea name="content" id="content"  class="form-control form-control-user" style="height: 300px;">
+                                <textarea style="border-radius: 0!important; height: 300px;" name="content" id="content"  class="form-control form-control-user">
                                 <?=$retrieveAct->content?>
                                 </textarea>
                                 <small><?php echo form_error('content')?></small>
@@ -131,11 +131,11 @@
                         </div>
                     </div>
                     <div class="col-sm-4 form-field">
-                        <img src="<?= base_url('upload/'.$retrieveAct->activ_image)?>" alt="" class="img-responsive" style="width: 100%;">
+                        <img  src="<?= base_url('upload/'.$retrieveAct->activ_image)?>" alt="" class="img-responsive" style="width: 100%;">
                     </div>
                 </div>
                 
-                <button type="submit" value="Save" class="mt-5 mb-5 btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:700;">Update record</button>
+                <button type="submit" value="Save" class="mt-5 mb-5 btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:bold; border-radius: 0;font-size: 13px;">Update record</button>
             </form>
         </div>
     </div>

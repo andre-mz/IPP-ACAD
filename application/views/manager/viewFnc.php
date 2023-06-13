@@ -3,7 +3,6 @@
 
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-       
         <a href="<?=site_url('Manager/tabFnc')?>" class="d-none d-sm-inline-block btn btn-sm shadow-sm p-1" style="background-color: #005792;color:white;">
         <i class="fas fa-backward fa-sm text-white-50"></i> 
             Voltar

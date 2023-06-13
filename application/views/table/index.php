@@ -66,11 +66,11 @@
                                 </td>
                                 <td>
                                     <?php if ($retrieveStd->estado_estudante    == 1):?>
-                                        <span class="btn btn-primary">disponivel</span>
+                                        <span class="btn btn-primary" style="border-radius: 0;">disponivel</span>
                                     <?php elseif($retrieveStd->estado_estudante == 2):?>
-                                        <span class="btn btn-danger">Desistiu</span>
+                                        <span class="btn btn-danger" style="border-radius: 0;">Desistiu</span>
                                     <?php elseif($retrieveStd->estado_estudante == 3):?>
-                                        <span class="btn btn-success">Concluido</span>
+                                        <span class="btn btn-success" style="border-radius: 0;">Concluido</span>
                                     <?php endif?>
                                 </td>
                                 <td><?php if($retrieveStd->contato_pessoal === ''):?><?=$retrieveStd->contato_emergencia?> <span style="color: #e33e5a;">emerg.</span><?php else:?><?=$retrieveStd->contato_pessoal?><?php endif?></td>

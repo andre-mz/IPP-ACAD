@@ -6,7 +6,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title text-center">
-						<h1>CURSOS POPULARES</h1>
+						<h1>CURSOS</h1>
 					</div>
 				</div>
 			</div>
@@ -19,7 +19,7 @@
 						<div class="card-body text-center">
 							<div class="card-title">
                                 <a href="">
-                                    T. de medicina geral
+                                    Medicina geral
                                 </a>
                             </div>
 						</div>
@@ -38,7 +38,7 @@
 						<div class="card-body text-center">
 							<div class="card-title">
                                 <a href="">
-                                    E. de Saude materna infantil
+                                    E. de Sa&uacute;de materno infantil
                                 </a>
                             </div>
 						</div>
@@ -57,7 +57,7 @@
 						<div class="card-body text-center">
 							<div class="card-title">
                                 <a href="">
-                                    Tecnico de farmacia
+                                    Farm&aacute;cia
                                 </a>
                             </div>
 						</div>
@@ -103,7 +103,7 @@
 
 					<div class="register_section d-flex flex-column align-items-center justify-content-center">
 						<div class="register_content text-center">
-							<h1 class="register_title">Venha e registre-se em um curso <span></span></h1>
+							<h1 class="register_title">Venha e Inscreva-se j&aacute; <span></span></h1>
 							<p class="register_text">
 								In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, 
 								vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, 
@@ -146,7 +146,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title text-center">
-						<h1>NOSSOS SERVI&Ccedil;OS</h1>
+						<h1>NOSSAS QUALIDADES</h1>
 					</div>
 				</div>
 			</div>

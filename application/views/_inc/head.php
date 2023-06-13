@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<li class="main_nav_item"><a href="<?= base_url()?>">HOME</a></li>
 						<li class="main_nav_item"><a href="<?= base_url()?>IndexCont/sobre">SOBRE N&Oacute;S</a></li>
 						<li class="main_nav_item"><a href="<?= base_url()?>IndexCont/curso">CURSOS</a></li>
-						<li class="main_nav_item"><a href="<?= base_url()?>IndexCont/news">NEWS</a></li>
+						<li class="main_nav_item"><a href="<?= base_url()?>IndexCont/news">NOTICIAS</a></li>
 						<li class="main_nav_item"><a href="<?= base_url()?>IndexCont/contato">CONTACTO</a></li>
 						<li class="main_nav_item"><a href="<?= base_url()?>IndexCont/login">IPP LOG</a></li>
 					</ul>
@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li class="menu_item menu_mm"><a href="<?= base_url()?>">HOME</a></li>
                     <li class="menu_item menu_mm"><a href="<?= base_url()?>IndexCont/sobre">SOBRE N&Oacute;S</a></li>
                     <li class="menu_item menu_mm"><a href="<?= base_url()?>IndexCont/curso">CURSOS</a></li>
-                    <li class="menu_item menu_mm"><a href="<?= base_url()?>IndexCont/news">NEWS</a></li>
+                    <li class="menu_item menu_mm"><a href="<?= base_url()?>IndexCont/news">NOTICIAS</a></li>
                     <li class="menu_item menu_mm"><a href="<?= base_url()?>IndexCont/contato">CONTACTO</a></li>
 					<li class="menu_item menu_mm"><a href="<?= base_url()?>IndexCont/login">IPP LOG</a></li>
                 </ul>
