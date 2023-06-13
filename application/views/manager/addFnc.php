@@ -35,13 +35,132 @@
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Estado civil</label>
                         <select name="estado_civil" id="estado_civil" class="form-control form-control-user" placeholder="Data de nascimento">
                             <option value="">***ESTADO CIVIL***</option>
+                            <option value="solteiro">Solteiro/a</option>
+                            <option value="casado">Casado/a</option>
+                            <option value="viuvo">Viuvo/a</option>
+                            <option value="divorciado">divorciado/a</option>
                         </select>
                         <div class="erro-small"><small><?php echo form_error('estado_civil')?></small></div>
                     </div>
                 </div>
+
+                <div class="row mt-5 form-group">
+                    <div class="form-field col-sm-4 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Genero</label>
+                        <select name="genero" id="genero" class="form-control form-control-user">
+                            <option value="">SELECIONE O GENERO</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                        <div class="erro-small"><small><?php echo form_error('genero')?></small></div>
+                    </div>
+
+                    <div class="form-field col-sm-5 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> DOCUMENTO DE IDENTIFICA&Ccedil;&Atilde;O</label>
+                        <select name="tipo_documento" id="tipo_documento" class="form-control form-control-user">
+                            <option value="">*DOCUMENTO DE IDENTIFICA&Ccedil;&Atilde;O*</option>
+                            <option value="BI">
+                                BI
+                            </option>
+                            <option value="DIRE">
+                                DIRE
+                            </option>
+                            <option value="PASSAPORT">
+                                PASSAPORT
+                            </option>
+                            <option value="CONDUCAO">
+                                CARTA DE CONDU&Ccedil;&Atilde;O
+                            </option>
+                        </select>
+                        <div class="erro-small"><small><?php echo form_error('tipo_documento')?></small></div>
+                    </div>
+
+                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> N&ugrave;mero do codumento</label>
+                        <input value="<?php echo set_value('nr_documento')?>" type="text" name="nr_documento" id="nr_documento" class="form-control form-control-user" placeholder="Nr do documento de indetifica&ccirc;&atilde;o">
+                        <div class="erro-small"><small><?php echo form_error('nr_documento')?></small></div>
+                    </div>
+                </div>
             
+                <div class="row mt-5 form-group">
+                    <div class="form-field col-sm-4 mb-sm-0 mb-4">
+                    <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nacionalidade</label>
+                        <input value="<?php echo set_value('nacionalidade')?>" type="text" name="nacionalidade" id="nacionalidade" class="form-control form-control-user" placeholder="Nacionalidade">
+                        <div class="erro-small"><small><?php echo form_error('nacionalidade')?></small></div>
+                    </div>
+
+                    <div class="form-field col-sm-4 mb-sm-0 mb-4">
+                    <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Naturalidade</label>
+                        <input value="<?php echo set_value('naturalidade')?>" type="text" name="naturalidade" id="naturalidade" class="form-control form-control-user" placeholder="Naturalidade">
+                        <div class="erro-small"><small><?php echo form_error('naturalidade')?></small></div>
+                    </div>
+                    <div class="form-field col-sm-4 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Morada</label>
+                        <input value="<?php echo set_value('morada')?>" type="text" name="morada" id="morada" class="form-control form-control-user" placeholder="Morada -> Bairro | Rua | Avenida">
+                        <div class="erro-small"><small><?php echo form_error('morada')?></small></div>
+                    </div>
+                </div>
+
+                <!--ENTRADA-->
+                <div class="row mt-5 form-group">
+                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Inicio de actividade</label>
+                        <input value="<?php echo set_value('ano_entrada')?>" type="date" name="ano_entrada" id="nacionalidade" class="form-control form-control-user" placeholder="Nacionalidade">
+                        <div class="erro-small"><small><?php echo form_error('ano_entrada')?></small></div>
+                    </div>
+
+                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Departamento</label>
+                        <input value="<?php echo set_value('departament')?>" type="text" name="departament" id="departament" class="form-control form-control-user" placeholder="Departamento">
+                        <div class="erro-small"><small><?php echo form_error('departament')?></small></div>
+                    </div>
+                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Cargo | area de trabalho</label>
+                        <input value="<?php echo set_value('cargo')?>" type="text" name="cargo" id="morada" class="form-control form-control-user" placeholder="Cargo | area de trabalho">
+                        <div class="erro-small"><small><?php echo form_error('cargo')?></small></div>
+                    </div>
+                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Local de trabalho</label>
+                        <input value="<?php echo set_value('local')?>" type="text" name="local" id="morada" class="form-control form-control-user" placeholder="Local de trabalho">
+                        <div class="erro-small"><small><?php echo form_error('local')?></small></div>
+                    </div>
+                </div>
+
+                <!--CATEGORIA-->
+                <div class="row mt-5 form-group">
+                    <div class="form-field col-sm-12 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Categoria do funcionario</label>
+                        <select name="categoria" id="tipo_documento" class="form-control form-control-user">
+                            <option value="">*Categoria do funcionario*</option>
+                            <option value="ecfetivo">
+                                Ecfetivo
+                            </option>
+                            <option value="colaborador">
+                                Colaborador
+                            </option>
+                            <option value="parcial">
+                                Contrato parcial
+                            </option>
+                        </select>
+                        <div class="erro-small"><small><?php echo form_error('tipo_documento')?></small></div>
+                    </div>
+                </div>
+
             
-            
+                <div class="row form-group mt-5 mb-5">
+                    <div class="form-field col-sm-6 mb-sm-0 mb-4">
+                    <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Contacto pessoal</label>
+                        <input value="<?php echo set_value('contato_pessoal')?>" type="text" name="contato_pessoal" id="contato_pessoal" class="form-control form-control-user" placeholder="Contacto pessola">
+                        <div class="erro-small"><small><?php echo form_error('contato_pessoal')?></small></div>
+                    </div>
+
+                    <div class="form-field col-sm-6 mb-sm-0 mb-4">
+                    <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Contacto de emergencia</label>
+                        <input value="<?php echo set_value('contato_emergencia')?>" type="text" name="contato_emergencia" id="contato_emergencia" class="form-control form-control-user" placeholder="Contacto de emergencia">
+                        <div class="erro-small"><small><?php echo form_error('contato_emergencia')?></small></div>
+                    </div>
+                </div>
+
                 <button type="submit" value="Save" class="mt-5 mb-5 btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:bold; border-radius: 0;font-size: 13px;">
                     Save record
                 </button>

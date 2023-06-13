@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="form-field col-sm-5 mb-sm-0 mb-4">
-                    <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> DOCUMENTO DE IDENTIFICA&Ccedil;&Atilde;O</label>
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> DOCUMENTO DE IDENTIFICA&Ccedil;&Atilde;O</label>
                         <select name="tipo_documento" id="tipo_documento" class="form-control form-control-user">
                             <option value="">*DOCUMENTO DE IDENTIFICA&Ccedil;&Atilde;O*</option>
                             <option value="BI">

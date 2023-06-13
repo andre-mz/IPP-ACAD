@@ -131,6 +131,117 @@ class Forms extends CI_Controller{
          
     }
 
+    function addFnc(){
+        $bytes        = random_bytes(3);
+        $normal_num   = bin2hex($bytes);
+        $number       = hexdec($normal_num) % 1000000;
+        $nr_funcionario = date('Y'.$number);
+        static $estado = 1;
+        $this->form_validation->set_rules('nome', 'Nome completo', 'trim|required',
+            array(
+                'required'  => 'O %s nao deve estar vazio',
+            )
+        );
+        $this->form_validation->set_rules('genero', 'Genero', 'trim|required',
+            array(
+                'required'  => 'Selecione o %s',
+            )
+        );
+        $this->form_validation->set_rules('estado_civil', 'Estado civil', 'trim|required',
+            array('required' => '%s nao deve estar vazio')
+        );
+        $this->form_validation->set_rules('idade', 'data de nascimento','trim|required',
+            array('required' =>'%s nao deve estar vazio')
+        );
+        $this->form_validation->set_rules('nacionalidade', 'Nacionalidade', 'trim|required',
+            array('required' =>'%s nao deve estar vazio')
+        );
+        $this->form_validation->set_rules('naturalidade', 'Naturalidade', 'trim|required',
+            array('required' =>'O campo %s nao deve estar vazio')
+        );
+        $this->form_validation->set_rules('morada', 'Morada', 'trim|required',
+            array('required' =>'O campo %s nao deve estar vazio')
+        );
+        $this->form_validation->set_rules('tipo_documento', 'documento', 'trim|required',
+            array('required' =>'O campo %s nao deve estar vazio')
+        );
+        $this->form_validation->set_rules('nr_documento', 'numero de documento', 'trim|required|is_unique[table_funcionario.nr_documento]',
+            array(
+                'is_unique' => 'O %s ja esta cadastrado no sistema',
+                'required'  => 'O %s nao deve estar vazio'
+            ),
+        );
+        $this->form_validation->set_rules('ano_entrada', 'Incio actividade', 'trim|required',
+            array('required' =>'O campo %s nao deve estar vazio')
+        );
+        $this->form_validation->set_rules('departament','Departamento', 'trim|required',
+            array(
+                'required'   => '%s nao deve estar vazio')
+        );
+        $this->form_validation->set_rules('contato_pessoal', 'Contacto pessoal', 'trim|required|is_numeric|max_length[9]|min_length[9]',
+            array(
+                'max_length' => '%s deve conter somente 9 caracteres numericos',
+                'min_length' => '%s deve conter somente 9 caracteres numericos',
+                'is_numeric' => '%s deve conter somente caracter numerico',
+                'required'   => '%s nao deve estar vazio'
+            )
+        );
+        $this->form_validation->set_rules('contato_emergencia', 'Contacto de emergencia', 'trim|required|is_numeric|max_length[9]|min_length[9]',
+            array(
+                'max_length' => '%s deve conter somente 9 caracteres numericos',
+                'min_length' => '%s deve conter somente 9 caracteres numericos',
+                'is_numeric' => '%s deve conter somente caracter numerico',
+                'required'   => '%s nao deve estar vazio'
+            )
+        );
+        $this->form_validation->set_rules('cargo', 'Area de trabalho', 'trim|required',
+            array(
+                'required'   => 'O campo %s nao deve estar vazio'
+            )
+        );
+        $this->form_validation->set_rules('local', 'Local de trabalho', 'trim|required',
+            array(
+                'required'   => 'O campo nao deve estar vazio'
+            )
+        );
+        $this->form_validation->set_rules('categoria', 'Tipo de funcionario', 'trim|required',
+            array(
+                'required'   => 'O campo nao deve estar vazio'
+            )
+        );
+
+        if($this->form_validation->run()){
+            $data = [
+                'nome'               =>strip_tags($this->input->post('nome')),
+                'idade'              =>strip_tags($this->input->post('idade')),
+                'genero'             =>strip_tags($this->input->post('genero')),
+                'nacionalidade'      =>strip_tags($this->input->post('nacionalidade')),
+                'naturalidade'       =>strip_tags($this->input->post('naturalidade')),
+                'morada'             =>strip_tags($this->input->post('morada')),
+                'tipo_documento'     =>strip_tags($this->input->post('tipo_documento')),
+                'nr_documento'       =>strip_tags($this->input->post('nr_documento')),
+                'estado_civil'       =>strip_tags($this->input->post('estado_civil')),
+                'ano_entrada'        =>strip_tags($this->input->post('ano_entrada')),
+                'contato_pessoal'    =>strip_tags($this->input->post('contato_pessoal')),
+                'contato_emergencia' =>strip_tags($this->input->post('contato_emergencia')),
+                'departament'        =>strip_tags($this->input->post('departament')),
+                'cargo'              =>strip_tags($this->input->post('cargo')),
+                'local'              =>strip_tags($this->input->post('local')),
+                'categoria'          =>strip_tags($this->input->post('categoria')),
+                'nr_funcionario'     =>strip_tags($nr_funcionario),
+                'estado'             =>strip_tags($estado),
+            ];
+            $this->Form_model->addFnc($data);
+            echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
+			echo "<script>window.location='".site_url('Url/addFnc')."';</script>";
+        }else{
+            //$erros = array('mensagens' => validation_errors());
+            $this->load->view('manager/addFnc');
+        }
+
+    }
+
+
     function addCurso(){
 		$this->form_validation->set_rules('nome_curso', 'Nome do curso', 'trim|required',
             array(

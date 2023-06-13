@@ -11,11 +11,15 @@ class Form_model extends CI_Model{
     private $table_curso     = 'table_curso';
     private $table_user      = 'table_user';
     private $table_activity  = 'table_activity';
+    private $table_funcionario  = 'table_funcionario';
 
     function add($data){
         $this->db->insert($this->table_estudante, $data);  
     }
 
+    function addFnc($data){
+        $this->db->insert($this->table_funcionario, $data);  
+    }
     function addCurso($data){
         $this->db->insert($this->table_curso, $data);
     }
