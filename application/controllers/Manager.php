@@ -63,22 +63,28 @@ class Manager extends CI_Controller{
 
 			$update = $this->Retrieve->updateStd($post);
 			if($update == TRUE){
-				echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
-				echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
+				//echo "<script>alert('DADOS ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+				//echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
+				echo $this->session->set_flashdata('status', 'Actualizado');
+				redirect(base_url('Manager/viewStd/'.$id_estudante));
 			}else{
-				echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
-				echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
+				echo $this->session->set_flashdata('status-2', 'Falha, tente novamente');
+				//echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+				//echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
+				redirect(base_url('Manager/viewStd/'.$id_estudante));
 			}
 		}
 	}
-	function updateStd(){
+	function updateStd($id_estudante){
 		$post = $this->input->post(null, TRUE);
 		if(isset($_POST['update'])){
 			$this->Retrieve->updateStd($post);
 		}
 		if($this->db->affected_rows() > 0){
-			echo "<script>alert('ACTUALIZADO COM SUCESSO');</script>";
-			echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
+			//echo "<script>alert('ACTUALIZADO COM SUCESSO');</script>";
+			//echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
+			echo $this->session->set_flashdata('status', 'Actualizado');
+			redirect(base_url('Manager/viewStd/'.$id_estudante));
 		}
 	}
 

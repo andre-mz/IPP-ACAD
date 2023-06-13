@@ -41,6 +41,11 @@ class Activity extends CI_Controller{
                 //'is_unique' => 'O %s ja esta em uso no sistema',
             )
         );
+        $this->form_validation->set_rules('categoria', 'trim');
+        $this->form_validation->set_rules('data_acont', 'trim');
+        $this->form_validation->set_rules('mes_acont', 'trim');
+        $this->form_validation->set_rules('ano_acont', 'trim');
+        $this->form_validation->set_rules('local_acont', 'trim');
 
         if ($this->form_validation->run()) {
             $old_filename = $this->input->post('old_activ_image');
@@ -63,9 +68,14 @@ class Activity extends CI_Controller{
                 $update_filename = $old_filename;
             }
             $data = [
-                'titulo'       => $this->input->post('titulo'),
-                'content'      => $this->input->post('content'),
-                'activ_image'  => $update_filename,
+                'titulo'      => $this->input->post('titulo'),
+                'content'     => $this->input->post('content'),
+                'data_acont'  => $this->input->post('data_acont'),
+                'mes_acont'   => $this->input->post('mes_acont'),
+                'ano_acont'   => $this->input->post('ano_acont'),
+                'local_acont' => $this->input->post('local_acont'),
+                'categoria'   => $this->input->post('categoria'),
+                'activ_image' => $update_filename,
             ];
 
             $Activity = new Activity_model();

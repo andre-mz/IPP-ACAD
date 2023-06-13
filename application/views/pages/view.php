@@ -4,7 +4,7 @@
 		<div class="home_background_container prlx_parent">
 			<div class="home_background prlx"><img src="<?=base_url('assets/images/news_background.jpg')?>" alt="ilm"></div>
 		</div>
-		<div class="home_content" style="background-color: #00204A;">
+		<div class="home_content" style="background-color: #00204A;text-transform: uppercase;">
 			<h1><?= $retrieveActi->titulo?></h1>
 		</div>
 	</div>
@@ -29,7 +29,7 @@
 								</div>
 								<div class="news_post_title_container">
 									<div class="news_post_title">
-										<a href="#"><?= $retrieveActi->titulo?></a>
+										<a href="#" style="text-transform: uppercase;"><?= $retrieveActi->titulo?></a>
 									</div>
 									<div class="news_post_meta">
 										<span class="news_post_author"><a href="#">Por IPPC</a></span>

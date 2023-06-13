@@ -1,6 +1,12 @@
 <?php $this->load->view('_inc/dashHead')?>
 
-
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+       
+       <a href="<?=site_url('Url/activity')?>" class="d-none d-sm-inline-block btn btn-sm shadow-sm p-1" style="background-color: #005792;color:white;">
+       <i class="fas fa-backward fa-sm text-white-50"></i> 
+           Voltar
+       </a>
+</div>
       
     <div class="card shadow mb-4">
         <div class="card-header py-3 dataTable-top" style="height: 80px;">
@@ -8,7 +14,7 @@
         </div>
         <div class="card-body">
              
-            <form id="formAlun" enctype="multipart/form-data" action="<?=base_url()?>Forms/addActivity" method="post" class="form user mt-5">
+            <form id="formAlun" enctype="multipart/form-data" action="<?=base_url('Activity/updateActivity/'.$retrieveAct->id_activity)?>" method="post" class="form user mt-5">
           
                 <div class="row form-group">
                     <div class="col-sm-8 form-field">
@@ -20,10 +26,11 @@
                             </div>
                             <div class="form-field col-sm-4 mb-sm-0 mb-5">
                             <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span>Categoria</label>
+                                <?php $categoria = $this->input->post('categotia') ? $this->input->post('categoria') : $retrieveAct->categoria?>
                                 <select name="categoria" id="" class="form-control form-control-user">
-                                    <option>***CATEGORIA***</option>
-                                    <option value="evento">Evento</option>
-                                    <option value="noticia">Noticia</option>
+                                    <option value="">**CATEGORIA**</option>
+                                    <option value="evento"  <?=$categoria === 'evento'  ? 'selected' : null ?>>Evento</option>
+                                    <option value="noticia" <?=$categoria === 'noticia' ? 'selected' : null ?>>Noticia</option>
                                 </select>
                                 <div class="erro-small"><small><?php echo form_error('categoria')?></small></div>
                             </div>
@@ -43,57 +50,59 @@
                                 
                                 <div class="form-field col-sm-2 mb-sm-0 mb-5">
                                     <label for="mes_acont" style="color: #00204A;font-weight: bold;">Data do evento</label>
+                                    <?php $data_acont = $this->input->post('data_acont') ? $this->input->post('data_acont') : $retrieveAct->data_acont?>
                                     <select name="data_acont" id="" class="form-control form-control-user">
-                                        <option>***DATA***</option>
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                        <option value="05">05</option>
-                                        <option value="06">06</option>
-                                        <option value="07">07</option>
-                                        <option value="08">08</option>
-                                        <option value="09">09</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
-                                        <option value="21">21</option>
-                                        <option value="22">22</option>
-                                        <option value="23">23</option>
-                                        <option value="24">24</option>
-                                        <option value="25">25</option>
-                                        <option value="26">26</option>
-                                        <option value="27">27</option>
-                                        <option value="28">28</option>
-                                        <option value="29">29</option>
-                                        <option value="30">30</option>
-                                        <option value="31">31</option>
+                                        <option value="">**DIA**</option>
+                                        <option value="01" <?=$data_acont === '01' ? 'selected' : null?>>01</option>
+                                        <option value="02" <?=$data_acont === '02' ? 'selected' : null?>>02</option>
+                                        <option value="03" <?=$data_acont === '03' ? 'selected' : null?>>03</option>
+                                        <option value="04" <?=$data_acont === '04' ? 'selected' : null?>>04</option>
+                                        <option value="05" <?=$data_acont === '05' ? 'selected' : null?>>05</option>
+                                        <option value="06" <?=$data_acont === '06' ? 'selected' : null?>>06</option>
+                                        <option value="07" <?=$data_acont === '07' ? 'selected' : null?>>07</option>
+                                        <option value="08" <?=$data_acont === '08' ? 'selected' : null?>>08</option>
+                                        <option value="09" <?=$data_acont === '09' ? 'selected' : null?>>09</option>
+                                        <option value="10" <?=$data_acont === '10' ? 'selected' : null?>>10</option>
+                                        <option value="11" <?=$data_acont === '11' ? 'selected' : null?>>11</option>
+                                        <option value="12" <?=$data_acont === '12' ? 'selected' : null?>>12</option>
+                                        <option value="13" <?=$data_acont === '13' ? 'selected' : null?>>13</option>
+                                        <option value="14" <?=$data_acont === '14' ? 'selected' : null?>>14</option>
+                                        <option value="15" <?=$data_acont === '15' ? 'selected' : null?>>15</option>
+                                        <option value="16" <?=$data_acont === '16' ? 'selected' : null?>>16</option>
+                                        <option value="17" <?=$data_acont === '17' ? 'selected' : null?>>17</option>
+                                        <option value="18" <?=$data_acont === '18' ? 'selected' : null?>>18</option>
+                                        <option value="19" <?=$data_acont === '19' ? 'selected' : null?>>19</option>
+                                        <option value="20" <?=$data_acont === '20' ? 'selected' : null?>>20</option>
+                                        <option value="21" <?=$data_acont === '21' ? 'selected' : null?>>21</option>
+                                        <option value="22" <?=$data_acont === '22' ? 'selected' : null?>>22</option>
+                                        <option value="23" <?=$data_acont === '23' ? 'selected' : null?>>23</option>
+                                        <option value="24" <?=$data_acont === '24' ? 'selected' : null?>>24</option>
+                                        <option value="25" <?=$data_acont === '25' ? 'selected' : null?>>25</option>
+                                        <option value="26" <?=$data_acont === '26' ? 'selected' : null?>>26</option>
+                                        <option value="27" <?=$data_acont === '27' ? 'selected' : null?>>27</option>
+                                        <option value="28" <?=$data_acont === '28' ? 'selected' : null?>>28</option>
+                                        <option value="29" <?=$data_acont === '29' ? 'selected' : null?>>29</option>
+                                        <option value="30" <?=$data_acont === '30' ? 'selected' : null?>>30</option>
+                                        <option value="31" <?=$data_acont === '31' ? 'selected' : null?>>31</option>
                                     </select>
                                 </div>
                                 <div class="form-field col-sm-4 mb-sm-0 mb-5">
                                     <label for="mes_acont" style="color: #00204A;font-weight: bold;">M&ecirc;s do evento</label>
+                                    <?php $mes_acont = $this->input->post('mes_acont') ? $this->input->post('mes_acont') : $retrieveAct->mes_acont?>
                                     <select name="mes_acont" id="" class="form-control form-control-user">
-                                        <option>***M&Ecirc;S***</option>
-                                        <option value="Janeiro">Janeiro</option>
-                                        <option value="Fevereiro">Fevereiro</option>
-                                        <option value="Mar&ccedil;o">Mar&ccedil;o</option>
-                                        <option value="Abril">Abril</option>
-                                        <option value="Maio">Maio</option>
-                                        <option value="Junho">Junho</option>
-                                        <option value="Julho">Julho</option>
-                                        <option value="Agosto">Agosto</option>
-                                        <option value="Setembro">Setembro</option>
-                                        <option value="Outubro">Outubro</option>
-                                        <option value="Novembro">Novembro</option>
-                                        <option value="Dezembro">Dezembro</option>
+                                        <option value="">**M&Ecirc;S**</option>
+                                        <option value="Janeiro"      <?=$mes_acont === 'Janeiro'      ? 'selected' : null ?>>Janeiro</option>
+                                        <option value="Fevereiro"    <?=$mes_acont === 'Fevereiro'    ? 'selected' : null ?>>Fevereiro</option>
+                                        <option value="Mar&ccedil;o" <?=$mes_acont === 'Mar&ccedil;o' ? 'selected' : null ?>>Mar&ccedil;o</option>
+                                        <option value="Abril"        <?=$mes_acont === 'Abril'        ? 'selected' : null ?>>Abril</option>
+                                        <option value="Maio"         <?=$mes_acont === 'Maio'         ? 'selected' : null ?>>Maio</option>
+                                        <option value="Junho"        <?=$mes_acont === 'Junho'        ? 'selected' : null ?>>Junho</option>
+                                        <option value="Julho"        <?=$mes_acont === 'Julho'        ? 'selected' : null ?>>Julho</option>
+                                        <option value="Agosto"       <?=$mes_acont === 'Agosto'       ? 'selected' : null ?>>Agosto</option>
+                                        <option value="Setembro"     <?=$mes_acont === 'Setembro'     ? 'selected' : null ?>>Setembro</option>
+                                        <option value="Outubro"      <?=$mes_acont === 'Outubro'      ? 'selected' : null ?>>Outubro</option>
+                                        <option value="Novembro"     <?=$mes_acont === 'Novembro'     ? 'selected' : null ?>>Novembro</option>
+                                        <option value="Dezembro"     <?=$mes_acont === 'Dezembro'     ? 'selected' : null ?>>Dezembro</option>
                                     </select>
                                 </div>
 
@@ -122,7 +131,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4 form-field">
-                        <img src="<?= base_url('upload/'.$retrieveAct->activ_image)?>" alt="">
+                        <img src="<?= base_url('upload/'.$retrieveAct->activ_image)?>" alt="" class="img-responsive" style="width: 100%;">
                     </div>
                 </div>
                 
