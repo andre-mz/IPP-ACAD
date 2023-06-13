@@ -16,7 +16,7 @@
         <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 dataTable-top">
-            <h6 class="m-0 font-weight-bold text-primary">Dados</h6>
+            <h6 class="m-0 text-primary text-center" style="font-size: 30px;text-transform: uppercase;font-weight: 200">table users <i class="fas fa-user"></i></h6>
         </div>
         <div class="card-body">
             <div class="table-responsive ">
@@ -55,11 +55,11 @@
                                 </td>
                                 <td>
                                     <?php if ($retrieveUsr->estado    == 1):?>
-                                        <span class="btn btn-success">Activo</span>
+                                        <span class="btn btn-success" style="border-radius: 0;">Activo</span>
                                     <?php elseif ($retrieveUsr->estado    == 2):?>
-                                        <span class="btn btn-warning">Em espera</span>
+                                        <span class="btn btn-warning" style="border-radius: 0;">Em espera</span>
                                     <?php else:?>
-                                        <span class="btn btn-danger">Desativo</span>
+                                        <span class="btn btn-danger" style="border-radius: 0;">Desativo</span>
                                     <?php endif?>
                                 </td>
                                 <?php if ($this->session->userdata('level') <= 2 ) :?>

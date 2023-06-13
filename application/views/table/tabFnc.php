@@ -4,7 +4,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Tabelas</h1>
-        <a href="" data-target="#newCurso" data-toggle="modal" class="d-none d-sm-inline-block btn btn-sm shadow-sm">
+        <a href="<?=base_url()?>Url/addFnc" class="d-none d-sm-inline-block btn btn-sm shadow-sm">
             <i class="fas fa-download fa-sm text-white-50"></i> 
             Cadastrar funcion&aacute;rio
         </a>
@@ -47,7 +47,7 @@
             </ul>
         </div>
         <div class="card-header py-3 dataTable-top">
-            <h6 class="m-0 font-weight-bold text-primary">Dados de todos funcionarios do IPP</h6>
+            <h6 class="m-0 text-primary text-center" style="font-size: 30px;text-transform: uppercase;font-weight: 200">funcionarios IPP <i class="fas fa-users-cog"></i></h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -79,11 +79,11 @@
                                         <td><?=$retrieveFnc->local?></td>
                                         <td>
                                             <?php if ($retrieveFnc->estado    == 1):?>
-                                                <span class="btn btn-success">Disponivel</span>
+                                                <span class="btn btn-success" style="border-radius: 0;">Disponivel</span>
                                             <?php elseif($retrieveFnc->estado == 2):?>
-                                                <span class="btn btn-warning">De ferias</span>
+                                                <span class="btn btn-warning" style="border-radius: 0;">De ferias</span>
                                             <?php elseif($retrieveFnc->estado == 3):?>
-                                                <span class="btn btn-danger">N&atilde;o existe</span>
+                                                <span class="btn btn-danger" style="border-radius: 0;">N&atilde;o existe</span>
                                             <?php endif?>
                                         </td>
                                         <?php if ($this->session->userdata('level') <= 2 ) :?>

@@ -45,5 +45,8 @@ class Url extends CI_Controller{
 	function addActi(){
 		$this->load->view('activity/addActi');
 	}
+	function addFnc(){
+		$this->load->view('manager/addFnc');
+	}
 
 }

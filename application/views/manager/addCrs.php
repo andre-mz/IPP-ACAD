@@ -8,7 +8,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 dataTable-top">
-            <h6 class="m-0 text-primary text-center" style="font-size: 30px;text-transform: uppercase;font-weight: 200">Curso <i class="fas fa-book"></i></h6>
+            <h6 class="m-0 text-primary text-center" style="font-size: 30px;text-transform: uppercase;font-weight: 200">Curso <i class="fas fa-list"></i></h6>
         </div>
         <div class="card-body">
              
@@ -42,7 +42,7 @@
                         <div class="erro-small"><small></small></div>
                     </div>
                 </div>
-                <button type="submit" value="Save" class="mt-5 mb-5 btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:bold; border-radius: 0;font-size: 20px;">
+                <button type="submit" value="Save" class="mt-5 mb-5 btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:bold; border-radius: 0;font-size: 13px;">
                     Save record
                 </button>
             </form>

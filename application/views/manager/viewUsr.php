@@ -11,7 +11,7 @@
    <!-- DataTales Example -->
    <div class="card shadow mb-4">
        <div class="card-header py-3 dataTable-top">
-           <h6 class="m-0 font-weight-bold text-primary">Dados do estudante</h6>
+           <h6 class="m-0 text-primary text-center" style="font-size: 30px;text-transform: uppercase;font-weight: 200">Info. do user <i class="fas fa-user"></i></h6>
        </div>
        <div class="card-body">
            <div class="">
@@ -20,12 +20,12 @@
                        <div class="row mt-2 form-group">
                            <input name="id_user" value="<?=$retrieveUsr->id_user?>" hidden>
                            <div class="form-field col-sm-4 mb-sm-0 mb-5">
-                               <label for="fullname">Nome completo</label>
+                                <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nome completo</label>
                                <input value="<?=$retrieveUsr->name?>" type="text" name="name" id="fullname" class="form-control form-control-user" placeholder="Nome completo">
                                <div class="erro-small"><small></small></div>
                            </div>
                            <div class="form-field col-sm-2 mb-sm-0 mb-4">
-                               <label for="Genero">Nivel de acesso</label>
+                                <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nivel de acesso</label>
                                <?php $level = $this->input->post('level') ? $this->input->post('level') : $retrieveUsr->level;?>
                                <select class="form-control form-control-user" name="level" id="genero">
                                    <option value="1" <?=$level == 1 ? 'selected' : null?>>
@@ -45,7 +45,7 @@
                            </div>
 
                            <div class="form-field col-sm-2 mb-sm-0 mb-4">
-                               <label for="Genero">Estado da conta</label>
+                                <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Estado da conta</label>
                                <?php $estado = $this->input->post('estado') ? $this->input->post('estado') : $retrieveUsr->estado;?>
                                <select class="form-control form-control-user" name="estado" id="genero">
                                    <option value="1" <?=$estado == 1 ? 'selected' : null?>>
@@ -61,8 +61,8 @@
                                <div class="erro-small"><small></small></div>
                            </div>
                            <div class="form-field col-sm-4 mb-sm-0 mt-4" style="margin-top: 2rem!important;">
-                           <button type="submit" name="update" class="btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:700;">
-                                Actualizar
+                           <button type="submit" name="update" class="btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:bold; border-radius: 0;font-size: 13px;">
+                                Update record
                             </button>
                            </div>
                        </div>

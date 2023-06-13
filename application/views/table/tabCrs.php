@@ -12,7 +12,7 @@
         <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 dataTable-top">
-            <h6 class="m-0 font-weight-bold text-primary">Dados</h6>
+            <h6 class="m-0 text-primary text-center" style="font-size: 30px;text-transform: uppercase;font-weight: 200">Table cursos <i class="fas fa-list"></i></h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -41,9 +41,9 @@
                                 <td><?=$retrieveCrs->taxa_mensal?></td>
                                 <td>
                                     <?php if ($retrieveCrs->disponibilidade    == 1):?>
-                                        <span class="btn btn-success">disponivel</span>
+                                        <span class="btn btn-success" style="border-radius: 0;">disponivel</span>
                                     <?php else:?>
-                                        <span class="btn btn-danger">Indisponivel</span>
+                                        <span class="btn btn-danger" style="border-radius: 0;">Indisponivel</span>
                                     <?php endif?>
                                 </td>
                                 <?php if ($this->session->userdata('level') <= 2 ) :?>

@@ -198,7 +198,7 @@
                             </div>
                         </div>
                      
-                        <button type="submit" name="update" class="mt-5 mb-5 btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:bold; border-radius: 0;font-size: 20px;">
+                        <button type="submit" name="update" class="mt-5 mb-5 btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:bold; border-radius: 0;font-size: 13px;">
                             Update record
                         </button>
                    

@@ -13,13 +13,14 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 dataTable-top">
-            <h6 class="m-0 font-weight-bold text-primary">Dados</h6>
+            <h6 class="m-0 text-primary text-center" style="font-size: 30px;text-transform: uppercase;font-weight: 200">Adicionar novo user <i class="fas fa-user"></i></h6>
         </div>
         <div class="card-body">
                       
             <form id="formAlun" action="<?=base_url()?>Forms/addUser" method="post" class="form user mt-5">            
                 <div class="row mt-5 form-group">
                     <div class="form-field col-sm-6 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nome completo</label>
                         <select value="" name="name" id="disponibilidade" class="form-control form-control-user selectpicker" data-width="100%" title='***SELECIONE O NOME DO USER***' data-live-search="true">
                             <optgroup label="ESTUDANTES">
                                 <?php foreach($retrieveStd->result() as $key=>$retrieveStd):?>
@@ -35,6 +36,7 @@
                         <div class="erro-small"><small><?php echo form_error('name')?></small></div>
                     </div>
                     <div class="form-field col-sm-6 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nivel de acesso</label>
                         <select name="level" id="level" class="form-control form-control-user selectpicker" title='***SELECIONE O NIVEL DE ACESSO***'>
                             <option value="1">Super user</option>
                             <option value="2">Admin</option>
@@ -46,6 +48,7 @@
                 </div>
                 <div class="row mt-5 form-group">
                     <div class="form-field col-sm-12 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Estado da conta</label>
                         <select name="estado" id="level" class="form-control form-control-user selectpicker" title='***SELECIONE O ESTADO DA CONTA***'>
                             <option value="1">Activo</option>
                             <option value="2">Em espera</option>
@@ -54,7 +57,7 @@
                         <div class="erro-small"><small><?php echo form_error('estado')?></small></div>
                     </div>
                 </div>
-                <button type="submit" value="Save" class="mt-5 mb-5 btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:700;">save</button>
+                <button type="submit" value="Save" class="mt-5 mb-5 btn-acti btn btn-user btn-block" style="background-color: #00204A;color:white;font-weight:bold; border-radius: 0;font-size: 13px;">Save record</button>
             </form> 
         </div>
     </div>
