@@ -19,8 +19,8 @@
     
     <!-- DataTales Example -->
     <div class="row" >
-        <p class='text-center btn-block btn-success' style="text-transform: uppercase;font-size: 12px;"><?php echo $this->session->flashdata('success');?></p>
-        <p class='text-center btn-block btn-danger' style="text-transform: uppercase;font-size: 12px;"><?php echo $this->session->flashdata('error');?></p>
+        <p class='text-center btn-block btn-success' style="text-transform: uppercase;font-size: 12px;"><?php echo $this->session->flashdata('status');?></p>
+        <p class='text-center btn-block btn-danger' style="text-transform: uppercase;font-size: 12px;"><?php echo $this->session->flashdata('erro');?></p>
     
         <div class="col-sm-9">
             
@@ -32,7 +32,7 @@
                 </div>
                 <div class="card-body">
                 
-                    <form action="<?=base_url()?>Manager/updateFnc" method="post">
+                    <form action="<?=base_url('Manager/updateFnc/'.$retrieveFnc->id_funcionario)?>" method="post">
                     <div class="row mt-2 form-group">
                     <div class="form-field col-sm-4 mb-sm-0 mb-5">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nome completo</label>

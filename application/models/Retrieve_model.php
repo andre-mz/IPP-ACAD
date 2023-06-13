@@ -108,8 +108,8 @@ class Retrieve_model extends CI_Model{
     }function updateFnc($post){
         $params =[
             'nome'           => $post['nome'],
-            'ano_nascimento' => $post['ano_nascimento'],
-            'documento'      => $post['documento'],
+            'idade'          => $post['idade'],
+            'tipo_documento' => $post['tipo_documento'],
             'nr_documento'   => $post['nr_documento'],
             'ano_entrada'    => $post['ano_entrada'],
             'departament'    => $post['departament'],
@@ -117,7 +117,7 @@ class Retrieve_model extends CI_Model{
             'local'          => $post['local'],
             'estado'         => $post['estado']
         ];
-        $this->db->where('id_funcionario', $post['id_funcionario']);
+        //$this->db->where('id_funcionario', $post['id_funcionario']);
         $this->db->update($this->table_funcionario, $params);
       
     }      

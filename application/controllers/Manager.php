@@ -164,34 +164,47 @@ class Manager extends CI_Controller{
 		$post = $this->input->post(null, TRUE);
 		if ($this->input->post('update')) {
 			$data =array(
-				'nome'		     =>strip_tags($this->input->post('nome')),
-				'ano_nascimento' =>strip_tags($this->input->post('ano_nascimento')),
-				'documento'      =>strip_tags($this->input->post('documento')),
-				'nr_documento'	 =>strip_tags($this->input->post('nr_documento')),
-				'ano_entrada'	 =>strip_tags($this->input->post('ano_entrada')),
-				'departament'	 =>strip_tags($this->input->post('departament')),
-				'cargo'          =>strip_tags($this->input->post('cargo')),
-				'local'          =>strip_tags($this->input->post('local')),
-				'estado'         =>strip_tags($this->input->post('estado'))
+				'nome'               =>strip_tags($this->input->post('nome')),
+                'idade'              =>strip_tags($this->input->post('idade')),
+                'genero'             =>strip_tags($this->input->post('genero')),
+                'nacionalidade'      =>strip_tags($this->input->post('nacionalidade')),
+                'naturalidade'       =>strip_tags($this->input->post('naturalidade')),
+                'morada'             =>strip_tags($this->input->post('morada')),
+                'tipo_documento'     =>strip_tags($this->input->post('tipo_documento')),
+                'nr_documento'       =>strip_tags($this->input->post('nr_documento')),
+                'estado_civil'       =>strip_tags($this->input->post('estado_civil')),
+                'ano_entrada'        =>strip_tags($this->input->post('ano_entrada')),
+                'contato_pessoal'    =>strip_tags($this->input->post('contato_pessoal')),
+                'contato_emergencia' =>strip_tags($this->input->post('contato_emergencia')),
+                'departament'        =>strip_tags($this->input->post('departament')),
+                'cargo'              =>strip_tags($this->input->post('cargo')),
+                'local'              =>strip_tags($this->input->post('local')),
+                'categoria'          =>strip_tags($this->input->post('categoria')),
 			);
 			$update = $this->Retrieve->updateFnc($post);
 			if($update == TRUE){
-				echo "<script>alert('ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
-				echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+				//echo "<script>alert('ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
+				//echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+				$this->session->set_flashdata('status', 'Actualizado');
+				redirect(base_url('Manager/viewFnc/'.$id_funcionario));
 			}else{
-				echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
-				echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+				//echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+				//echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+				$this->session->set_flashdata('erro', 'Falha');
+				redirect(base_url('Manager/viewFnc/'.$id_funcionario));
 			}
 		}
 	}
-	function updateFnc(){
+	function updateFnc($id_funcionario){
 		$post = $this->input->post(null, TRUE);
 		if(isset($_POST['update'])){
 			$this->Retrieve->updateFnc($post);
 		}
 		if ($this->db->affected_rows() > 0) {
-			echo "<script>alert('ACTUALIZADO COM SUCESSO');</script>";
-			echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+			//echo "<script>alert('ACTUALIZADO COM SUCESSO');</script>";
+			//echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+			$this->session->set_flashdata('status', 'Actualizado');
+			redirect(base_url('Manager/viewFnc/'.$id_funcionario));
 		}
 	}
 
