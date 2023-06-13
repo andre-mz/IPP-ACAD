@@ -14,7 +14,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 dataTable-top" style="height: 80px;">
-            <h6 class="m-0 font-weight-bold text-primary text-center mt-3" style="font-size: 35px;">ADICIONAR NOVO FORMANDO</h6>
+            <h6 class="m-0 text-primary text-center mt-3" style="font-size: 30px;text-transform: uppercase;font-weight: 200">ADICIONAR NOVO FORMANDO <i class="fas fa-user-graduate"></i></h6>
         </div>
         <div class="card-body">
             <form id="formAluno" action="<?=site_url('Forms/add')?>" method="post" class="form user mt-5">
@@ -96,7 +96,7 @@
 
                 <div class='form-field row mt-5 form-group'>
                     <div class="form-field col-sm-4 mb-sm-0 mb-4">
-                    <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Periodo</label>
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Periodo</label>
                         <select name="periodo" id="periodo" class="form-control form-control-user" >
                             <option value="">*****SELECIONE O PERIODO*****</option>
                             <option value="laboral">
@@ -121,7 +121,7 @@
                         <div class="erro-small"><small><?php echo form_error('turma')?></small></div>
                     </div>
                     <div class="form-field col-sm-4 mb-sm-0 mb-4">
-                    <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Curso</label>
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Curso</label>
                         <input type="text" name="curso" class="form-control form-control-user selectpicker" data-width="100%" title='***CURSO***' data-live-search="true">
                             
                         <div class="erro-small"><small><?php echo form_error('curso')?></small></div>

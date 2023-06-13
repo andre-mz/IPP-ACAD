@@ -18,7 +18,7 @@
             <p class='text-center btn-block btn-danger'><?php echo $this->session->flashdata('status-2');?></p>
     <div class="card shadow mb-4">
         <div class="card-header py-3 dataTable-top" style="height: 80px;">
-            <h6 class="m-0 font-weight-bold text-primary text-center mt-3" style="font-size: 35px;">Dados do estudante</h6>
+            <h6 class="m-0 text-primary text-center mt-3" style="font-size: 30px;text-transform: uppercase;font-weight: 200;">Dados do formando <i class="fas fa-user-edit"></i></h6>
         </div>
         <div class="card-body">
             <div class="">
