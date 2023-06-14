@@ -55,17 +55,17 @@
                 <div class="row mt-5 form-group">
                     <div class="form-field col-sm-4 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;"></span>Nome do conjugue</label>
-                        <input name="nome_conjugue" id="nome_conjugue" class="form-control form-control-user" placeholder="Nome do conjugue">
+                        <input value="<?php echo set_value('nome_conjugue')?>" name="nome_conjugue" id="nome_conjugue" class="form-control form-control-user" placeholder="Nome do conjugue">
                     </div>
                     <div class="form-field col-sm-4 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span>Nome do pai</label>
-                        <input name="nome_pai" id="nome_pai" class="form-control form-control-user" placeholder="Nome do pai">
+                        <input value="<?php echo set_value('nome_pai')?>" name="nome_pai" id="nome_pai" class="form-control form-control-user" placeholder="Nome do pai">
                         <div class="erro-small"><small><?php echo form_error('nome_pai')?></small></div>
                     </div>
 
                     <div class="form-field col-sm-4 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span>Nome do mae</label>
-                        <input name="nome_mae" id="nome_pai" class="form-control form-control-user" placeholder="Nome do mae">
+                        <input value="<?php echo set_value('nome_mae')?>" name="nome_mae" id="nome_pai" class="form-control form-control-user" placeholder="Nome do mae">
                         <div class="erro-small"><small><?php echo form_error('nome_mae')?></small></div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
 
                     <div class="form-field col-sm-3 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> local de nascimento (Distrito)</label>
-                        <input name="local_nascimento" id="local_nascimento" class="form-control form-control-user" placeholder="local nascimento->Distrito">
+                        <input value="<?php echo set_value('local_nascimento')?>" name="local_nascimento" id="local_nascimento" class="form-control form-control-user" placeholder="local nascimento->Distrito">
                         <div class="erro-small"><small><?php echo form_error('local_nascimento')?></small></div>
                     </div>
 
@@ -130,7 +130,7 @@
 
                     <div class="form-field col-sm-4 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Local de emissao</label>
-                        <input name="local_emissao" id="local_emissao" class="form-control form-control-user" placeholder="local de emissao">
+                        <input value="<?php echo set_value('local_emissao')?>" name="local_emissao" id="local_emissao" class="form-control form-control-user" placeholder="local de emissao">
                         <div class="erro-small"><small><?php echo form_error('local_emissao')?></small></div>
                     </div>
                 </div>
@@ -139,14 +139,14 @@
 
                     <div class="form-field col-sm-3 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nivel academico</label>
-                        <input name="nivel_academico" id="nivel_academico" class="form-control form-control-user" placeholder="nivel academico">
+                        <input value="<?php echo set_value('nivel_academico')?>" name="nivel_academico" id="nivel_academico" class="form-control form-control-user" placeholder="nivel academico">
                         <div class="erro-small"><small><?php echo form_error('nivel_academico')?></small></div>
                     </div>
 
                     <div class="form-field col-sm-3 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Estado academico</label>
                         <select name="estado_academico" id="estado_academico" class="form-control form-control-user" placeholder="Estado academico">
-                            <option value="">NIVEL ACADEMICO</option>
+                            <option value="">***ESTADO ACADEMICO***</option>
                             <option value="concluido">Completo</option>
                             <option value="nao concluido">Incompleto</option>
                             <option value="cursando">Cursando</option>
@@ -157,7 +157,7 @@
                     <div class="form-field col-sm-3 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Categoria do funcionario</label>
                         <select name="categoria" id="tipo_documento" class="form-control form-control-user">
-                            <option value="">*Categoria do funcionario*</option>
+                            <option value="">***CATEGORIA DO FUNCIONARIO***</option>
                             <option value="ecfetivo">
                                 Ecfetivo
                             </option>
