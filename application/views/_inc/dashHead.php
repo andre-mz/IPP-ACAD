@@ -117,9 +117,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <h6 class="collapse-header">Componentes:</h6>
                             <a class="collapse-item" href="#">Graficos</a>
                             <a class="collapse-item" href="#">Gerar relatorios</a>
-                            
                         </div>
                     </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url()?>Url/gestao">
+                        <i class="fas fa-fw fa-info"></i>
+                        <span>Gest&atilde;o</span>
+                    </a>
                 </li>
 
                 <li class="nav-item">

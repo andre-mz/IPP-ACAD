@@ -105,20 +105,9 @@ class Retrieve_model extends CI_Model{
         if($query->num_rows() > 0){
             return $query->row();
         }
-    }function updateFnc($post){
-        $params =[
-            'nome'           => $post['nome'],
-            'idade'          => $post['idade'],
-            'tipo_documento' => $post['tipo_documento'],
-            'nr_documento'   => $post['nr_documento'],
-            'ano_entrada'    => $post['ano_entrada'],
-            'departament'    => $post['departament'],
-            'cargo'          => $post['cargo'],
-            'local'          => $post['local'],
-            'estado'         => $post['estado']
-        ];
+    }function updateFnc($post,$id_funcionario){
         //$this->db->where('id_funcionario', $post['id_funcionario']);
-        $this->db->update($this->table_funcionario, $params);
+        return $this->db->update($this->table_funcionario, $post,['id_funcionario'=>$id_funcionario]);
       
     }      
 

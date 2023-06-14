@@ -32,21 +32,25 @@ class Url extends CI_Controller{
 	function addUser(){
 		$retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
 		$retrieveStd['retrieveStd'] = $this->Retrieve->retrieveStd();
-		$this->load->view('manager/addUser', $retrieveFnc+$retrieveStd);
+		$this->load->view('forms/addUser', $retrieveFnc+$retrieveStd);
 	}
 
 	function addCrs(){
-		$this->load->view('manager/addCrs');
+		$this->load->view('forms/addCrs');
 	}
 	function addStd(){
 		$retrieveCrs['retrieveCrs']	= $this->Retrieve->retrieveCrs();
-		$this->load->view('manager/addStd',$retrieveCrs);
+		$this->load->view('forms/addStd',$retrieveCrs);
 	}
 	function addActi(){
 		$this->load->view('activity/addActi');
 	}
 	function addFnc(){
-		$this->load->view('manager/addFnc');
+		$this->load->view('forms/addFnc');
+	}
+
+	function gestao(){
+		$this->load->view('gestao/index');
 	}
 
 }

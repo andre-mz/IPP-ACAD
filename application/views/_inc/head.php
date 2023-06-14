@@ -167,7 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
 							<img src="<?=base_url('assets/images/professor.svg')?>" class="svg" alt="">
 							<div class="hero_box_content">
-								<h2 class="hero_box_title">Nossa team</h2>
+								<h2 class="hero_box_title">Nossa Estrutra</h2>
 								<a href="<?= base_url()?>IndexCont/sobre" class="hero_box_link">ver mais...</a>
 							</div>
 						</div>

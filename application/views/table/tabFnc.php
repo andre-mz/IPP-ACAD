@@ -54,13 +54,13 @@
                 <table class="table table-bordered dataTables" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID Docente</th>
+                            <th>ID Func.</th>
                             <th>Foto</th>
                             <th>Nome</th>
                             <th>Departamento</th>
                             <th>Area de trabalho</th>
                             <th>Local</th>
-                            <th>Estado</th>
+                            <th>Contacto</th>
                             <?php if ($this->session->userdata('level') <= 2):?>
                                 <th>Ac&ccedil;&atilde;o</th>
                             <?php endif?>   
@@ -77,15 +77,7 @@
                                         <td><?=$retrieveFnc->departament?></td>
                                         <td><?=$retrieveFnc->cargo?></td>
                                         <td><?=$retrieveFnc->local?></td>
-                                        <td>
-                                            <?php if ($retrieveFnc->estado    == 1):?>
-                                                <span class="btn btn-success" style="border-radius: 0;">Disponivel</span>
-                                            <?php elseif($retrieveFnc->estado == 2):?>
-                                                <span class="btn btn-warning" style="border-radius: 0;">De ferias</span>
-                                            <?php elseif($retrieveFnc->estado == 3):?>
-                                                <span class="btn btn-danger" style="border-radius: 0;">N&atilde;o existe</span>
-                                            <?php endif?>
-                                        </td>
+                                        <td>(+258) <?=$retrieveFnc->contato_pessoal?></td>
                                         <?php if ($this->session->userdata('level') <= 2 ) :?>
                                             <td>
                                                 <div class="row">

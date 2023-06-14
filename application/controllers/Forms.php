@@ -123,10 +123,10 @@ class Forms extends CI_Controller{
             ];
             $this->Form_model->add($data);
             echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
-			echo "<script>window.location='".site_url('Manager/tabStd')."';</script>";
+			echo "<script>window.location='".site_url('forms/tabStd')."';</script>";
         }else{
             //$erros = array('mensagens' => validation_errors());
-            $this->load->view('manager/addStd');
+            $this->load->view('forms/addStd');
         }
          
     }
@@ -136,12 +136,13 @@ class Forms extends CI_Controller{
         $normal_num   = bin2hex($bytes);
         $number       = hexdec($normal_num) % 1000000;
         $nr_funcionario = date('Y'.$number);
-        static $estado = 1;
+        //static $estado = 1;
         $this->form_validation->set_rules('nome', 'Nome completo', 'trim|required',
             array(
-                'required'  => 'O %s nao deve estar vazio',
+                'required'  => 'O campo %s nao deve estar vazio',
             )
         );
+  
         $this->form_validation->set_rules('genero', 'Genero', 'trim|required',
             array(
                 'required'  => 'Selecione o %s',
@@ -210,33 +211,77 @@ class Forms extends CI_Controller{
             )
         );
 
+        $this->form_validation->set_rules('local_nascimento', 'local de nascimento','trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio'
+            )
+        );
+        $this->form_validation->set_rules('nome_pai', 'Nome do pai', 'trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio'
+            )
+        );
+        $this->form_validation->set_rules('nome_mae', 'Nome da mae','trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio'
+            )
+        );
+        $this->form_validation->set_rules('nome_conjugue', 'Conjugue','trim');
+        $this->form_validation->set_rules('nivel_academico', 'Nivel academico','trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio'
+            )
+        );
+        $this->form_validation->set_rules('local_emissao', 'Local de emissao', 'trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio'
+            )
+        );
+        $this->form_validation->set_rules('salario', 'Salario', 'trim');
+        $this->form_validation->set_rules('estado_academico', 'estado academico', 'trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio'
+            )
+        );
+        $this->form_validation->set_rules('contato_emergencia_2', 'estado academico', 'trim');
+        
         if($this->form_validation->run()){
             $data = [
-                'nome'               =>strip_tags($this->input->post('nome')),
-                'idade'              =>strip_tags($this->input->post('idade')),
-                'genero'             =>strip_tags($this->input->post('genero')),
-                'nacionalidade'      =>strip_tags($this->input->post('nacionalidade')),
-                'naturalidade'       =>strip_tags($this->input->post('naturalidade')),
-                'morada'             =>strip_tags($this->input->post('morada')),
-                'tipo_documento'     =>strip_tags($this->input->post('tipo_documento')),
-                'nr_documento'       =>strip_tags($this->input->post('nr_documento')),
-                'estado_civil'       =>strip_tags($this->input->post('estado_civil')),
-                'ano_entrada'        =>strip_tags($this->input->post('ano_entrada')),
-                'contato_pessoal'    =>strip_tags($this->input->post('contato_pessoal')),
-                'contato_emergencia' =>strip_tags($this->input->post('contato_emergencia')),
-                'departament'        =>strip_tags($this->input->post('departament')),
-                'cargo'              =>strip_tags($this->input->post('cargo')),
-                'local'              =>strip_tags($this->input->post('local')),
-                'categoria'          =>strip_tags($this->input->post('categoria')),
-                'nr_funcionario'     =>strip_tags($nr_funcionario),
-                'estado'             =>strip_tags($estado),
+                'local_nascimento'     =>strip_tags($this->input->post('local_nascimento')),
+                'nome_pai'             =>strip_tags($this->input->post('nome_pai')),
+                'nome_mae'             =>strip_tags($this->input->post('nome_mae')),
+                'nome_conjugue'        =>strip_tags($this->input->post('nome_conjugue')),
+                'nivel_academico'      =>strip_tags($this->input->post('nivel_academico')),
+                'local_emissao'        =>strip_tags($this->input->post('local_emissao')),
+                'salario'              =>strip_tags($this->input->post('salario')),
+                'estado_academico'     =>strip_tags($this->input->post('estado_academico')),
+                'contato_emergencia_2' =>strip_tags($this->input->post('contato_emergencia_2')),
+                'nome'                 =>strip_tags($this->input->post('nome')),
+                'idade'                =>strip_tags($this->input->post('idade')),
+                'genero'               =>strip_tags($this->input->post('genero')),
+                'nacionalidade'        =>strip_tags($this->input->post('nacionalidade')),
+                'naturalidade'         =>strip_tags($this->input->post('naturalidade')),
+                'morada'               =>strip_tags($this->input->post('morada')),
+                'tipo_documento'       =>strip_tags($this->input->post('tipo_documento')),
+                'nr_documento'         =>strip_tags($this->input->post('nr_documento')),
+                'estado_civil'         =>strip_tags($this->input->post('estado_civil')),
+                'ano_entrada'          =>strip_tags($this->input->post('ano_entrada')),
+                'contato_pessoal'      =>strip_tags($this->input->post('contato_pessoal')),
+                'contato_emergencia'   =>strip_tags($this->input->post('contato_emergencia')),
+                'departament'          =>strip_tags($this->input->post('departament')),
+                'cargo'                =>strip_tags($this->input->post('cargo')),
+                'local'                =>strip_tags($this->input->post('local')),
+                'categoria'            =>strip_tags($this->input->post('categoria')),
+                'nr_funcionario'       =>strip_tags($nr_funcionario),
+
+                //'estado'             =>strip_tags($estado),
             ];
             $this->Form_model->addFnc($data);
-            echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
+            echo "<script>alert('FUNCIONARIO CADASTRADO COM SUCESSO');</script>";
 			echo "<script>window.location='".site_url('Url/addFnc')."';</script>";
         }else{
             //$erros = array('mensagens' => validation_errors());
-            $this->load->view('manager/addFnc');
+            $this->load->view('forms/addFnc');
         }
 
     }
@@ -274,7 +319,7 @@ class Forms extends CI_Controller{
             );
             $this->Form_model->addCurso($data);
             echo "<script>alert('ADICIONADO COM SUCESSO');</script>";
-			echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
+			echo "<script>window.location='".site_url('forms/tabCrs')."';</script>";
         }else{
             echo "<script>alert('Algo deu errado');</script>";
 			echo "<script>window.location='".site_url('Url/addCrs')."';</script>";
@@ -325,10 +370,10 @@ class Forms extends CI_Controller{
 
             $this->Form_model->addUser($data);
             echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
-			echo "<script>window.location='".site_url('Manager/tabUsr')."';</script>";
+			echo "<script>window.location='".site_url('forms/tabUsr')."';</script>";
         }else{
             $erros = array('mensagens' => validation_errors());
-            $this->load->view('manager/addUser', $erros+$retrieveFnc+$retrieveStd);
+            $this->load->view('forms/addUser', $erros+$retrieveFnc+$retrieveStd);
         }
     }
 

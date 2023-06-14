@@ -159,29 +159,38 @@ class Manager extends CI_Controller{
 	}
 	function viewFnc($id_funcionario){
 		$retrieveFnc['retrieveFnc'] = $this->Retrieve->viewFnc($id_funcionario);
-		$this->load->view('manager/viewFnc', $retrieveFnc);
+		$this->load->view('forms/viewFnc', $retrieveFnc);
 
-		$post = $this->input->post(null, TRUE);
+		//$post = $this->input->post(null, TRUE);
 		if ($this->input->post('update')) {
-			$data =array(
-				'nome'               =>strip_tags($this->input->post('nome')),
-                'idade'              =>strip_tags($this->input->post('idade')),
-                'genero'             =>strip_tags($this->input->post('genero')),
-                'nacionalidade'      =>strip_tags($this->input->post('nacionalidade')),
-                'naturalidade'       =>strip_tags($this->input->post('naturalidade')),
-                'morada'             =>strip_tags($this->input->post('morada')),
-                'tipo_documento'     =>strip_tags($this->input->post('tipo_documento')),
-                'nr_documento'       =>strip_tags($this->input->post('nr_documento')),
-                'estado_civil'       =>strip_tags($this->input->post('estado_civil')),
-                'ano_entrada'        =>strip_tags($this->input->post('ano_entrada')),
-                'contato_pessoal'    =>strip_tags($this->input->post('contato_pessoal')),
-                'contato_emergencia' =>strip_tags($this->input->post('contato_emergencia')),
-                'departament'        =>strip_tags($this->input->post('departament')),
-                'cargo'              =>strip_tags($this->input->post('cargo')),
-                'local'              =>strip_tags($this->input->post('local')),
-                'categoria'          =>strip_tags($this->input->post('categoria')),
+			$post =array(
+				'local_nascimento'     =>strip_tags($this->input->post('local_nascimento')),
+                'nome_pai'             =>strip_tags($this->input->post('nome_pai')),
+                'nome_mae'             =>strip_tags($this->input->post('nome_mae')),
+                'nome_conjugue'        =>strip_tags($this->input->post('nome_conjugue')),
+                'nivel_academico'      =>strip_tags($this->input->post('nivel_academico')),
+                'local_emissao'        =>strip_tags($this->input->post('local_emissao')),
+                'salario'              =>strip_tags($this->input->post('salario')),
+                'estado_academico'     =>strip_tags($this->input->post('estado_academico')),
+                'contato_emergencia_2' =>strip_tags($this->input->post('contato_emergencia_2')),
+                'nome'                 =>strip_tags($this->input->post('nome')),
+                'idade'                =>strip_tags($this->input->post('idade')),
+                'genero'               =>strip_tags($this->input->post('genero')),
+                'nacionalidade'        =>strip_tags($this->input->post('nacionalidade')),
+                'naturalidade'         =>strip_tags($this->input->post('naturalidade')),
+                'morada'               =>strip_tags($this->input->post('morada')),
+                'tipo_documento'       =>strip_tags($this->input->post('tipo_documento')),
+                'nr_documento'         =>strip_tags($this->input->post('nr_documento')),
+                'estado_civil'         =>strip_tags($this->input->post('estado_civil')),
+                'ano_entrada'          =>strip_tags($this->input->post('ano_entrada')),
+                'contato_pessoal'      =>strip_tags($this->input->post('contato_pessoal')),
+                'contato_emergencia'   =>strip_tags($this->input->post('contato_emergencia')),
+                'departament'          =>strip_tags($this->input->post('departament')),
+                'cargo'                =>strip_tags($this->input->post('cargo')),
+                'local'                =>strip_tags($this->input->post('local')),
+                'categoria'            =>strip_tags($this->input->post('categoria')),
 			);
-			$update = $this->Retrieve->updateFnc($post);
+			$update = $this->Retrieve->updateFnc($post,$id_funcionario);
 			if($update == TRUE){
 				//echo "<script>alert('ACTUALIZADO COM SUCESSO COM SUCESSO');</script>";
 				//echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
@@ -213,7 +222,8 @@ class Manager extends CI_Controller{
 	function tabCrs(){
 		$retrieveCrs['retrieveCrs'] = $this->Retrieve->retrieveCrs();
 		$this->load->view('table/tabCrs', $retrieveCrs);
-	}function deleteCrs(){
+	}
+	function deleteCrs(){
 		$id_curso = $this->input->get('id_curso');
 		$delete	  = $this->Retrieve->deleteCrs($id_curso);
 		if($delete ==  TRUE){
@@ -223,7 +233,8 @@ class Manager extends CI_Controller{
 			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
 			echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
 		}
-	}function viewCrs($id_curso){
+	}
+	function viewCrs($id_curso){
 		$retrieveCrs['retrieveCrs'] = $this->Retrieve->viewCrs($id_curso);
 		$this->load->view('manager/viewCrs', $retrieveCrs);
 
@@ -244,7 +255,8 @@ class Manager extends CI_Controller{
 				echo "<script>window.location='".site_url('Manager/tabCrs')."';</script>";
 			}
 		}
-	}function updateCrs(){
+	}
+	function updateCrs(){
 		$post = $this->input->post(null, TRUE);
 		if(isset($_POST['update'])){
 			$this->Retrieve->updateCrs($post);
