@@ -29,7 +29,7 @@ class Search_model extends CI_Model{
                     `idade`              VARCHAR(10) NOT NULL , 
                     `genero`             VARCHAR(50) NOT NULL ,
                     `nacionalidade`      VARCHAR(50) NOT NULL ,
-                    `naturalidade`       TEXT NOT NULL , 
+                    `naturalidade`       VARCHAR(50) NOT NULL , 
                     `tipo_documento`     VARCHAR(30) NOT NULL ,
                     `nr_documento`       VARCHAR(10) NOT NULL ,
                     `curso`              VARCHAR(50) NOT NULL ,
