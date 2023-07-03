@@ -188,13 +188,3 @@ class Retrieve_model extends CI_Model{
     }
     
 }
-
-/****
- * 
-    function deleteFnc($id_funcionario){
-        
-        $this->db->where('id_funcionario', $id_funcionario);
-        $this->db->delete($this->table_funcionario);
-        return true;
-    }
- */
