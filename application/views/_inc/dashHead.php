@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>IPP CHIMOIO</title>
+    <title>SG-ACAD</title>
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
@@ -41,7 +41,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!--div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laptop"></i>
                 </div-->
-                <div class="sidebar-brand-text mx-3"><img alt="logo" src="<?=base_url('assets/images/IPP-LOGO.png')?>" width="50%" style="border-radius: 1.3rem;"><sup></sup></div>
+                <div class="sidebar-brand-text mx-3">
+                    <!--img alt="logo" src="<?=base_url('assets/images/IPP-LOGO.png')?>" width="50%" style="border-radius: 1.3rem;"-->
+                    <h1 style="font-size: 22px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-weight: 800; letter-spacing: 2px;">SYS<span style="font-size: 15px;">ACAD</span></h1>
+                </div>
             </a>
 
             <!-- Divider -->
@@ -193,7 +196,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            
 
             <!--********************PAGE ALUNOS****************-->
-            <?php else:?>
+            <?php elseif($this->session->userdata('level') == 4):?>
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -205,6 +208,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Componentes:</h6>
                             <a class="collapse-item" href="">Minhas notas</a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+            <?php else:?>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Administra&ccedil;&atilde;o</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Componentes:</h6>
+                            <a class="collapse-item" href="<?= base_url()?>estagio/Estagio/view">Uniformes-Estagios</a>
                         </div>
                     </div>
                 </li>

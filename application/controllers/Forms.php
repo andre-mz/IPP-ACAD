@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @property database $db
  * @property Retrieve $Retrieve
  * @property Upload $upload
+ * @property Load $load
  */
 
 class Forms extends CI_Controller{
@@ -142,7 +143,6 @@ class Forms extends CI_Controller{
                 'required'  => 'O campo %s nao deve estar vazio',
             )
         );
-  
         $this->form_validation->set_rules('genero', 'Genero', 'trim|required',
             array(
                 'required'  => 'Selecione o %s',
@@ -244,48 +244,128 @@ class Forms extends CI_Controller{
             )
         );
         $this->form_validation->set_rules('contato_emergencia_2', 'estado academico', 'trim');
+        $this->form_validation->set_rules('cidade_atual', 'cidade atual', 'trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio'
+            )
+        );
         
         if($this->form_validation->run()){
-            $data = [
-                'local_nascimento'     =>strip_tags($this->input->post('local_nascimento')),
-                'nome_pai'             =>strip_tags($this->input->post('nome_pai')),
-                'nome_mae'             =>strip_tags($this->input->post('nome_mae')),
-                'nome_conjugue'        =>strip_tags($this->input->post('nome_conjugue')),
-                'nivel_academico'      =>strip_tags($this->input->post('nivel_academico')),
-                'local_emissao'        =>strip_tags($this->input->post('local_emissao')),
-                'salario'              =>strip_tags($this->input->post('salario')),
-                'estado_academico'     =>strip_tags($this->input->post('estado_academico')),
-                'contato_emergencia_2' =>strip_tags($this->input->post('contato_emergencia_2')),
-                'nome'                 =>strip_tags($this->input->post('nome')),
-                'idade'                =>strip_tags($this->input->post('idade')),
-                'genero'               =>strip_tags($this->input->post('genero')),
-                'nacionalidade'        =>strip_tags($this->input->post('nacionalidade')),
-                'naturalidade'         =>strip_tags($this->input->post('naturalidade')),
-                'morada'               =>strip_tags($this->input->post('morada')),
-                'tipo_documento'       =>strip_tags($this->input->post('tipo_documento')),
-                'nr_documento'         =>strip_tags($this->input->post('nr_documento')),
-                'estado_civil'         =>strip_tags($this->input->post('estado_civil')),
-                'ano_entrada'          =>strip_tags($this->input->post('ano_entrada')),
-                'contato_pessoal'      =>strip_tags($this->input->post('contato_pessoal')),
-                'contato_emergencia'   =>strip_tags($this->input->post('contato_emergencia')),
-                'departament'          =>strip_tags($this->input->post('departament')),
-                'cargo'                =>strip_tags($this->input->post('cargo')),
-                'local'                =>strip_tags($this->input->post('local')),
-                'categoria'            =>strip_tags($this->input->post('categoria')),
-                'nr_funcionario'       =>strip_tags($nr_funcionario),
-
-                //'estado'             =>strip_tags($estado),
+            $orig_filename = $_FILES['foto_fnc']['name'];
+            $new_name      = time()."".str_replace(' ','-',$orig_filename);
+            $config        = [
+                'upload_path'   => './upload/foto_func/',
+                'allowed_types' => 'gif|jpg|png|jpeg|Jpg|Jpeg|webp',
+                'file_name'     => $new_name
             ];
-            $this->Form_model->addFnc($data);
-            echo "<script>alert('FUNCIONARIO CADASTRADO COM SUCESSO');</script>";
-			echo "<script>window.location='".site_url('Url/addFnc')."';</script>";
+            $this->load->library('upload', $config);
+            if(!$this->upload->do_upload('foto_fnc')){
+                $foto_Error =  array('foto_Error' => $this->upload->display_errors());
+                $this->load->view('forms/addFnc', $foto_Error);
+            }else{
+                $foto_fncName = $this->upload->data('filename');
+                $data = [
+                    'local_nascimento'     =>strip_tags($this->input->post('local_nascimento')),
+                    'nome_pai'             =>strip_tags($this->input->post('nome_pai')),
+                    'nome_mae'             =>strip_tags($this->input->post('nome_mae')),
+                    'nome_conjugue'        =>strip_tags($this->input->post('nome_conjugue')),
+                    'nivel_academico'      =>strip_tags($this->input->post('nivel_academico')),
+                    'local_emissao'        =>strip_tags($this->input->post('local_emissao')),
+                    'salario'              =>strip_tags($this->input->post('salario')),
+                    'estado_academico'     =>strip_tags($this->input->post('estado_academico')),
+                    'contato_emergencia_2' =>strip_tags($this->input->post('contato_emergencia_2')),
+                    'nome'                 =>strip_tags($this->input->post('nome')),
+                    'idade'                =>strip_tags($this->input->post('idade')),
+                    'genero'               =>strip_tags($this->input->post('genero')),
+                    'nacionalidade'        =>strip_tags($this->input->post('nacionalidade')),
+                    'naturalidade'         =>strip_tags($this->input->post('naturalidade')),
+                    'morada'               =>strip_tags($this->input->post('morada')),
+                    'tipo_documento'       =>strip_tags($this->input->post('tipo_documento')),
+                    'nr_documento'         =>strip_tags($this->input->post('nr_documento')),
+                    'estado_civil'         =>strip_tags($this->input->post('estado_civil')),
+                    'ano_entrada'          =>strip_tags($this->input->post('ano_entrada')),
+                    'contato_pessoal'      =>strip_tags($this->input->post('contato_pessoal')),
+                    'contato_emergencia'   =>strip_tags($this->input->post('contato_emergencia')),
+                    'departament'          =>strip_tags($this->input->post('departament')),
+                    'cargo'                =>strip_tags($this->input->post('cargo')),
+                    'local'                =>strip_tags($this->input->post('local')),
+                    'categoria'            =>strip_tags($this->input->post('categoria')),
+                    'cidade_atual'         =>strip_tags($this->input->post('cidade_atual')),
+                    'nr_funcionario'       =>strip_tags($this->input->post($nr_funcionario)),
+                    'foto'                 =>$foto_fncName
+                    //'estado'             =>strip_tags($estado),
+                ];
+                $post = $this->input->post(null, TRUE);
+                $this->Form_model->addFnc($data);
+                //$insert = $this->db->insert('table_funcionario',$data);
+                echo "<script>alert('FUNCIONARIO CADASTRADO COM SUCESSO');</script>";
+                echo "<script>window.location='".site_url('Url/addFnc')."';</script>";
+            }
+            
+            
         }else{
             //$erros = array('mensagens' => validation_errors());
+            //echo "<script>alert('FALHA ALGO DEU ERRADO');</script>";
             $this->load->view('forms/addFnc');
         }
 
     }
 
+    function addActivity(){
+        $this->form_validation->set_rules('titulo', 'Titulo', 'trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio',
+                //'is_unique' => 'O %s ja esta em uso no sistema',
+            )
+        );
+        $this->form_validation->set_rules('content', 'Conteudo', 'trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio',
+            )
+        );
+        $this->form_validation->set_rules('categoria', 'trim');
+        $this->form_validation->set_rules('data_acont', 'trim');
+        $this->form_validation->set_rules('mes_acont', 'trim');
+        $this->form_validation->set_rules('ano_acont', 'trim');
+        $this->form_validation->set_rules('local_acont', 'trim');
+
+        if ($this->form_validation->run()) {
+
+            $orig_filename = $_FILES['activ_image']['name'];
+            $new_name      = time()."".str_replace(' ','-',$orig_filename);
+            $config = [
+                'upload_path'   => './upload/',
+                'allowed_types' => 'gif|jpg|png|jpeg|web',
+                'file_name'     => $new_name
+            ];
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('activ_image')){
+                
+                $imageError = array('imageError' => $this->upload->display_errors());
+                $this->load->view('activity/addActi', $imageError);
+            }
+            else{
+                $acti_name= $this->upload->data('file_name');
+                $data = [
+                    'titulo'      => $this->input->post('titulo'),
+                    'content'     => $this->input->post('content'),
+                    'data_acont'  => $this->input->post('data_acont'),
+                    'mes_acont'   => $this->input->post('mes_acont'),
+                    'ano_acont'   => $this->input->post('ano_acont'),
+                    'local_acont' => $this->input->post('local_acont'),
+                    'categoria'   => $this->input->post('categoria'),
+                    'activ_image' => $acti_name,
+                ];
+
+                $this->Form_model->addActivity($data);
+                echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
+			    echo "<script>window.location='".site_url('Url/addActi')."';</script>";
+                //redirect(base_url('addActi'));
+            }
+        }
+        
+    }
 
     function addCurso(){
 		$this->form_validation->set_rules('nome_curso', 'Nome do curso', 'trim|required',
@@ -377,61 +457,7 @@ class Forms extends CI_Controller{
         }
     }
 
-    function addActivity(){
-        $this->form_validation->set_rules('titulo', 'Titulo', 'trim|required',
-            array(
-                'required' => 'O campo %s nao pode ficar vazio',
-                //'is_unique' => 'O %s ja esta em uso no sistema',
-            )
-        );
-        $this->form_validation->set_rules('content', 'Conteudo', 'trim|required',
-            array(
-                'required' => 'O campo %s nao pode ficar vazio',
-            )
-        );
-        $this->form_validation->set_rules('categoria', 'trim');
-        $this->form_validation->set_rules('data_acont', 'trim');
-        $this->form_validation->set_rules('mes_acont', 'trim');
-        $this->form_validation->set_rules('ano_acont', 'trim');
-        $this->form_validation->set_rules('local_acont', 'trim');
-
-        if ($this->form_validation->run()) {
-
-            $orig_filename = $_FILES['activ_image']['name'];
-            $new_name      = time()."".str_replace(' ','-',$orig_filename);
-            $config = [
-                'upload_path'   => './upload/',
-                'allowed_types' => 'gif|jpg|png|jpeg|web',
-                'file_name'     => $new_name
-            ];
-            $this->load->library('upload', $config);
-
-            if (!$this->upload->do_upload('activ_image')){
-                
-                $imageError = array('imageError' => $this->upload->display_errors());
-                $this->load->view('activity/addActi', $imageError);
-            }
-            else{
-                $acti_name= $this->upload->data('file_name');
-                $data = [
-                    'titulo'      => $this->input->post('titulo'),
-                    'content'     => $this->input->post('content'),
-                    'data_acont'  => $this->input->post('data_acont'),
-                    'mes_acont'   => $this->input->post('mes_acont'),
-                    'ano_acont'   => $this->input->post('ano_acont'),
-                    'local_acont' => $this->input->post('local_acont'),
-                    'categoria'   => $this->input->post('categoria'),
-                    'activ_image' => $acti_name,
-                ];
-
-                $this->Form_model->addActivity($data);
-                echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
-			    echo "<script>window.location='".site_url('Url/addActi')."';</script>";
-                //redirect(base_url('addActi'));
-            }
-        }
-        
-    }
+   
 }
 
 

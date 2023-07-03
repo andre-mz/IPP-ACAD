@@ -141,22 +141,37 @@ class Manager extends CI_Controller{
 		$retrieveFnc['retrieveFnc'] = $this->Retrieve->retrieveFnc();
 		$this->load->view('table/tabFnc', $retrieveFnc);
 	}
-	function deleteFnc(){
-		try {
-			$id_funcionario = $this->input->get('id_funcionario');
-			$delete	         = $this->Retrieve->deleteFnc($id_funcionario);
-			
-		} catch (\Throwable $th) {
-			echo $th;
-		}
-		if($delete ==  TRUE){
-			echo "<script>alert('USUARIO ELIMINADO');</script>";
-			echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
-		}else{
-			echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+	function deleteFnc($id_funcionario){
+		/***
+			 * try {
+				$id_funcionario = $this->input->get('id_funcionario');
+				$delete	         = $this->Retrieve->deleteFnc($id_funcionario);
+				
+			} catch (\Throwable $th) {
+				echo $th;
+			}
+			if($delete ==  TRUE){
+				echo "<script>alert('USUARIO ELIMINADO');</script>";
+				echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+			}else{
+				echo "<script>alert('FALHA, TENTE NOVAMENTE');</script>";
+				echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
+			}
+		*/
+		$retrieveFnc = new Retrieve_model();
+		if($retrieveFnc->checkFileFuncionario($id_funcionario)){
+			$data =  $retrieveFnc->checkFileFuncionario($id_funcionario);
+			if (file_exists('./upload/foto_func/'.$data->foto)) {
+				unlink('./upload/foto_func/'.$data->foto);
+			}
+			$retrieveFnc->deleteFnc($id_funcionario);
+            echo "<script>alert('ELIMINADO');</script>";
 			echo "<script>window.location='".site_url('Manager/tabFnc')."';</script>";
 		}
 	}
+
+
+
 	function viewFnc($id_funcionario){
 		$retrieveFnc['retrieveFnc'] = $this->Retrieve->viewFnc($id_funcionario);
 		$this->load->view('forms/viewFnc', $retrieveFnc);

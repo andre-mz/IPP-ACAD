@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * @property Session $session
  * @property Retrieve $Retrieve
+ * @property load $load
  */
 class Dashboard extends CI_Controller{
     

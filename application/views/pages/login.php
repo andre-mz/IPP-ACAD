@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>IPP CHIMOIO</title>
+    <title>SG-ACAD</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/dash/vendor/fontawesome-free/css/all.min.css')?>" rel="stylesheet" type="text/css">
@@ -40,7 +40,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Bem vindo ao IPP LOG</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Bem vindo ao SG-ACAD</h1>
                                         <p class='text-center mt-1' style='color:red;'>
                                             <?php echo $this->session->flashdata('msg');?>
                                         </p>
@@ -58,8 +58,8 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
-                                        <!--<hr>
-                                        a class="text-center"href="<?= base_url()?>">Voltar a pagina principal</a-->
+                                        <<hr>
+                                        <a class="text-center"href="<?= base_url()?>">Voltar a pagina principal</a>
                                     </form>
                                     <hr>
                                 </div>

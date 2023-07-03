@@ -18,14 +18,6 @@ class Retrieve_model extends CI_Model{
         }
         $query = $this->db->get();
         return $query;
-        /**
-         * $query = $this->db->get($this->table_estudante);
-            if($query->num_rows() > 0){
-                return $query->result();
-            }
-            return NULL;
-         */
-
     }function deleteStd($id_estudante){
         $this->db->where('id_estudante',$id_estudante);
         $this->db->delete($this->table_estudante);
@@ -95,11 +87,10 @@ class Retrieve_model extends CI_Model{
 
     }
     function deleteFnc($id_funcionario){
-        
-        $this->db->where('id_funcionario', $id_funcionario);
-        $this->db->delete($this->table_funcionario);
-        return true;
+        return $this->db->delete($this->table_funcionario ,['id_funcionario'=>$id_funcionario]);
     }
+
+
     function viewFnc($id_funcionario){
         $query = $this->db->get_where($this->table_funcionario, ['id_funcionario'=>$id_funcionario]);
         if($query->num_rows() > 0){
@@ -109,7 +100,11 @@ class Retrieve_model extends CI_Model{
         //$this->db->where('id_funcionario', $post['id_funcionario']);
         return $this->db->update($this->table_funcionario, $post,['id_funcionario'=>$id_funcionario]);
       
-    }      
+    }
+    function checkFileFuncionario($id_funcionario){
+        $query = $this->db->get_where($this->table_funcionario, ['id_funcionario' => $id_funcionario]);
+        return $query->row();
+    }
 
 
     //MANAGE CURSOS
@@ -148,7 +143,36 @@ class Retrieve_model extends CI_Model{
     
     //COUNTS
     function count_iten(){
-        return $this->db->count_all($this->table_estudante);
+        if($this->db->table_exists($this->table_estudante)){
+            return $this->db->count_all($this->table_estudante);
+        }else{
+            $this->db->query(
+                "CREATE TABLE if not Exists `sig-acad`.`table_estudante`(
+                    `id_estudante`       INT(11) NOT NULL AUTO_INCREMENT,
+                    `nome`               VARCHAR(50) NOT NULL , 
+                    `nr_estudante`       VARCHAR(12) NOT NULL ,
+                    `fullname`           VARCHAR(50) NOT NULL , 
+                    `nome_pai`           VARCHAR(50) NOT NULL , 
+                    `idade`              VARCHAR(10) NOT NULL , 
+                    `genero`             VARCHAR(50) NOT NULL ,
+                    `nacionalidade`      VARCHAR(50) NOT NULL ,
+                    `naturalidade`       TEXT NOT NULL , 
+                    `tipo_documento`     VARCHAR(30) NOT NULL ,
+                    `nr_documento`       VARCHAR(10) NOT NULL ,
+                    `curso`              VARCHAR(50) NOT NULL ,
+                    `ano_frequentar`     VARCHAR(10) NOT NULL ,
+                    `turma`              VARCHAR(20) NOT NULL ,
+                    `periodo`            VARCHAR(15) NOT NULL ,
+                    `contato_pessoal`    VARCHAR(10) NOT NULL ,
+                    `contato_emergencia` VARCHAR(10) NOT NULL ,
+                    `estado_estudante`   VARCHAR(10) NOT NULL ,
+                    `morada`             VARCHAR(30) NOT NULL ,
+                    `data_adicionado`    DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    PRIMARY KEY (`id_estudante`)) ENGINE = InnoDB;
+                "
+            );
+        }
+        
     } 
     function count_user(){
         return $this->db->count_all($this->table_user);
@@ -164,3 +188,13 @@ class Retrieve_model extends CI_Model{
     }
     
 }
+
+/****
+ * 
+    function deleteFnc($id_funcionario){
+        
+        $this->db->where('id_funcionario', $id_funcionario);
+        $this->db->delete($this->table_funcionario);
+        return true;
+    }
+ */

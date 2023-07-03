@@ -15,8 +15,18 @@
             <h6 class="m-0 text-primary text-center mt-3" style="font-size: 30px;text-transform: uppercase;font-weight: 200">CADASTRAR funcionario <i class="fas fa-user-cog"></i></h6>
         </div>
         <div class="card-body" >
-            <form id="formAluno" action="<?=site_url('Forms/addFnc')?>" method="post" class="form user mt-5">
-                <div class="row mt-2 form-group">
+            <form id="formAluno" action="<?=site_url('Forms/addFnc')?>" method="post" class="form user mt-5" enctype="multipart/form-data">
+                
+                <!--DADOS PESSOAIS-->
+                <div class="row form-group">
+                    <div class="form-field col-sm-12 mb-sm-0 mb-5">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Foto tipo passe</label>
+                        <input type="file" name="foto_fnc" class="form-control form-control-user">
+                        <div class="erro-small"><small><?php if(isset($foto_Error)){echo $foto_Error;}?></small></div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 form-group">
                     <div class="form-field col-sm-4 mb-sm-0 mb-5">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nome completo</label>
                         <input value="<?php echo set_value('nome')?>" type="text" name="nome" id="nome" class="form-control form-control-user" placeholder="Nome completo">
@@ -52,34 +62,35 @@
                     </div>
                 </div>
 
+                <!--PARENTES-->
                 <div class="row mt-5 form-group">
-                    <div class="form-field col-sm-4 mb-sm-0 mb-4">
+                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;"></span>Nome do conjugue</label>
                         <input value="<?php echo set_value('nome_conjugue')?>" name="nome_conjugue" id="nome_conjugue" class="form-control form-control-user" placeholder="Nome do conjugue">
                     </div>
-                    <div class="form-field col-sm-4 mb-sm-0 mb-4">
+                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span>Nome do pai</label>
                         <input value="<?php echo set_value('nome_pai')?>" name="nome_pai" id="nome_pai" class="form-control form-control-user" placeholder="Nome do pai">
                         <div class="erro-small"><small><?php echo form_error('nome_pai')?></small></div>
                     </div>
 
-                    <div class="form-field col-sm-4 mb-sm-0 mb-4">
+                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span>Nome do mae</label>
                         <input value="<?php echo set_value('nome_mae')?>" name="nome_mae" id="nome_pai" class="form-control form-control-user" placeholder="Nome do mae">
                         <div class="erro-small"><small><?php echo form_error('nome_mae')?></small></div>
                     </div>
+                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nacionalidade</label>
+                        <input value="<?php echo set_value('nacionalidade')?>" type="text" name="nacionalidade" id="nacionalidade" class="form-control form-control-user" placeholder="Nacionalidade">
+                        <div class="erro-small"><small><?php echo form_error('nacionalidade')?></small></div>
+                    </div>
+
                 </div>
 
                 <!--NACIONAL-->
                 <div class="row mt-5 form-group">
                     <div class="form-field col-sm-3 mb-sm-0 mb-4">
-                    <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nacionalidade</label>
-                        <input value="<?php echo set_value('nacionalidade')?>" type="text" name="nacionalidade" id="nacionalidade" class="form-control form-control-user" placeholder="Nacionalidade">
-                        <div class="erro-small"><small><?php echo form_error('nacionalidade')?></small></div>
-                    </div>
-
-                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
-                    <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Naturalidade (Provincia)</label>
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Naturalidade (Provincia)</label>
                         <input value="<?php echo set_value('naturalidade')?>" type="text" name="naturalidade" id="naturalidade" class="form-control form-control-user" placeholder="Naturalidade">
                         <div class="erro-small"><small><?php echo form_error('naturalidade')?></small></div>
                     </div>
@@ -91,7 +102,13 @@
                     </div>
 
                     <div class="form-field col-sm-3 mb-sm-0 mb-4">
-                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Morada</label>
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Cidade atual</label>
+                        <input value="<?php echo set_value('cidade_atual')?>" type="text" name="cidade_atual" id="nacionalidade" class="form-control form-control-user" placeholder="Cidade atual">
+                        <div class="erro-small"><small><?php echo form_error('cidade_atual')?></small></div>
+                    </div>
+
+                    <div class="form-field col-sm-3 mb-sm-0 mb-4">
+                        <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Morada (Bairro|Rua|Av)</label>
                         <input value="<?php echo set_value('morada')?>" type="text" name="morada" id="morada" class="form-control form-control-user" placeholder="Morada -> Bairro | Rua | Avenida">
                         <div class="erro-small"><small><?php echo form_error('morada')?></small></div>
                     </div>
@@ -99,9 +116,8 @@
 
 
 
+                <!--DOCUMENTO-->
                 <div class="row mt-5 form-group">
-                    
-
                     <div class="form-field col-sm-4 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> DOCUMENTO DE IDENTIFICA&Ccedil;&Atilde;O</label>
                         <select name="tipo_documento" id="tipo_documento" class="form-control form-control-user">
@@ -135,8 +151,9 @@
                     </div>
                 </div>
 
-                <div class="row mt-5 form-group" >
 
+                <!--AREA TRABALHO-->
+                <div class="row mt-5 form-group" >
                     <div class="form-field col-sm-3 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Nivel academico</label>
                         <input value="<?php echo set_value('nivel_academico')?>" name="nivel_academico" id="nivel_academico" class="form-control form-control-user" placeholder="nivel academico">
@@ -182,7 +199,6 @@
 
                 <!--ENTRADA-->
                 <div class="row mt-5 form-group">
-                    
                     <div class="form-field col-sm-3 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Departamento</label>
                         <input value="<?php echo set_value('departament')?>" type="text" name="departament" id="departament" class="form-control form-control-user" placeholder="Departamento">
@@ -205,9 +221,7 @@
                     </div>
                 </div>
 
-                
-
-            
+                <!--CONTACTO-->            
                 <div class="row form-group mt-5 mb-5">
                     <div class="form-field col-sm-4 mb-sm-0 mb-4">
                         <label for="mes_acont" style="color: #00204A;font-weight: bold;"><span style="color: red;">*</span> Contacto pessoal</label>
