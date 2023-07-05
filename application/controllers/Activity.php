@@ -46,6 +46,8 @@ class Activity extends CI_Controller{
         $this->form_validation->set_rules('mes_acont', 'trim');
         $this->form_validation->set_rules('ano_acont', 'trim');
         $this->form_validation->set_rules('local_acont', 'trim');
+        $name = $this->session->userdata('name');
+        $update_at = date('Y-m-d') . " as ". date("h:i:sa");
 
         if ($this->form_validation->run()) {
             $old_filename = $this->input->post('old_activ_image');
@@ -76,6 +78,8 @@ class Activity extends CI_Controller{
                 'local_acont' => $this->input->post('local_acont'),
                 'categoria'   => $this->input->post('categoria'),
                 'activ_image' => $update_filename,
+                'update_por'  => $name,
+                'update_at'   => $update_at,
             ];
 
             $Activity = new Activity_model();

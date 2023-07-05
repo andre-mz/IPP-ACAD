@@ -58,7 +58,7 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
-                                        <<hr>
+                                        <hr>
                                         <a class="text-center"href="<?= base_url()?>">Voltar a pagina principal</a>
                                     </form>
                                     <hr>

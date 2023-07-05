@@ -25,7 +25,7 @@
 								<div class="news_post_top d-flex flex-column flex-sm-row">
 									<div class="news_post_date_container">
 										<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
-											<div style="font-size: 12px;"><?=$retrieveActi->data_adicionado?></div>
+											<div style="font-size: 12px;"><?=$retrieveActi->adicionado?></div>
 										</div>
 									</div>
 									<div class="news_post_title_container">
@@ -33,7 +33,7 @@
 											<a href="<?=base_url('IndexCont/view/'.$retrieveActi->id_activity)?>"><?=$retrieveActi->titulo?></a>
 										</div>
 										<div class="news_post_meta">
-											<span class="news_post_author">Por IPP</span>
+											<span class="news_post_author">Por <?=$retrieveActi->publicado_por?></span>
 										</div>
 									</div>
 								</div>

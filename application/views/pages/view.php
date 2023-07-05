@@ -24,7 +24,7 @@
 							<div class="news_post_top d-flex flex-column flex-sm-row">
 								<div class="news_post_date_container">
 									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
-                                        <div style="font-size: 12px;"><?=$retrieveActi->data_adicionado?></div>
+                                        <div style="font-size: 12px;"><?=$retrieveActi->adicionado?></div>
 									</div>
 								</div>
 								<div class="news_post_title_container">
@@ -32,7 +32,7 @@
 										<a href="#" style="text-transform: uppercase;"><?= $retrieveActi->titulo?></a>
 									</div>
 									<div class="news_post_meta">
-										<span class="news_post_author"><a href="#">Por IPPC</a></span>
+										<span class="news_post_author">Por <em style="color:#fff;background:#00204A; padding:.2rem"><?= $retrieveActi->publicado_por?></em></span>
 									</div>
 								</div>
 							</div>
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="latest_post_title"><a href="<?=base_url('IndexCont/view/'.$retrieveActv->id_activity)?>"><?=$retrieveActv->titulo?></a></div>
                                     <div class="latest_post_meta">
-                                        <span class="latest_post_author"><a href="#">Por IPPC</a></span>
+                                        <span class="latest_post_author"><a href="#">Por <?=$retrieveAct->publicado_por?></a></span>
                                     </div>
                                 </div>
                             <?php endforeach?>

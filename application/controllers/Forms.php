@@ -311,62 +311,6 @@ class Forms extends CI_Controller{
 
     }
 
-    function addActivity(){
-        $this->form_validation->set_rules('titulo', 'Titulo', 'trim|required',
-            array(
-                'required' => 'O campo %s nao pode ficar vazio',
-                //'is_unique' => 'O %s ja esta em uso no sistema',
-            )
-        );
-        $this->form_validation->set_rules('content', 'Conteudo', 'trim|required',
-            array(
-                'required' => 'O campo %s nao pode ficar vazio',
-            )
-        );
-        $this->form_validation->set_rules('categoria', 'trim');
-        $this->form_validation->set_rules('data_acont', 'trim');
-        $this->form_validation->set_rules('mes_acont', 'trim');
-        $this->form_validation->set_rules('ano_acont', 'trim');
-        $this->form_validation->set_rules('local_acont', 'trim');
-
-        if ($this->form_validation->run()) {
-
-            $orig_filename = $_FILES['activ_image']['name'];
-            $new_name      = time()."".str_replace(' ','-',$orig_filename);
-            $config = [
-                'upload_path'   => './upload/',
-                'allowed_types' => 'gif|jpg|png|jpeg|web',
-                'file_name'     => $new_name
-            ];
-            $this->load->library('upload', $config);
-
-            if (!$this->upload->do_upload('activ_image')){
-                
-                $imageError = array('imageError' => $this->upload->display_errors());
-                $this->load->view('activity/addActi', $imageError);
-            }
-            else{
-                $acti_name= $this->upload->data('file_name');
-                $data = [
-                    'titulo'      => $this->input->post('titulo'),
-                    'content'     => $this->input->post('content'),
-                    'data_acont'  => $this->input->post('data_acont'),
-                    'mes_acont'   => $this->input->post('mes_acont'),
-                    'ano_acont'   => $this->input->post('ano_acont'),
-                    'local_acont' => $this->input->post('local_acont'),
-                    'categoria'   => $this->input->post('categoria'),
-                    'activ_image' => $acti_name,
-                ];
-
-                $this->Form_model->addActivity($data);
-                echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
-			    echo "<script>window.location='".site_url('Url/addActi')."';</script>";
-                //redirect(base_url('addActi'));
-            }
-        }
-        
-    }
-
     function addCurso(){
 		$this->form_validation->set_rules('nome_curso', 'Nome do curso', 'trim|required',
             array(
@@ -416,7 +360,6 @@ class Forms extends CI_Controller{
         $number        = hexdec($normal_num) % 1000000;
         $loginid       = date('Y'.$number);
 
-
         $this->form_validation->set_rules('name', 'Nome do usuario', 'trim|required|is_unique[table_user.name]',
             array(
                 array(
@@ -450,13 +393,70 @@ class Forms extends CI_Controller{
 
             $this->Form_model->addUser($data);
             echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
-			echo "<script>window.location='".site_url('forms/tabUsr')."';</script>";
+			echo "<script>window.location='".site_url('Forms/addUser')."';</script>";
         }else{
             $erros = array('mensagens' => validation_errors());
             $this->load->view('forms/addUser', $erros+$retrieveFnc+$retrieveStd);
         }
     }
 
+    function addActivity(){
+        $this->form_validation->set_rules('titulo', 'Titulo', 'trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio',
+                //'is_unique' => 'O %s ja esta em uso no sistema',
+            )
+        );
+        $this->form_validation->set_rules('content', 'Conteudo', 'trim|required',
+            array(
+                'required' => 'O campo %s nao pode ficar vazio',
+            )
+        );
+        $this->form_validation->set_rules('categoria', 'trim');
+        $this->form_validation->set_rules('data_acont', 'trim');
+        $this->form_validation->set_rules('mes_acont', 'trim');
+        $this->form_validation->set_rules('ano_acont', 'trim');
+        $this->form_validation->set_rules('local_acont', 'trim');
+        $name = $this->session->userdata('name');
+
+        if ($this->form_validation->run()) {
+
+            $orig_filename = $_FILES['activ_image']['name'];
+            $new_name      = time()."".str_replace(' ','-',$orig_filename);
+            $config = [
+                'upload_path'   => './upload/',
+                'allowed_types' => 'gif|jpg|png|jpeg|web',
+                'file_name'     => $new_name
+            ];
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('activ_image')){
+                
+                $imageError = array('imageError' => $this->upload->display_errors());
+                $this->load->view('activity/addActi', $imageError);
+            }
+            else{
+                $acti_name= $this->upload->data('file_name');
+                $data = [
+                    'titulo'        => $this->input->post('titulo'),
+                    'content'       => $this->input->post('content'),
+                    'data_acont'    => $this->input->post('data_acont'),
+                    'mes_acont'     => $this->input->post('mes_acont'),
+                    'ano_acont'     => $this->input->post('ano_acont'),
+                    'local_acont'   => $this->input->post('local_acont'),
+                    'categoria'     => $this->input->post('categoria'),
+                    'activ_image'   => $acti_name,
+                    'publicado_por' => $name,
+                ];
+
+                $this->Form_model->addActivity($data);
+                echo "<script>alert('DADOS AADICIONADO COM SUCESSO');</script>";
+			    echo "<script>window.location='".site_url('Url/addActi')."';</script>";
+                //redirect(base_url('addActi'));
+            }
+        }
+        
+    }
    
 }
 

@@ -147,7 +147,7 @@ class Retrieve_model extends CI_Model{
             return $this->db->count_all($this->table_estudante);
         }else{
             $this->db->query(
-                "CREATE TABLE if not Exists `sig-acad`.`table_estudante`(
+                "CREATE TABLE IF NOT EXISTS `sig-acad`.`table_estudante`(
                     `id_estudante`       INT(11) NOT NULL AUTO_INCREMENT,
                     `nome`               VARCHAR(50) NOT NULL , 
                     `nr_estudante`       VARCHAR(12) NOT NULL ,

@@ -20,7 +20,7 @@ class Search_model extends CI_Model{
             return $query->result();
         }else{
             $this->db->query(
-                "CREATE TABLE if not exists `sig-acad`.`table_estudante`(
+                "CREATE TABLE IF NOT EXISTS `sig-acad`.`table_estudante`(
                     `id_estudante`       INT(11) NOT NULL AUTO_INCREMENT,
                     `nome`               VARCHAR(50) NOT NULL , 
                     `nr_estudante`       VARCHAR(12) NOT NULL ,
