@@ -53,4 +53,8 @@ class Url extends CI_Controller{
 		$this->load->view('gestao/index');
 	}
 
+	function curso(){
+		$this->load->view('activity/curso');
+	}
+
 }

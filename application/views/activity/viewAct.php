@@ -14,7 +14,7 @@
         </div>
         <div class="card-body">
              
-            <form id="formAlun" enctype="multipart/form-data" action="<?=base_url('Activity/updateActivity/'.$retrieveAct->id_activity)?>" method="post" class="form user mt-5">
+            <form id="formAlun" enctype="multipart/form-data" action="<?=base_url('activity/Activity/updateActivity/'.$retrieveAct->id_activity)?>" method="post" class="form user mt-5">
           
                 <div class="row form-group">
                     <div class="col-sm-8 form-field">

@@ -12,6 +12,12 @@
                 Pagina de apresenta&ccedil;&atilde;o
             </a>
         </li>
+        <li class="nav-item" id="id-active"> 
+            <!--data-toggle="tab"---> 
+            <a class="nav-link" data-toggle="tab" id="id-active" href="#curso" role="tab" aria-controls="home" aria-selected="true">
+                Cursos
+            </a>
+        </li>
     </ul>
 
     <div class="tab-content" id="myTabContent">
@@ -24,7 +30,6 @@
     
    
     <div class="row pb-5 pt-5" style="padding: .6rem;">
-
         <?php foreach($retrieveAct->result() as $key=>$retrieveAct):?>
             <div class="card col-sm-3" style="padding: .6rem;margin-left: .2 px;margin-bottom: 1rem;">
                 <!-- Card image -->
@@ -43,17 +48,16 @@
                 <div class="card-footer">
                 <div class="row">
                     <div class="col-sm-6">
-                    <a href="<?=base_url('Activity/editAct/'.$retrieveAct->id_activity)?>" class="btn btn-primary col-sm-12">Ver/Actualizar</a>
+                    <a href="<?=base_url('activity/Activity/editAct/'.$retrieveAct->id_activity)?>" class="btn btn-primary col-sm-12">Ver/Actualizar</a>
                     </div>
                     <div class="col-sm-6">
-                    <a href="<?=base_url('Activity/deleteActi/'.$retrieveAct->id_activity)?>" class="btn btn-danger col-sm-12">Apagar</a>
+                    <a href="<?=base_url('activity/Activity/deleteActi/'.$retrieveAct->id_activity)?>" class="btn btn-danger col-sm-12">Apagar</a>
                     </div>
                 </div>
                 </div>
 
             </div>
         <?php endforeach?>
-        
     </div>
   
     
